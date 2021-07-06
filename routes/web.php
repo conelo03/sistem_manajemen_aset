@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AsetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('admin')->group(function () {
+  Route::get('/', [AdminController::class, 'index']);
+  Route::prefix('/data_aset')->group(function () {
+    Route::get('/', [AsetController::class, 'index']);
+    Route::get('/tambah', [AsetController::class, 'create']);
+    Route::post('/tambah', [AsetController::class, 'store']);
+    Route::get('/hapus/{id}', [AsetController::class, 'destroy']);
+    Route::get('/edit/{id}', [AsetController::class, 'edit']);
+    Route::post('/edit/{id}', [AsetController::class, 'update']);
+  });
 });
 
 Route::get('/dashboard', function () {
