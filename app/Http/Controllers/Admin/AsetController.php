@@ -71,17 +71,11 @@ class AsetController extends Controller
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id)
     {
-        $aset = $this->aset->find($id);
-        return view('admin/editAset', $aset);
+      $aset = $this->aset->find($id);
+      return view('admin/editAset', $aset);
     }
 
     /**

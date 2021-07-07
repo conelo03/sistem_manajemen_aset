@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TambahKodeAset extends Migration
+class TambahNoIndukUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class TambahKodeAset extends Migration
      */
     public function up()
     {
-      Schema::table('asets', function (Blueprint $table) {
-        $table->string('kode_aset');
+      Schema::table('users', function (Blueprint $table) {
+        $table->string('no_induk');
       });
     }
 

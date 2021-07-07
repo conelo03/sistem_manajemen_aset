@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AsetController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,14 @@ Route::prefix('admin')->group(function () {
     Route::get('/hapus/{id}', [AsetController::class, 'destroy']);
     Route::get('/edit/{id}', [AsetController::class, 'edit']);
     Route::post('/edit/{id}', [AsetController::class, 'update']);
+  });
+  Route::prefix('/manajemen_user')->group(function () {
+    Route::get('/', [UserController::class, 'index']);
+    Route::get('/tambah', [UserController::class, 'create']);
+    Route::post('/tambah', [UserController::class, 'store']);
+    Route::get('/hapus/{id}', [UserController::class, 'destroy']);
+    Route::get('/edit/{id}', [UserController::class, 'edit']);
+    Route::post('/edit/{id}', [UserController::class, 'update']);
   });
 });
 

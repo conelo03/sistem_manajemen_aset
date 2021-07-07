@@ -36,7 +36,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="examples/dashboard.html">
+              <a class="nav-link" href="/admin/manajemen_user">
                 <span class="nav-link-text text-white">Manajemen User</span>
               </a>
             </li>
