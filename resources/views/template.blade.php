@@ -18,6 +18,7 @@
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{ asset('css') }}/argon.css?v=1.2.0" type="text/css">
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -46,7 +47,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="examples/map.html">
+              <a class="nav-link" href="admin/pengadaan">
                 <span class="nav-link-text text-white">Pengadaan</span>
               </a>
             </li>
@@ -107,10 +108,34 @@
   <!-- Argon JS -->
   <script src="{{ asset('js') }}/argon.js?v=1.2.0"></script>
   <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>  
   <script>
     $(document).ready( function () {
       $('#myTable').DataTable();
+
+      $('.mySelect2').select2();
     });
+
+    var rupiah = document.getElementById('rupiah');
+		rupiah.addEventListener('keyup', function(e){
+			rupiah.value = formatRupiah(this.value, 'Rp. ');
+		});
+    
+		function formatRupiah(angka, prefix){
+			var number_string = angka.replace(/[^,\d]/g, '').toString(),
+			split   		      = number_string.split(','),
+			sisa     		      = split[0].length % 3,
+			rupiah     		    = split[0].substr(0, sisa),
+			ribuan     		    = split[0].substr(sisa).match(/\d{3}/gi);
+      
+			if(ribuan){
+				separator = sisa ? '.' : '';
+				rupiah    += separator + ribuan.join('.');
+			}
+      
+			rupiah  = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+			return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+		}
   </script>
 </body>
 
