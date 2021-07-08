@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Jul 2021 pada 06.10
+-- Waktu pembuatan: 08 Jul 2021 pada 03.41
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -85,7 +85,34 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2019_08_19_000000_create_failed_jobs_table', 1),
 (8, '2021_07_06_063510_create_asets_table', 1),
 (9, '2021_07_06_130123_tambah_kode_aset', 2),
-(10, '2021_07_07_034726_tambah_no_induk_user', 3);
+(10, '2021_07_07_034726_tambah_no_induk_user', 3),
+(11, '2021_07_07_063303_buat_table_pengadaan_dan_mitra', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `mitras`
+--
+
+CREATE TABLE `mitras` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `kode_mitra` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_mitra` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kontak` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `mitras`
+--
+
+INSERT INTO `mitras` (`id`, `kode_mitra`, `nama_mitra`, `alamat`, `kontak`, `created_at`, `updated_at`) VALUES
+(1, '1', 'M. Bagas Setia', 'Sagalaherang', '085723853284', NULL, NULL),
+(2, '2', 'Firizki', 'Tambakan', '085723853284', NULL, NULL),
+(3, '3', 'Rivaldo Nugraha', 'Pamanukan', '085723853284', NULL, NULL),
+(4, '4', 'Febri', 'Subang', '085723853284', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -97,6 +124,25 @@ CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pengadaans`
+--
+
+CREATE TABLE `pengadaans` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `no_pengadaan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggal_input` date NOT NULL,
+  `aset_id` bigint(20) UNSIGNED NOT NULL,
+  `quantity` bigint(20) NOT NULL,
+  `mitra_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `harga_aset` int(191) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -154,10 +200,22 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `mitras`
+--
+ALTER TABLE `mitras`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indeks untuk tabel `pengadaans`
+--
+ALTER TABLE `pengadaans`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `users`
@@ -186,7 +244,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `mitras`
+--
+ALTER TABLE `mitras`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `pengadaans`
+--
+ALTER TABLE `pengadaans`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

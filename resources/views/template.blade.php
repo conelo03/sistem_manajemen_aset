@@ -47,7 +47,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="admin/pengadaan">
+              <a class="nav-link" href="/admin/pengadaan">
                 <span class="nav-link-text text-white">Pengadaan</span>
               </a>
             </li>
@@ -56,10 +56,27 @@
                 <span class="nav-link-text text-white">Maintenance</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="examples/tables.html">
+            <li class="nav-item menu-open">
+              <a class="nav-link" href="#">
                 <span class="nav-link-text text-white">Peminjaman</span>
               </a>
+              <!-- <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link">
+                    <p>Dashboard v1</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./index2.html" class="nav-link">
+                    <p>Dashboard v2</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./index3.html" class="nav-link">
+                    <p>Dashboard v3</p>
+                  </a>
+                </li>
+              </ul> -->
             </li>
           </ul>
         </div>
