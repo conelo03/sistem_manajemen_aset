@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
   Route::middleware('is_admin')->group(function () {
     Route::prefix('admin')->group(function () {
       Route::get('/', [AdminController::class, 'index']);
+
       Route::prefix('/data_aset')->group(function () {
         Route::get('/', [AsetController::class, 'index']);
         Route::get('/tambah', [AsetController::class, 'create']);
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [AsetController::class, 'edit']);
         Route::post('/edit/{id}', [AsetController::class, 'update']);
       });
+
       Route::prefix('/manajemen_user')->group(function () {
         Route::get('/', [UserController::class, 'index']);
         Route::get('/tambah', [UserController::class, 'create']);
@@ -39,6 +41,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [UserController::class, 'edit']);
         Route::post('/edit/{id}', [UserController::class, 'update']);
       });
+
       Route::prefix('/pengadaan')->group(function () {
         Route::get('/', [PengadaanController::class, 'index']);
         Route::get('/tambah', [PengadaanController::class, 'create']);
@@ -46,6 +49,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [PengadaanController::class, 'destroy']);
         Route::get('/edit/{id}', [PengadaanController::class, 'edit']);
         Route::post('/edit/{id}', [PengadaanController::class, 'update']);
+        Route::get('/history', [PengadaanController::class, 'history']);
       });
     });
   });

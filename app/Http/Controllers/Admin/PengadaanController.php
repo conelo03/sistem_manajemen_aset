@@ -89,4 +89,10 @@ class PengadaanController extends Controller
     $pengadaan_baru->delete();
     return back()->with('status', 'Berhasil hapus data aset.');
   }
+
+  public function history()
+  {
+    $pengadaan = $this->pengadaan->all();
+    return view('admin/historyPengadaan', ['pengadaan' => $pengadaan]);
+  }
 }
