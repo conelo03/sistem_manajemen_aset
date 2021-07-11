@@ -20,7 +20,15 @@
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Jenis Aset</label>
-              <input type="text" id="input-username" class="form-control" placeholder="Jenis Aset" name="jenis_aset" required value="{{ $jenis_aset }}">
+              <select name="jenis_aset" id="jenis_aset" class="mySelect2" required>
+                <option selected disabled></option>
+                <option value="laboratorium" <?= $jenis_aset == 'laboratorium' ? 'selected' : '' ; ?>>Laboratorium</option>
+                <option value="institusi" <?= $jenis_aset == 'institusi' ? 'selected' : '' ; ?>>Institusi</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">Merk</label>
+              <input type="text" id="input-username" class="form-control" placeholder="Merk" name="merk" required value="{{ $merk }}">
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Kepemilikan</label>
@@ -50,7 +58,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary float-right mb-3" type="submit">Tambah</button>
+        <button class="btn btn-primary float-right mb-3" type="submit">Edit</button>
       </div>
     </form>
   </div>

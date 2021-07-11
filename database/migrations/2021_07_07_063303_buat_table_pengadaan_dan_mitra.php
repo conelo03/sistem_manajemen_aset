@@ -23,7 +23,7 @@ class BuatTablePengadaanDanMitra extends Migration
       $table->date('tanggal_input');
       $table->string('aset_id');
       $table->bigInteger('quantity');
-      $table->string('mitra');
+      $table->string('mitra_id');
       $table->bigInteger('harga_aset');
       $table->string('status')->nullable();
       $table->timestamps();

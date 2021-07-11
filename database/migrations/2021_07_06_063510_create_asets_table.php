@@ -13,17 +13,18 @@ class CreateAsetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('asets', function (Blueprint $table) {
-          $table->id();
-          $table->string('nama_aset');
-          $table->string('jenis_aset');
-          $table->string('kepemilikan');
-          $table->string('lokasi');
-          $table->date('tanggal_pembelian');
-          $table->date('tanggal_maintenance');
-          $table->string('waktu_maintenance');
-          $table->string('kondisi');
-        });
+      Schema::create('asets', function (Blueprint $table) {
+        $table->id();
+        $table->string('nama_aset');
+        $table->enum('jenis_aset', ['laboratorium', 'institusi']);
+        $table->string('merk');
+        $table->string('kepemilikan');
+        $table->string('lokasi');
+        $table->date('tanggal_pembelian');
+        $table->date('tanggal_maintenance');
+        $table->string('waktu_maintenance');
+        $table->string('kondisi');
+      });
     }
 
     /**

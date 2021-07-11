@@ -64,9 +64,21 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="examples/profile.html">
+              <span class="nav-link">
                 <span class="nav-link-text text-white">Maintenance</span>
-              </a>
+              </span>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/maintenance" class="nav-link">
+                    <span class="nav-link-text text-white">Data Maintenance</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/maintenance/history" class="nav-link">
+                    <span class="nav-link-text text-white">History Maintenance</span>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item menu-open">
               <a class="nav-link" href="#">

@@ -33,6 +33,7 @@ class AsetController extends Controller
     $this->aset->kode_aset            = $request->kode_aset;
     $this->aset->nama_aset            = $request->nama_aset;
     $this->aset->jenis_aset           = $request->jenis_aset;
+    $this->aset->merk                 = $request->merk;
     $this->aset->kepemilikan          = $request->kepemilikan;
     $this->aset->lokasi               = $request->lokasi;
     $this->aset->tanggal_pembelian    = $request->tanggal_pembelian;
@@ -63,6 +64,7 @@ class AsetController extends Controller
     $aset_baru->kode_aset            = $request->kode_aset;
     $aset_baru->nama_aset            = $request->nama_aset;
     $aset_baru->jenis_aset           = $request->jenis_aset;
+    $aset_baru->merk                 = $request->merk;
     $aset_baru->kepemilikan          = $request->kepemilikan;
     $aset_baru->lokasi               = $request->lokasi;
     $aset_baru->tanggal_pembelian    = $request->tanggal_pembelian;

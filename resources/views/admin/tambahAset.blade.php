@@ -20,7 +20,15 @@
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Jenis Aset</label>
-              <input type="text" id="input-username" class="form-control" placeholder="Jenis Aset" name="jenis_aset" required>
+              <select name="jenis_aset" id="jenis_aset" class="mySelect2" required>
+                <option selected disabled></option>
+                <option value="laboratorium">Laboratorium</option>
+                <option value="institusi">Institusi</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">Merk</label>
+              <input type="text" id="input-username" class="form-control" placeholder="Merk" name="merk" required>
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Kepemilikan</label>
