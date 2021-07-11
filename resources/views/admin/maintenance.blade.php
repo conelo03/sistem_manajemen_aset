@@ -61,7 +61,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          Anda yakin akan menghapus data maintenance {{ $maintenance->aset->nama_aset }}?
+                          Anda yakin akan menghapus data maintenance?
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

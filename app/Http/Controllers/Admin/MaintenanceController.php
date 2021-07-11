@@ -70,7 +70,7 @@ class MaintenanceController extends Controller
   
   public function update(Request $request, $id)
   {
-    $maintenance_baru = $this->pengadaan->find($id);
+    $maintenance_baru = $this->maintenance->find($id);
 
     $maintenance_baru->kode_maintenance    = $request->kode_maintenance;
     $maintenance_baru->tanggal_maintenance = $request->tanggal_maintenance;
@@ -84,15 +84,11 @@ class MaintenanceController extends Controller
 
     return redirect('/admin/maintenance')->with('status', 'Berhasil edit data maintenance.');
   }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+  
+  public function destroy($id)
+  {
+    $maintenance_baru = $this->maintenance->find($id);
+    $maintenance_baru->delete();
+    return back()->with('status', 'Berhasil hapus data aset.');
+  }
 }

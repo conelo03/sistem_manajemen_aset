@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Jul 2021 pada 03.41
+-- Waktu pembuatan: 11 Jul 2021 pada 16.29
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -30,22 +30,23 @@ SET time_zone = "+00:00";
 CREATE TABLE `asets` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama_aset` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenis_aset` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_aset` enum('laboratorium','institusi') COLLATE utf8mb4_unicode_ci NOT NULL,
   `kepemilikan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lokasi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_pembelian` date NOT NULL,
   `tanggal_maintenance` date NOT NULL,
   `waktu_maintenance` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kondisi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kode_aset` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `kode_aset` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `merk` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `asets`
 --
 
-INSERT INTO `asets` (`id`, `nama_aset`, `jenis_aset`, `kepemilikan`, `lokasi`, `tanggal_pembelian`, `tanggal_maintenance`, `waktu_maintenance`, `kondisi`, `kode_aset`) VALUES
-(4, 'nama', 'jenis', 'kepemilikan', 'lokasi', '2021-07-06', '2021-07-06', '1 minggu', 'rusak', '123456');
+INSERT INTO `asets` (`id`, `nama_aset`, `jenis_aset`, `kepemilikan`, `lokasi`, `tanggal_pembelian`, `tanggal_maintenance`, `waktu_maintenance`, `kondisi`, `kode_aset`, `merk`) VALUES
+(4, 'nama', 'laboratorium', 'kepemilikan', 'lokasi', '2021-07-06', '2021-07-06', '1 minggu', 'rusak', '123456', 'toshiba');
 
 -- --------------------------------------------------------
 
@@ -62,6 +63,32 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `maintenance`
+--
+
+CREATE TABLE `maintenance` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `kode_maintenance` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggal_maintenance` date NOT NULL,
+  `aset_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mitra_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `biaya` bigint(20) NOT NULL,
+  `tanggal_selesai` date NOT NULL,
+  `lokasi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `maintenance`
+--
+
+INSERT INTO `maintenance` (`id`, `kode_maintenance`, `tanggal_maintenance`, `aset_id`, `mitra_id`, `biaya`, `tanggal_selesai`, `lokasi`, `created_at`, `updated_at`) VALUES
+(1, '12345678', '2021-07-08', '4', '4', 10000000, '2021-07-29', 'lokasi', '2021-07-07 20:21:34', '2021-07-07 20:21:34');
 
 -- --------------------------------------------------------
 
@@ -86,7 +113,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2021_07_06_063510_create_asets_table', 1),
 (9, '2021_07_06_130123_tambah_kode_aset', 2),
 (10, '2021_07_07_034726_tambah_no_induk_user', 3),
-(11, '2021_07_07_063303_buat_table_pengadaan_dan_mitra', 4);
+(11, '2021_07_07_063303_buat_table_pengadaan_dan_mitra', 4),
+(12, '2021_07_08_023920_create_maintenances_table', 5);
 
 -- --------------------------------------------------------
 
@@ -194,6 +222,12 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indeks untuk tabel `maintenance`
+--
+ALTER TABLE `maintenance`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
@@ -232,7 +266,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `asets`
 --
 ALTER TABLE `asets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -241,10 +275,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `maintenance`
+--
+ALTER TABLE `maintenance`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `mitras`
