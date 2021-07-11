@@ -11,7 +11,6 @@ class CreatePeminjamanTable extends Migration
   {
     Schema::create('peminjaman', function (Blueprint $table) {
       $table->id();
-      $table->string('kode_peminjaman');
       $table->string('aset_id');
       $table->string('peminjam');
       $table->string('lokasi_peminjaman');
