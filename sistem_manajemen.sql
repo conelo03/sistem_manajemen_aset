@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Jul 2021 pada 16.29
+-- Waktu pembuatan: 11 Jul 2021 pada 16.57
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -114,7 +114,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2021_07_06_130123_tambah_kode_aset', 2),
 (10, '2021_07_07_034726_tambah_no_induk_user', 3),
 (11, '2021_07_07_063303_buat_table_pengadaan_dan_mitra', 4),
-(12, '2021_07_08_023920_create_maintenances_table', 5);
+(12, '2021_07_08_023920_create_maintenances_table', 5),
+(13, '2021_07_11_143913_create_peminjaman_table', 6);
 
 -- --------------------------------------------------------
 
@@ -152,6 +153,25 @@ CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `peminjaman`
+--
+
+CREATE TABLE `peminjaman` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `kode_peminjaman` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `aset_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `peminjam` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lokasi_peminjaman` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggal_peminjaman` date NOT NULL,
+  `tanggal_kembali` date NOT NULL,
+  `waktu_peminjaman` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -246,6 +266,12 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indeks untuk tabel `peminjaman`
+--
+ALTER TABLE `peminjaman`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `pengadaans`
 --
 ALTER TABLE `pengadaans`
@@ -284,13 +310,19 @@ ALTER TABLE `maintenance`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `mitras`
 --
 ALTER TABLE `mitras`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `peminjaman`
+--
+ALTER TABLE `peminjaman`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengadaans`

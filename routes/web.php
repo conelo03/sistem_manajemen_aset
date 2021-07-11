@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AsetController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PengadaanController;
 use App\Http\Controllers\Admin\MaintenanceController;
+use App\Http\Controllers\Admin\PeminjamanController;
 
 use App\Http\Controllers\Laboran\LaboranController;
 
@@ -61,6 +62,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [MaintenanceController::class, 'edit']);
         Route::post('/edit/{id}', [MaintenanceController::class, 'update']);
         Route::get('/history', [MaintenanceController::class, 'history']);
+      });
+
+      Route::prefix('/peminjaman')->group(function () {
+        Route::get('/', [PeminjamanController::class, 'index']);
+        Route::get('/tambah', [PeminjamanController::class, 'create']);
+        Route::post('/tambah', [PeminjamanController::class, 'store']);
+        Route::get('/hapus/{id}', [PeminjamanController::class, 'destroy']);
+        Route::get('/edit/{id}', [PeminjamanController::class, 'edit']);
+        Route::post('/edit/{id}', [PeminjamanController::class, 'update']);
+        Route::get('/history', [PeminjamanController::class, 'history']);
       });
     });
   });

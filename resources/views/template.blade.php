@@ -80,10 +80,22 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item menu-open">
-              <a class="nav-link" href="#">
+            <li class="nav-item">
+              <span class="nav-link">
                 <span class="nav-link-text text-white">Peminjaman</span>
-              </a>
+              </span>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/peminjaman" class="nav-link">
+                    <span class="nav-link-text text-white">Data Peminjaman</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/peminjaman/history" class="nav-link">
+                    <span class="nav-link-text text-white">History Peminjaman</span>
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
