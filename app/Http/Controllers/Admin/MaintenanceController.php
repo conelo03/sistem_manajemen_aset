@@ -91,4 +91,10 @@ class MaintenanceController extends Controller
     $maintenance_baru->delete();
     return back()->with('status', 'Berhasil hapus data aset.');
   }
+
+  public function history()
+  {
+    $maintenance  = $this->maintenance->all();
+    return view('admin/historyMaintenance', ['maintenance' => $maintenance]);
+  }
 }
