@@ -39,7 +39,7 @@
                 <td>{{ $pengadaan->quantity }}</td>
                 <td>{{ $pengadaan->mitra->kode_mitra }}</td>
                 <td>{{ $pengadaan->mitra->nama_mitra }}</td>
-                <td>{{ $pengadaan->harga_aset }}</td>
+                <td>{{ rupiah($pengadaan->harga_aset) }}</td>
                 <td>{{ $pengadaan->status }}</td>
                 <td>
                   <a href="/admin/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-success">Edit</a>
