@@ -80,4 +80,10 @@ class PeminjamanController extends Controller
     $peminjaman_baru->delete();
     return back()->with('status', 'Berhasil hapus data peminjaman.');
   }
+
+  public function history()
+  {
+    $peminjaman = $this->peminjaman->all();
+    return view('admin/historyPeminjaman', ['peminjaman' => $peminjaman]);
+  }
 }
