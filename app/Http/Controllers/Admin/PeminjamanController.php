@@ -73,15 +73,11 @@ class PeminjamanController extends Controller
 
     return redirect('/admin/peminjaman')->with('status', 'Berhasil edit data peminjaman.');
   }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+  
+  public function destroy($id)
+  {
+    $peminjaman_baru = $this->peminjaman->find($id);
+    $peminjaman_baru->delete();
+    return back()->with('status', 'Berhasil hapus data peminjaman.');
+  }
 }
