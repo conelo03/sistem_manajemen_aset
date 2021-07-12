@@ -45,40 +45,34 @@ class PeminjamanController extends Controller
 
     return redirect('/admin/peminjaman')->with('status', 'Berhasil tambah peminjaman.');
   }
+  
+  public function show($id)
+  {
+      //
+  }
+  
+  public function edit($id)
+  {
+    $peminjaman         = $this->peminjaman->find($id);
+    $peminjaman['aset'] = $this->aset->all();
+    return view('admin/editPeminjaman', $peminjaman);
+  }
+  
+  public function update(Request $request, $id)
+  {
+    $peminjaman_baru = $this->peminjaman->find($id);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    $peminjaman_baru->aset_id             = $request->aset;
+    $peminjaman_baru->peminjam            = $request->peminjam;
+    $peminjaman_baru->lokasi_peminjaman   = $request->lokasi_peminjaman;
+    $peminjaman_baru->tanggal_peminjaman  = $request->tanggal_peminjaman;
+    $peminjaman_baru->tanggal_kembali     = $request->tanggal_kembali;
+    $peminjaman_baru->waktu_peminjaman    = $request->waktu_peminjaman;
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    $peminjaman_baru->save();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    return redirect('/admin/peminjaman')->with('status', 'Berhasil edit data peminjaman.');
+  }
 
     /**
      * Remove the specified resource from storage.
