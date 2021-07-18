@@ -6,7 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Admin</title>
+  <title>
+    @switch(auth()->user()->role)
+      @case('admin')
+        Admin
+        @break
+      @case('laboran')
+        Laboran
+        @break
+    @endswitch
+  </title>
   <!-- Favicon -->
   <link rel="icon" href="/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->

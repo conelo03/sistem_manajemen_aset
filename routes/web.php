@@ -75,11 +75,16 @@ Route::middleware('auth')->group(function () {
       });
     });
   });
-
   
   Route::middleware('is_laboran')->group(function () {
     Route::prefix('laboran')->group(function () {
       Route::get('/', [LaboranController::class, 'index']);
+    });
+  });
+  
+  Route::middleware('keuangan')->group(function () {
+    Route::prefix('keuangan')->group(function () {
+      Route::get('/', [KeuanganController::class, 'index']);
     });
   });
 });
