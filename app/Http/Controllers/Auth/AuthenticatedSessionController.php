@@ -45,6 +45,10 @@ class AuthenticatedSessionController extends Controller
         case 'keuangan':
           return redirect('keuangan');
           break;
+
+        case 'wadek':
+          return redirect('wadek');
+          break;
         
         default:
           # code...

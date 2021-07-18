@@ -16,6 +16,9 @@ use App\Http\Controllers\Laboran\AsetController as AsetLaboran;
 use App\Http\Controllers\Keuangan\KeuanganController;
 use App\Http\Controllers\Keuangan\AsetController as AsetKeuangan;
 
+use App\Http\Controllers\Wadek\WadekController;
+use App\Http\Controllers\Wadek\AsetController as AsetWadek;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -112,6 +115,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [AsetKeuangan::class, 'destroy']);
         Route::get('/edit/{id}', [AsetKeuangan::class, 'edit']);
         Route::post('/edit/{id}', [AsetKeuangan::class, 'update']);
+      });
+    });
+  });
+  
+  Route::middleware('wadek')->group(function () {
+    Route::prefix('wadek')->group(function () {
+      Route::get('/', [WadekController::class, 'index']);
+
+      Route::prefix('/data_aset')->group(function () {
+        Route::get('/', [AsetWadek::class, 'index']);
       });
     });
   });
