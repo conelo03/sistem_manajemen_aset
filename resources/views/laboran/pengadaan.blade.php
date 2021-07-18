@@ -42,7 +42,7 @@
                 <td>{{ rupiah($pengadaan->harga_aset) }}</td>
                 <td>{{ $pengadaan->status }}</td>
                 <td>
-                  <a href="/admin/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-success">Edit</a>
+                  <a href="/laboran/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-success">Edit</a>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus{{ $pengadaan->id }}">
                     Hapus

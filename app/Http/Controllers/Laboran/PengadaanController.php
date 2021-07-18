@@ -53,17 +53,12 @@ class PengadaanController extends Controller
     return redirect('/laboran/pengadaan')->with('status', 'Berhasil tambah pengadaan.');
   }
   
-  public function show($id)
-  {
-      //
-  }
-  
   public function edit($id)
   {
     $pengadaan          = $this->pengadaan->find($id);
     $pengadaan['aset']  = $this->aset->all();
     $pengadaan['mitra'] = $this->mitra->all();
-    return view('admin/editPengadaan', $pengadaan);
+    return view('laboran/editPengadaan', $pengadaan);
   }
   
   public function update(Request $request, $id)
@@ -80,7 +75,7 @@ class PengadaanController extends Controller
 
     $pengadaan_baru->save();
 
-    return redirect('/admin/pengadaan')->with('status', 'Berhasil edit data pengadaan.');
+    return redirect('/laboran/pengadaan')->with('status', 'Berhasil edit data pengadaan.');
   }
   
   public function destroy($id)
