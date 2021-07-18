@@ -67,7 +67,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/admin/data_aset/hapus/{{ $aset->id }}" class="btn btn-danger">Hapus</a>
+                          <a href="/laboran/data_aset/hapus/{{ $aset->id }}" class="btn btn-danger">Hapus</a>
                         </div>
                       </div>
                     </div>
