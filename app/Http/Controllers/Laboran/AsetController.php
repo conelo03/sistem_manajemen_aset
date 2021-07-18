@@ -54,7 +54,7 @@ class AsetController extends Controller
   public function edit($id)
   {
     $aset = $this->aset->find($id);
-    return view('admin/editAset', $aset);
+    return view('laboran/editAset', $aset);
   }
   
   public function update(Request $request, $id)
@@ -74,7 +74,7 @@ class AsetController extends Controller
 
     $aset_baru->save();
 
-    return redirect('/admin/data_aset')->with('status', 'Berhasil edit data aset.');
+    return redirect('/laboran/data_aset')->with('status', 'Berhasil edit data aset.');
   }
   
   public function destroy($id)

@@ -46,7 +46,7 @@
                 <td>{{ $aset->waktu_maintenance }}</td>
                 <td>{{ $aset->kondisi }}</td>
                 <td>
-                  <a href="/admin/data_aset/edit/{{ $aset->id }}" class="btn btn-success">Edit</a>
+                  <a href="/laboran/data_aset/edit/{{ $aset->id }}" class="btn btn-success">Edit</a>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus{{ $aset->id }}">
                     Hapus
