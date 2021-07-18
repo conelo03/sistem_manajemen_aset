@@ -63,7 +63,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/admin/peminjaman/hapus/{{ $peminjaman->id }}" class="btn btn-danger">Hapus</a>
+                          <a href="/laboran/peminjaman/hapus/{{ $peminjaman->id }}" class="btn btn-danger">Hapus</a>
                         </div>
                       </div>
                     </div>
