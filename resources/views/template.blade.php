@@ -46,71 +46,82 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/admin">
+              <a class="nav-link" href="/">
                 <span class="nav-link-text text-white">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/manajemen_user">
-                <span class="nav-link-text text-white">Manajemen User</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/data_aset">
-                <span class="nav-link-text text-white">Data Aset</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <span class="nav-link">
-                <span class="nav-link-text text-white">Pengadaan</span>
-              </span>
-              <ul class="nav nav-treeview">
+            @switch(auth()->user()->role)
+              @case('admin')
                 <li class="nav-item">
-                  <a href="/admin/pengadaan" class="nav-link">
-                    <span class="nav-link-text text-white">Data Pengadaan</span>
+                  <a class="nav-link" href="/admin/manajemen_user">
+                    <span class="nav-link-text text-white">Manajemen User</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/admin/pengadaan/history" class="nav-link">
-                    <span class="nav-link-text text-white">History Pengadaan</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <span class="nav-link">
-                <span class="nav-link-text text-white">Maintenance</span>
-              </span>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/admin/maintenance" class="nav-link">
-                    <span class="nav-link-text text-white">Data Maintenance</span>
+                  <a class="nav-link" href="/admin/data_aset">
+                    <span class="nav-link-text text-white">Data Aset</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/admin/maintenance/history" class="nav-link">
-                    <span class="nav-link-text text-white">History Maintenance</span>
-                  </a>
+                  <span class="nav-link">
+                    <span class="nav-link-text text-white">Pengadaan</span>
+                  </span>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/admin/pengadaan" class="nav-link">
+                        <span class="nav-link-text text-white">Data Pengadaan</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/admin/pengadaan/history" class="nav-link">
+                        <span class="nav-link-text text-white">History Pengadaan</span>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <span class="nav-link">
-                <span class="nav-link-text text-white">Peminjaman</span>
-              </span>
-              <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/admin/peminjaman" class="nav-link">
-                    <span class="nav-link-text text-white">Data Peminjaman</span>
-                  </a>
+                  <span class="nav-link">
+                    <span class="nav-link-text text-white">Maintenance</span>
+                  </span>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/admin/maintenance" class="nav-link">
+                        <span class="nav-link-text text-white">Data Maintenance</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/admin/maintenance/history" class="nav-link">
+                        <span class="nav-link-text text-white">History Maintenance</span>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
                 <li class="nav-item">
-                  <a href="/admin/peminjaman/history" class="nav-link">
-                    <span class="nav-link-text text-white">History Peminjaman</span>
+                  <span class="nav-link">
+                    <span class="nav-link-text text-white">Peminjaman</span>
+                  </span>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/admin/peminjaman" class="nav-link">
+                        <span class="nav-link-text text-white">Data Peminjaman</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/admin/peminjaman/history" class="nav-link">
+                        <span class="nav-link-text text-white">History Peminjaman</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                @break
+              @case('laboran')
+                <li class="nav-item">
+                  <a class="nav-link" href="/laboran/manajemen_user">
+                    <span class="nav-link-text text-white">Manajemen User</span>
                   </a>
                 </li>
-              </ul>
-            </li>
+                @break
+            @endswitch
           </ul>
         </div>
       </div>

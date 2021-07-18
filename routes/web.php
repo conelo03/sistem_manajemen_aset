@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\PengadaanController;
 use App\Http\Controllers\Admin\MaintenanceController;
 use App\Http\Controllers\Admin\PeminjamanController;
 
+
+use App\Http\Controllers\Laboran\UserController as UserLaboran;
 use App\Http\Controllers\Laboran\LaboranController;
 
 /*
@@ -79,6 +81,13 @@ Route::middleware('auth')->group(function () {
   Route::middleware('is_laboran')->group(function () {
     Route::prefix('laboran')->group(function () {
       Route::get('/', [LaboranController::class, 'index']);
+      
+      Route::prefix('/manajemen_user')->group(function () {
+        Route::get('/', [UserController::class, 'index']);
+        Route::get('/hapus/{id}', [UserController::class, 'destroy']);
+        Route::get('/edit/{id}', [UserController::class, 'edit']);
+        Route::post('/edit/{id}', [UserController::class, 'update']);
+      });
     });
   });
   
