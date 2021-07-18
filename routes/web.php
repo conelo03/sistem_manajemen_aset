@@ -83,19 +83,19 @@ Route::middleware('auth')->group(function () {
       Route::get('/', [LaboranController::class, 'index']);
       
       Route::prefix('/manajemen_user')->group(function () {
-        Route::get('/', [UserController::class, 'index']);
-        Route::get('/hapus/{id}', [UserController::class, 'destroy']);
-        Route::get('/edit/{id}', [UserController::class, 'edit']);
-        Route::post('/edit/{id}', [UserController::class, 'update']);
+        Route::get('/', [UserLaboran::class, 'index']);
+        Route::get('/hapus/{id}', [UserLaboran::class, 'destroy']);
+        Route::get('/edit/{id}', [UserLaboran::class, 'edit']);
+        Route::post('/edit/{id}', [UserLaboran::class, 'update']);
       });
 
       Route::prefix('/data_aset')->group(function () {
-        Route::get('/', [AsetController::class, 'index']);
-        Route::get('/tambah', [AsetController::class, 'create']);
-        Route::post('/tambah', [AsetController::class, 'store']);
-        Route::get('/hapus/{id}', [AsetController::class, 'destroy']);
-        Route::get('/edit/{id}', [AsetController::class, 'edit']);
-        Route::post('/edit/{id}', [AsetController::class, 'update']);
+        Route::get('/', [AsetLaboran::class, 'index']);
+        Route::get('/tambah', [AsetLaboran::class, 'create']);
+        Route::post('/tambah', [AsetLaboran::class, 'store']);
+        Route::get('/hapus/{id}', [AsetLaboran::class, 'destroy']);
+        Route::get('/edit/{id}', [AsetLaboran::class, 'edit']);
+        Route::post('/edit/{id}', [AsetLaboran::class, 'update']);
       });
     });
   });

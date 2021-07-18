@@ -23,7 +23,7 @@ class AsetController extends Controller
   
   public function create()
   {
-    return view('admin/tambahAset');
+    return view('laboran/tambahAset');
   }
   
   public function store(Request $request)
@@ -43,7 +43,7 @@ class AsetController extends Controller
 
     $this->aset->save();
 
-    return redirect('/admin/data_aset')->with('status', 'Berhasil tambah data aset.');
+    return redirect('/laboran/data_aset')->with('status', 'Berhasil tambah data aset.');
   }
   
   public function show($id)

@@ -6,7 +6,7 @@
       <h3>DATA ASET</h3>
     </div>
     <div class="card-body">
-      <a href="/admin/data_aset/tambah" class="btn btn-primary mb-3">Tambah</a>
+      <a href="/laboran/data_aset/tambah" class="btn btn-primary mb-3">Tambah</a>
       @if (session('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{ session('status') }}
