@@ -13,6 +13,9 @@ use App\Http\Controllers\Laboran\LaboranController;
 use App\Http\Controllers\Laboran\UserController as UserLaboran;
 use App\Http\Controllers\Laboran\AsetController as AsetLaboran;
 
+use App\Http\Controllers\Keuangan\KeuanganController;
+use App\Http\Controllers\Keuangan\AsetController as AsetKeuangan;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -103,6 +106,13 @@ Route::middleware('auth')->group(function () {
   Route::middleware('keuangan')->group(function () {
     Route::prefix('keuangan')->group(function () {
       Route::get('/', [KeuanganController::class, 'index']);
+
+      Route::prefix('/data_aset')->group(function () {
+        Route::get('/', [AsetLaboran::class, 'index']);
+        Route::get('/hapus/{id}', [AsetLaboran::class, 'destroy']);
+        Route::get('/edit/{id}', [AsetLaboran::class, 'edit']);
+        Route::post('/edit/{id}', [AsetLaboran::class, 'update']);
+      });
     });
   });
 });

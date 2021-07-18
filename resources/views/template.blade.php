@@ -126,6 +126,13 @@
                   </a>
                 </li>
                 @break
+              @case('keuangan')
+                <li class="nav-item">
+                  <a class="nav-link" href="/keuangan/data_aset">
+                    <span class="nav-link-text text-white">Data Aset</span>
+                  </a>
+                </li>
+                @break
             @endswitch
           </ul>
         </div>
@@ -155,6 +162,9 @@
                 @break
               @case('laboran')
                 Selamat datang Laboran!
+                @break
+              @case('keuangan')
+                Selamat datang Keuangan!
                 @break
             @endswitch
             <div class="float-right">
