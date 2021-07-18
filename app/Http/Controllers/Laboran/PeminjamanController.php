@@ -55,7 +55,7 @@ class PeminjamanController extends Controller
   {
     $peminjaman         = $this->peminjaman->find($id);
     $peminjaman['aset'] = $this->aset->all();
-    return view('admin/editPeminjaman', $peminjaman);
+    return view('laboran/editPeminjaman', $peminjaman);
   }
   
   public function update(Request $request, $id)
@@ -71,7 +71,7 @@ class PeminjamanController extends Controller
 
     $peminjaman_baru->save();
 
-    return redirect('/admin/peminjaman')->with('status', 'Berhasil edit data peminjaman.');
+    return redirect('/laboran/peminjaman')->with('status', 'Berhasil edit data peminjaman.');
   }
   
   public function destroy($id)

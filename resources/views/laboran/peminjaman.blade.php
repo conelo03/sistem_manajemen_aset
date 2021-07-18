@@ -42,7 +42,7 @@
                 <td>{{ $peminjaman->tanggal_kembali }}</td>
                 <td>{{ $peminjaman->waktu_peminjaman }}</td>
                 <td>
-                  <a href="/admin/peminjaman/edit/{{ $peminjaman->id }}" class="btn btn-success">Edit</a>
+                  <a href="/laboran/peminjaman/edit/{{ $peminjaman->id }}" class="btn btn-success">Edit</a>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus{{ $peminjaman->id }}">
                     Hapus
