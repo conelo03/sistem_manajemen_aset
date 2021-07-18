@@ -31,7 +31,7 @@ class PengadaanController extends Controller
   {
     $aset   = $this->aset->all();
     $mitra  = $this->mitra->all();
-    return view('admin/tambahPengadaan', [
+    return view('laboran/tambahPengadaan', [
       'aset'  => $aset,
       'mitra' => $mitra
     ]);
@@ -50,7 +50,7 @@ class PengadaanController extends Controller
 
     $this->pengadaan->save();
 
-    return redirect('/admin/pengadaan')->with('status', 'Berhasil tambah pengadaan.');
+    return redirect('/laboran/pengadaan')->with('status', 'Berhasil tambah pengadaan.');
   }
   
   public function show($id)
