@@ -125,6 +125,23 @@
                     <span class="nav-link-text text-white">Data Aset</span>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <span class="nav-link">
+                    <span class="nav-link-text text-white">Peminjaman</span>
+                  </span>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/laboran/peminjaman" class="nav-link">
+                        <span class="nav-link-text text-white">Data Peminjaman</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/laboran/peminjaman/history" class="nav-link">
+                        <span class="nav-link-text text-white">History Peminjaman</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
                 @break
               @case('keuangan')
                 <li class="nav-item">

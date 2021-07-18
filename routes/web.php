@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PeminjamanController;
 use App\Http\Controllers\Laboran\LaboranController;
 use App\Http\Controllers\Laboran\UserController as UserLaboran;
 use App\Http\Controllers\Laboran\AsetController as AsetLaboran;
+use App\Http\Controllers\Laboran\PeminjamanController as PeminjamanLaboran;
 
 use App\Http\Controllers\Keuangan\KeuanganController;
 use App\Http\Controllers\Keuangan\AsetController as AsetKeuangan;
@@ -102,6 +103,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [AsetLaboran::class, 'destroy']);
         Route::get('/edit/{id}', [AsetLaboran::class, 'edit']);
         Route::post('/edit/{id}', [AsetLaboran::class, 'update']);
+      });
+
+      Route::prefix('/peminjaman')->group(function () {
+        Route::get('/', [PeminjamanLaboran::class, 'index']);
+        Route::get('/tambah', [PeminjamanLaboran::class, 'create']);
+        Route::post('/tambah', [PeminjamanLaboran::class, 'store']);
+        Route::get('/hapus/{id}', [PeminjamanLaboran::class, 'destroy']);
+        Route::get('/edit/{id}', [PeminjamanLaboran::class, 'edit']);
+        Route::post('/edit/{id}', [PeminjamanLaboran::class, 'update']);
+        Route::get('/history', [PeminjamanLaboran::class, 'history']);
       });
     });
   });
