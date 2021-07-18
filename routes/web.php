@@ -108,10 +108,10 @@ Route::middleware('auth')->group(function () {
       Route::get('/', [KeuanganController::class, 'index']);
 
       Route::prefix('/data_aset')->group(function () {
-        Route::get('/', [AsetLaboran::class, 'index']);
-        Route::get('/hapus/{id}', [AsetLaboran::class, 'destroy']);
-        Route::get('/edit/{id}', [AsetLaboran::class, 'edit']);
-        Route::post('/edit/{id}', [AsetLaboran::class, 'update']);
+        Route::get('/', [AsetKeuangan::class, 'index']);
+        Route::get('/hapus/{id}', [AsetKeuangan::class, 'destroy']);
+        Route::get('/edit/{id}', [AsetKeuangan::class, 'edit']);
+        Route::post('/edit/{id}', [AsetKeuangan::class, 'update']);
       });
     });
   });

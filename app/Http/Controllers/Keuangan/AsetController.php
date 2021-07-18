@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Laboran;
+namespace App\Http\Controllers\Keuangan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -18,43 +18,13 @@ class AsetController extends Controller
   public function index()
   {
     $aset = $this->aset->all();
-    return view('laboran/aset', ['aset' => $aset]);
-  }
-  
-  public function create()
-  {
-    return view('laboran/tambahAset');
-  }
-  
-  public function store(Request $request)
-  {
-    // Validate the request...
-
-    $this->aset->kode_aset            = $request->kode_aset;
-    $this->aset->nama_aset            = $request->nama_aset;
-    $this->aset->jenis_aset           = $request->jenis_aset;
-    $this->aset->merk                 = $request->merk;
-    $this->aset->kepemilikan          = $request->kepemilikan;
-    $this->aset->lokasi               = $request->lokasi;
-    $this->aset->tanggal_pembelian    = $request->tanggal_pembelian;
-    $this->aset->tanggal_maintenance  = $request->tanggal_maintenance;
-    $this->aset->waktu_maintenance    = $request->waktu_maintenance;
-    $this->aset->kondisi              = $request->kondisi;
-
-    $this->aset->save();
-
-    return redirect('/laboran/data_aset')->with('status', 'Berhasil tambah data aset.');
-  }
-  
-  public function show($id)
-  {
-      //
+    return view('keuangan/aset', ['aset' => $aset]);
   }
   
   public function edit($id)
   {
     $aset = $this->aset->find($id);
-    return view('laboran/editAset', $aset);
+    return view('keuangan/editAset', $aset);
   }
   
   public function update(Request $request, $id)
@@ -74,7 +44,7 @@ class AsetController extends Controller
 
     $aset_baru->save();
 
-    return redirect('/laboran/data_aset')->with('status', 'Berhasil edit data aset.');
+    return redirect('/keuangan/data_aset')->with('status', 'Berhasil edit data aset.');
   }
   
   public function destroy($id)
