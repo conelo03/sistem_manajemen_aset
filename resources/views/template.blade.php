@@ -173,6 +173,9 @@
               @case('keuangan')
                 Selamat datang Keuangan!
                 @break
+              @case('wadek')
+                Selamat datang Wakil Dekan 2!
+                @break
             @endswitch
             <div class="float-right">
             <form method="POST" action="{{ route('logout') }}">
