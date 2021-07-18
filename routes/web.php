@@ -9,9 +9,9 @@ use App\Http\Controllers\Admin\PengadaanController;
 use App\Http\Controllers\Admin\MaintenanceController;
 use App\Http\Controllers\Admin\PeminjamanController;
 
-
-use App\Http\Controllers\Laboran\UserController as UserLaboran;
 use App\Http\Controllers\Laboran\LaboranController;
+use App\Http\Controllers\Laboran\UserController as UserLaboran;
+use App\Http\Controllers\Laboran\AsetController as AsetLaboran;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,6 +87,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [UserController::class, 'destroy']);
         Route::get('/edit/{id}', [UserController::class, 'edit']);
         Route::post('/edit/{id}', [UserController::class, 'update']);
+      });
+
+      Route::prefix('/data_aset')->group(function () {
+        Route::get('/', [AsetController::class, 'index']);
+        Route::get('/tambah', [AsetController::class, 'create']);
+        Route::post('/tambah', [AsetController::class, 'store']);
+        Route::get('/hapus/{id}', [AsetController::class, 'destroy']);
+        Route::get('/edit/{id}', [AsetController::class, 'edit']);
+        Route::post('/edit/{id}', [AsetController::class, 'update']);
       });
     });
   });

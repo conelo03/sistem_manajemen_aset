@@ -120,6 +120,11 @@
                     <span class="nav-link-text text-white">Manajemen User</span>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/laboran/data_aset">
+                    <span class="nav-link-text text-white">Data Aset</span>
+                  </a>
+                </li>
                 @break
             @endswitch
           </ul>
