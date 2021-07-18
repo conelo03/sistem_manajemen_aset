@@ -27,7 +27,7 @@ class PeminjamanController extends Controller
   public function create()
   {
     $aset   = $this->aset->all();
-    return view('admin/tambahPeminjaman', ['aset'  => $aset]);
+    return view('laboran/tambahPeminjaman', ['aset'  => $aset]);
   }
   
   public function store(Request $request)
@@ -43,7 +43,7 @@ class PeminjamanController extends Controller
 
     $this->peminjaman->save();
 
-    return redirect('/admin/peminjaman')->with('status', 'Berhasil tambah peminjaman.');
+    return redirect('/laboran/peminjaman')->with('status', 'Berhasil tambah peminjaman.');
   }
   
   public function show($id)
