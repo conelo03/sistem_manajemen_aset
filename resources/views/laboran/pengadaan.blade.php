@@ -19,27 +19,34 @@
         <table class="table" id="myTable">
           <thead class="thead-dark">
             <tr>
+              <th scope="col">No.</th>
               <th scope="col">Nomor Pengadaan</th>
               <th scope="col">Nama Aset</th>
+              <th scope="col">Jenis Merk</th>
               <th scope="col">Jenis Aset</th>
               <th scope="col">Quantity</th>
-              <th scope="col">Kode Mitra</th>
-              <th scope="col">Nama Mitra</th>
               <th scope="col">Harga Aset</th>
+              <th scope="col">Tanggal Input</th>
+              <th scope="col">Nama Mitra</th>
+              <th scope="col">Kode Mitra</th>
               <th scope="col">Status</th>
               <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
+            <?php $no = 1; ?>
             @foreach ($pengadaan as $pengadaan)
               <tr>
+                <td>{{ $no++ }}</td>
                 <td>{{ $pengadaan->no_pengadaan }}</td>
                 <td>{{ $pengadaan->aset->nama_aset }}</td>
+                <td>{{ $pengadaan->aset->merk }}</td>
                 <td>{{ $pengadaan->aset->jenis_aset }}</td>
                 <td>{{ $pengadaan->quantity }}</td>
-                <td>{{ $pengadaan->mitra->kode_mitra }}</td>
-                <td>{{ $pengadaan->mitra->nama_mitra }}</td>
                 <td>{{ rupiah($pengadaan->harga_aset) }}</td>
+                <td>{{ tgl_indo(substr($pengadaan->tanggal_input, 0, 10)) }}</td>
+                <td>{{ $pengadaan->mitra->nama_mitra }}</td>
+                <td>{{ $pengadaan->mitra->kode_mitra }}</td>
                 <td>{{ $pengadaan->status }}</td>
                 <td>
                   <a href="/laboran/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-success">Edit</a>
