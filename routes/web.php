@@ -19,6 +19,7 @@ use App\Http\Controllers\Laboran\MaintenanceController as MaintenanceLaboran;
 use App\Http\Controllers\Keuangan\KeuanganController;
 use App\Http\Controllers\Keuangan\AsetController as AsetKeuangan;
 use App\Http\Controllers\Keuangan\PengadaanController as PengadaanKeuangan;
+use App\Http\Controllers\Keuangan\MaintenanceController as MaintenanceKeuangan;
 
 use App\Http\Controllers\Wadek\WadekController;
 use App\Http\Controllers\Wadek\AsetController as AsetWadek;
@@ -157,6 +158,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [PengadaanKeuangan::class, 'destroy']);
         Route::get('/edit/{id}', [PengadaanKeuangan::class, 'edit']);
         Route::post('/edit/{id}', [PengadaanKeuangan::class, 'update']);
+      });
+
+      Route::prefix('/maintenance')->group(function () {
+        Route::get('/', [MaintenanceKeuangan::class, 'index']);
+        Route::get('/tambah', [MaintenanceKeuangan::class, 'create']);
+        Route::post('/tambah', [MaintenanceKeuangan::class, 'store']);
+        Route::get('/hapus/{id}', [MaintenanceKeuangan::class, 'destroy']);
+        Route::get('/edit/{id}', [MaintenanceKeuangan::class, 'edit']);
+        Route::post('/edit/{id}', [MaintenanceKeuangan::class, 'update']);
+        Route::get('/history', [MaintenanceKeuangan::class, 'history']);
       });
     });
   });

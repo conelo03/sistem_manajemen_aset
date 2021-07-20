@@ -200,6 +200,23 @@
                     </li>
                   </ul>
                 </li>
+                <li class="nav-item">
+                  <span class="nav-link">
+                    <span class="nav-link-text text-white">Maintenance</span>
+                  </span>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/keuangan/maintenance" class="nav-link">
+                        <span class="nav-link-text text-white">Data Maintenance</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/keuangan/maintenance/history" class="nav-link">
+                        <span class="nav-link-text text-white">History Maintenance</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
                 @break
               @case('wadek')
                 <li class="nav-item">
