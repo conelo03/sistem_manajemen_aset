@@ -34,12 +34,15 @@ class PeminjamanController extends Controller
   {
     // Validate the request...
 
-    $this->peminjaman->aset_id       = $request->aset;
-    $this->peminjaman->peminjam      = $request->peminjam;
-    $this->peminjaman->lokasi_peminjaman      = $request->lokasi_peminjaman;
-    $this->peminjaman->tanggal_peminjaman      = $request->tanggal_peminjaman;
-    $this->peminjaman->tanggal_kembali = $request->tanggal_kembali;
-    $this->peminjaman->waktu_peminjaman = $request->waktu_peminjaman;
+    $this->peminjaman->aset_id            = $request->aset;
+    $this->peminjaman->peminjam           = $request->peminjam;
+    $this->peminjaman->lokasi_peminjaman  = $request->lokasi_peminjaman;
+    $this->peminjaman->tanggal_peminjaman = $request->tanggal_peminjaman;
+    $this->peminjaman->tanggal_kembali    = $request->tanggal_kembali;
+    $this->peminjaman->waktu_peminjaman   = $request->waktu_peminjaman;
+    $this->peminjaman->nip                = $request->nip;
+    $this->peminjaman->email              = $request->email;
+    $this->peminjaman->no_telepon         = $request->no_telepon;
 
     $this->peminjaman->save();
 

@@ -51,7 +51,7 @@
                 <td>{{ $peminjaman->waktu_peminjaman }}</td>
                 <td>{{ $peminjaman->nip }}</td>
                 <td>{{ $peminjaman->email }}</td>
-                <td>{{ $peminjaman->no_telp }}</td>
+                <td>{{ $peminjaman->no_telepon }}</td>
                 <td>
                   <a href="/laboran/peminjaman/edit/{{ $peminjaman->id }}" class="btn btn-success">Edit</a>
                   <!-- Button trigger modal -->

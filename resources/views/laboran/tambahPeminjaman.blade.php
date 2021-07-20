@@ -39,15 +39,27 @@
               <label class="form-control-label" for="input-username">Waktu Peminjaman</label>
               <input type="text" id="input-username" class="form-control" placeholder="Waktu Peminjaman" name="waktu_peminjaman" required>
             </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">NIM/NIP</label>
+              <input type="text" id="input-username" class="form-control" placeholder="NIM/NIP" name="nip" required>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">Email</label>
+              <input type="email" id="input-username" class="form-control" placeholder="Email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">No. Telepon</label>
+              <input type="text" id="input-username" class="form-control" placeholder="No. Telepon" name="no_telepon" required>
+            </div>
           </div>
         </div>
       </div>
       <div class="card-footer">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#logout">Tambah</button>
+        <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#tambah">Tambah</button>
 
         <!-- Modal -->
-        <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -61,7 +73,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn btn-primary float-right mb-3" type="submit">Tambah</button>
+                <button class="btn btn-primary float-right" type="submit">Tambah</button>
               </div>
             </div>
           </div>
