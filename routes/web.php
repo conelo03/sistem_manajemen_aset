@@ -14,6 +14,7 @@ use App\Http\Controllers\Laboran\UserController as UserLaboran;
 use App\Http\Controllers\Laboran\AsetController as AsetLaboran;
 use App\Http\Controllers\Laboran\PeminjamanController as PeminjamanLaboran;
 use App\Http\Controllers\Laboran\PengadaanController as PengadaanLaboran;
+use App\Http\Controllers\Laboran\MaintenanceController as MaintenanceLaboran;
 
 use App\Http\Controllers\Keuangan\KeuanganController;
 use App\Http\Controllers\Keuangan\AsetController as AsetKeuangan;
@@ -126,6 +127,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [PengadaanLaboran::class, 'edit']);
         Route::post('/edit/{id}', [PengadaanLaboran::class, 'update']);
         Route::get('/history', [PengadaanLaboran::class, 'history']);
+      });
+
+      Route::prefix('/maintenance')->group(function () {
+        Route::get('/', [MaintenanceLaboran::class, 'index']);
+        Route::get('/tambah', [MaintenanceLaboran::class, 'create']);
+        Route::post('/tambah', [MaintenanceLaboran::class, 'store']);
+        Route::get('/hapus/{id}', [MaintenanceLaboran::class, 'destroy']);
+        Route::get('/edit/{id}', [MaintenanceLaboran::class, 'edit']);
+        Route::post('/edit/{id}', [MaintenanceLaboran::class, 'update']);
+        Route::get('/history', [MaintenanceLaboran::class, 'history']);
       });
     });
   });
