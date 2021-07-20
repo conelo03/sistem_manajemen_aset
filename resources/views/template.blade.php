@@ -173,6 +173,23 @@
                     <span class="nav-link-text text-white">Data Aset</span>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <span class="nav-link">
+                    <span class="nav-link-text text-white">Pengadaan</span>
+                  </span>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/keuangan/pengadaan" class="nav-link">
+                        <span class="nav-link-text text-white">Data Pengadaan</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/admin/pengadaan/history" class="nav-link">
+                        <span class="nav-link-text text-white">History Pengadaan</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
                 @break
             @endswitch
           </ul>
@@ -212,15 +229,37 @@
                 @break
             @endswitch
             <div class="float-right">
-            <form method="POST" action="{{ route('logout') }}">
-              @csrf
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#logout">Logout</button>
 
-              <x-dropdown-link :href="route('logout')"
-                      onclick="event.preventDefault();
-                                  this.closest('form').submit();">
-                  {{ __('Log Out') }}
-              </x-dropdown-link>
-            </form>
+              <!-- Modal -->
+              <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Logout</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Anda yakin akan logout?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <x-dropdown-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </x-dropdown-link>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
