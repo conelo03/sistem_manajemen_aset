@@ -48,10 +48,24 @@
                 <td>{{ $pengadaan->mitra->nama_mitra }}</td>
                 <td>{{ $pengadaan->mitra->kode_mitra }}</td>
                 <td>
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#terima{{ $pengadaan->id }}">Terima</button>
+                  @switch($pengadaan->status_kaur)
+                    @case(null)
+                      <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#terima{{ $pengadaan->id }}">Terima</button>
+                      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#tolak{{ $pengadaan->id }}">Tolak</button>
+                      @break
 
-                  <!-- Modal -->
+                    @case('terima')
+                      <button type="button" class="btn btn-sm btn-success" readonly>Diterima</button>
+                      @break
+
+                    @case('tolak')
+                      <button type="button" class="btn btn-sm btn-danger" readonly>Ditolak</button>
+                      @break
+
+                    @default
+                        Default case...
+                  @endswitch
+                  
                   <div class="modal fade" id="terima{{ $pengadaan->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -66,16 +80,12 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/laboran/pengadaan/terima/{{ $pengadaan->id }}" class="btn btn-success">Terima</a>
+                          <a href="/kaur_laboratorium/pengadaan/terima/{{ $pengadaan->id }}" class="btn btn-success">Terima</a>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#tolak{{ $pengadaan->id }}">Tolak</button>
-
-                  <!-- Modal -->
                   <div class="modal fade" id="tolak{{ $pengadaan->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -90,14 +100,14 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/laboran/pengadaan/tolak/{{ $pengadaan->id }}" class="btn btn-danger">Tolak</a>
+                          <a href="/kaur_laboratorium/pengadaan/tolak/{{ $pengadaan->id }}" class="btn btn-danger">Tolak</a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </td>
                 <td>
-                  <a href="/laboran/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-sm btn-info">Edit</a>
+                  <a href="/kaur_laboratorium/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-sm btn-info">Edit</a>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#hapus{{ $pengadaan->id }}">Hapus</button>
 
@@ -116,7 +126,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/laboran/pengadaan/hapus/{{ $pengadaan->id }}" class="btn btn-danger">Hapus</a>
+                          <a href="/kaur_laboratorium/pengadaan/hapus/{{ $pengadaan->id }}" class="btn btn-danger">Hapus</a>
                         </div>
                       </div>
                     </div>

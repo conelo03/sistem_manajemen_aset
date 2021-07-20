@@ -53,9 +53,24 @@ class PengadaanController extends Controller
     return redirect('/kaur_laboratorium/pengadaan')->with('status', 'Berhasil tambah pengadaan.');
   }
   
-  public function show($id)
+  public function updateStatus($status, $id)
   {
-      //
+    $pengadaan_baru = $this->pengadaan->find($id);
+
+    $pengadaan_baru->status_kaur  = $status;
+    
+    $pengadaan_baru->save();
+
+    $pengadaan_baru = $this->pengadaan->find($id);
+    if ($pengadaan_baru->status_kaur !== NULL && $pengadaan_baru->status_keuangan !== NULL && $pengadaan_baru->status_wadek !== NULL) {
+      if ($pengadaan_baru->status_kaur == 'terima' && $pengadaan_baru->status_keuangan == 'terima' && $pengadaan_baru->status_wadek == 'terima') {
+        $pengadaan_baru->status = 'terima';
+      } else {
+        $pengadaan_baru->status = 'tolak';
+      }
+      $pengadaan_baru->save();
+    }
+    return redirect('/kaur_laboratorium/pengadaan')->with('status', 'Berhasil edit data pengadaan.');
   }
   
   public function edit($id)
@@ -76,7 +91,6 @@ class PengadaanController extends Controller
     $pengadaan_baru->quantity      = $request->quantity;
     $pengadaan_baru->mitra_id      = $request->mitra;
     $pengadaan_baru->harga_aset    = preg_replace('/[Rp. ]/', '', $request->harga_aset);
-
 
     $pengadaan_baru->save();
 

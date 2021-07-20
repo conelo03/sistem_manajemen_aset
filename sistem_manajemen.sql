@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Jul 2021 pada 12.04
+-- Waktu pembuatan: 20 Jul 2021 pada 16.05
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -198,6 +198,9 @@ CREATE TABLE `pengadaans` (
   `aset_id` bigint(20) UNSIGNED NOT NULL,
   `quantity` bigint(20) NOT NULL,
   `mitra_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status_kaur` enum('tolak','terima') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_wadek` enum('tolak','terima') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_keuangan` enum('tolak','terima') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -208,12 +211,12 @@ CREATE TABLE `pengadaans` (
 -- Dumping data untuk tabel `pengadaans`
 --
 
-INSERT INTO `pengadaans` (`id`, `no_pengadaan`, `tanggal_input`, `aset_id`, `quantity`, `mitra_id`, `status`, `created_at`, `updated_at`, `harga_aset`) VALUES
-(2, '12345678910', '2021-07-12', 4, 100, '4', NULL, '2021-07-12 06:40:07', '2021-07-12 06:40:07', 10000000),
-(3, '12345678910', '2021-07-18', 4, 100, '4', NULL, '2021-07-18 05:52:05', '2021-07-18 05:52:05', 10000000),
-(4, '12345678910', '2021-07-18', 4, 100, '4', NULL, '2021-07-18 05:52:32', '2021-07-18 05:52:32', 10000000),
-(5, '12345678910', '2021-07-19', 4, 100, '4', NULL, '2021-07-18 05:52:54', '2021-07-20 02:06:44', 10000000),
-(7, '12345678910', '2021-07-21', 10, 100, '4', NULL, '2021-07-20 01:07:44', '2021-07-20 01:07:44', 7060500);
+INSERT INTO `pengadaans` (`id`, `no_pengadaan`, `tanggal_input`, `aset_id`, `quantity`, `mitra_id`, `status_kaur`, `status_wadek`, `status_keuangan`, `status`, `created_at`, `updated_at`, `harga_aset`) VALUES
+(2, '12345678910', '2021-07-12', 4, 100, '4', 'terima', NULL, NULL, NULL, '2021-07-12 06:40:07', '2021-07-20 07:03:14', 10000000),
+(3, '12345678910', '2021-07-18', 4, 100, '4', 'tolak', NULL, NULL, NULL, '2021-07-18 05:52:05', '2021-07-20 07:04:24', 10000000),
+(4, '12345678910', '2021-07-18', 4, 100, '4', NULL, NULL, NULL, NULL, '2021-07-18 05:52:32', '2021-07-18 05:52:32', 10000000),
+(5, '12345678910', '2021-07-19', 4, 100, '4', NULL, NULL, NULL, NULL, '2021-07-18 05:52:54', '2021-07-20 02:06:44', 10000000),
+(7, '12345678910', '2021-07-21', 10, 100, '4', NULL, NULL, NULL, NULL, '2021-07-20 01:07:44', '2021-07-20 01:07:44', 7060500);
 
 -- --------------------------------------------------------
 
@@ -245,7 +248,8 @@ INSERT INTO `users` (`id`, `nama`, `username`, `password`, `jabatan`, `alamat`, 
 (2, 'wadek', 'wadek', '$2y$10$6tdi6qbDqgxD1LwAWQ.uGeYoAgs..LkRKqodkIwxwEHolLdk2zJpq', 'wadek', 'subang', '085723853284', 'wadek', NULL, NULL, NULL, '10104019'),
 (3, 'admin', 'admin', '$2y$10$qoUSf527x.FnKYqx4JnaR.TMwXgLvhFnEZHZm0e9zbjv5r7tuRVRm', 'admin', 'subang', '085723853284', 'admin', NULL, NULL, NULL, '10104019'),
 (4, 'keuangan', 'keuangan', '$2y$10$Y4SG0WGbv9UqQJ5hOoTE3u5guRgLUvOFHWydvbPwBGsNCDm7qQ0bi', 'keuangan', 'subang', '085723853284', 'keuangan', NULL, NULL, NULL, '10104019'),
-(6, 'M. Bagas Setia Permana', 'bagassetia', '$2y$10$ZnnEm47M6YirWfRB671djup4.A49kmy7fr9fRiMIfg2x62iLn8S6W', 'admin', 'Sagalaherang', '085723853284', 'admin', NULL, '2021-07-20 00:52:46', '2021-07-20 00:54:38', '10104020');
+(6, 'M. Bagas Setia Permana', 'bagassetia', '$2y$10$ZnnEm47M6YirWfRB671djup4.A49kmy7fr9fRiMIfg2x62iLn8S6W', 'admin', 'Sagalaherang', '085723853284', 'admin', NULL, '2021-07-20 00:52:46', '2021-07-20 00:54:38', '10104020'),
+(7, 'Kaur Laboratorium', 'kaur_lab', '$2y$10$1Bs0n6UaEftHHTYIe7Vjfuvor8SQ.ya3OrzQOU/G85HFLvXL/.2G2', 'Kaur Laboratorium', 'Bandung', '085723853284', 'kaur_laboratorium', NULL, '2021-07-20 03:10:58', '2021-07-20 03:10:58', '321301261180001');
 
 --
 -- Indexes for dumped tables
@@ -357,7 +361,7 @@ ALTER TABLE `pengadaans`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

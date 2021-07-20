@@ -25,7 +25,10 @@ class BuatTablePengadaanDanMitra extends Migration
       $table->bigInteger('quantity');
       $table->string('mitra_id');
       $table->bigInteger('harga_aset');
-      $table->string('status')->nullable();
+      $table->enum('status_kaur', ['tolak', 'terima'])->nullable();
+      $table->enum('status_wadek', ['tolak', 'terima'])->nullable();
+      $table->enum('status_keuangan', ['tolak', 'terima'])->nullable();
+      $table->enum('status', ['tolak', 'terima'])->nullable();
       $table->timestamps();
     });
   }
