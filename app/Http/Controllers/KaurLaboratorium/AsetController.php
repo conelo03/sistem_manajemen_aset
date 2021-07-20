@@ -18,12 +18,12 @@ class AsetController extends Controller
   public function index()
   {
     $aset = $this->aset->all();
-    return view('kaur_laboratotium/aset', ['aset' => $aset]);
+    return view('kaur_laboratorium/aset', ['aset' => $aset]);
   }
   
   public function create()
   {
-    return view('kaur_laboratotium/tambahAset');
+    return view('kaur_laboratorium/tambahAset');
   }
   
   public function store(Request $request)
@@ -43,7 +43,7 @@ class AsetController extends Controller
 
     $this->aset->save();
 
-    return redirect('/kaur_laboratotium/data_aset')->with('status', 'Berhasil tambah data aset.');
+    return redirect('/kaur_laboratorium/data_aset')->with('status', 'Berhasil tambah data aset.');
   }
   
   public function show($id)
@@ -54,7 +54,7 @@ class AsetController extends Controller
   public function edit($id)
   {
     $aset = $this->aset->find($id);
-    return view('kaur_laboratotium/editAset', $aset);
+    return view('kaur_laboratorium/editAset', $aset);
   }
   
   public function update(Request $request, $id)
@@ -74,7 +74,7 @@ class AsetController extends Controller
 
     $aset_baru->save();
 
-    return redirect('/kaur_laboratotium/data_aset')->with('status', 'Berhasil edit data aset.');
+    return redirect('/kaur_laboratorium/data_aset')->with('status', 'Berhasil edit data aset.');
   }
   
   public function destroy($id)

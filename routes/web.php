@@ -203,6 +203,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [AsetKaurLaboratorium::class, 'destroy']);
         Route::get('/edit/{id}', [AsetKaurLaboratorium::class, 'edit']);
         Route::post('/edit/{id}', [AsetKaurLaboratorium::class, 'update']);
+        Route::get('/tambah', [AsetKaurLaboratorium::class, 'create']);
+        Route::post('/tambah', [AsetKaurLaboratorium::class, 'store']);
       });
 
       Route::prefix('/pengadaan')->group(function () {
