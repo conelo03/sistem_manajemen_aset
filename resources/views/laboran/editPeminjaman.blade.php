@@ -39,11 +39,45 @@
               <label class="form-control-label" for="input-username">Waktu Peminjaman</label>
               <input type="text" id="input-username" class="form-control" placeholder="Waktu Peminjaman" name="waktu_peminjaman" required value="{{ $waktu_peminjaman }}">
             </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">NIM/NIP</label>
+              <input type="text" id="input-username" class="form-control" placeholder="NIM/NIP" name="nip" required value="{{ $nip }}">
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">Email</label>
+              <input type="email" id="input-username" class="form-control" placeholder="Email" name="email" required value="{{ $email }}">
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">No. Telepon</label>
+              <input type="text" id="input-username" class="form-control" placeholder="No. Telepon" name="no_telepon" required value="{{ $no_telepon }}">
+            </div>
           </div>
         </div>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary float-right mb-3" type="submit">Edit</button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#edit">Edit</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Edit Peminjaman</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Anda yakin akan mengedit peminjaman?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary float-right" type="submit">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </form>
   </div>

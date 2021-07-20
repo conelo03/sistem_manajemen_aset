@@ -71,6 +71,9 @@ class PeminjamanController extends Controller
     $peminjaman_baru->tanggal_peminjaman  = $request->tanggal_peminjaman;
     $peminjaman_baru->tanggal_kembali     = $request->tanggal_kembali;
     $peminjaman_baru->waktu_peminjaman    = $request->waktu_peminjaman;
+    $peminjaman_baru->nip                 = $request->nip;
+    $peminjaman_baru->email               = $request->email;
+    $peminjaman_baru->no_telepon          = $request->no_telepon;
 
     $peminjaman_baru->save();
 
