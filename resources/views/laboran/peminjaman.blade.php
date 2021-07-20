@@ -19,28 +19,39 @@
         <table class="table" id="myTable">
           <thead class="thead-dark">
             <tr>
+              <th scope="col">No.</th>
               <th scope="col">Kode Aset</th>
               <th scope="col">Nama Aset</th>
+              <th scope="col">Merk</th>
               <th scope="col">Jenis Aset</th>
               <th scope="col">Nama Peminjam</th>
               <th scope="col">Lokasi Peminjaman</th>
               <th scope="col">Tanggal Peminjaman</th>
               <th scope="col">Tanggal Kembali</th>
               <th scope="col">Waktu Peminjaman</th>
+              <th scope="col">NIM/NIP</th>
+              <th scope="col">Email</th>
+              <th scope="col">No. Telepon</th>
               <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
+            <?php $no = 1; ?>
             @foreach ($peminjaman as $peminjaman)
               <tr>
+                <td>{{ $no++ }}</td>
                 <td>{{ $peminjaman->aset->kode_aset }}</td>
                 <td>{{ $peminjaman->aset->nama_aset }}</td>
+                <td>{{ $peminjaman->aset->merk }}</td>
                 <td>{{ $peminjaman->aset->jenis_aset }}</td>
                 <td>{{ $peminjaman->peminjam }}</td>
                 <td>{{ $peminjaman->lokasi_peminjaman }}</td>
                 <td>{{ $peminjaman->tanggal_peminjaman }}</td>
                 <td>{{ $peminjaman->tanggal_kembali }}</td>
                 <td>{{ $peminjaman->waktu_peminjaman }}</td>
+                <td>{{ $peminjaman->nip }}</td>
+                <td>{{ $peminjaman->email }}</td>
+                <td>{{ $peminjaman->no_telp }}</td>
                 <td>
                   <a href="/laboran/peminjaman/edit/{{ $peminjaman->id }}" class="btn btn-success">Edit</a>
                   <!-- Button trigger modal -->

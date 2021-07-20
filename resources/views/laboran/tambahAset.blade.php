@@ -59,7 +59,7 @@
       </div>
       <div class="card-footer">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#logout">Logout</button>
+        <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#logout">Tambah</button>
 
         <!-- Modal -->
         <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Jul 2021 pada 16.57
+-- Waktu pembuatan: 20 Jul 2021 pada 09.18
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -46,7 +46,8 @@ CREATE TABLE `asets` (
 --
 
 INSERT INTO `asets` (`id`, `nama_aset`, `jenis_aset`, `kepemilikan`, `lokasi`, `tanggal_pembelian`, `tanggal_maintenance`, `waktu_maintenance`, `kondisi`, `kode_aset`, `merk`) VALUES
-(4, 'nama', 'laboratorium', 'kepemilikan', 'lokasi', '2021-07-06', '2021-07-06', '1 minggu', 'rusak', '123456', 'toshiba');
+(4, 'Printer', 'laboratorium', 'kepemilikan', 'Subang', '2021-07-18', '2021-07-24', '1 minggu', 'mulus', '1234567890', 'Epson'),
+(10, 'Komputer', 'institusi', 'kepemilikan', 'lokasi', '2021-07-21', '2021-07-24', '1 minggu', 'rusak', 'T420', 'ROG');
 
 -- --------------------------------------------------------
 
@@ -163,7 +164,6 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `peminjaman` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `kode_peminjaman` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `aset_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `peminjam` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lokasi_peminjaman` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -171,8 +171,18 @@ CREATE TABLE `peminjaman` (
   `tanggal_kembali` date NOT NULL,
   `waktu_peminjaman` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `nip` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_telepon` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `peminjaman`
+--
+
+INSERT INTO `peminjaman` (`id`, `aset_id`, `peminjam`, `lokasi_peminjaman`, `tanggal_peminjaman`, `tanggal_kembali`, `waktu_peminjaman`, `created_at`, `updated_at`, `nip`, `email`, `no_telepon`) VALUES
+(2, '10', 'bagas', 'subang', '2021-07-18', '2021-07-24', '1 hari', '2021-07-18 08:00:45', '2021-07-18 08:00:45', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -192,6 +202,16 @@ CREATE TABLE `pengadaans` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `harga_aset` int(191) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `pengadaans`
+--
+
+INSERT INTO `pengadaans` (`id`, `no_pengadaan`, `tanggal_input`, `aset_id`, `quantity`, `mitra_id`, `status`, `created_at`, `updated_at`, `harga_aset`) VALUES
+(2, '12345678910', '2021-07-12', 4, 100, '4', NULL, '2021-07-12 06:40:07', '2021-07-12 06:40:07', 10000000),
+(3, '12345678910', '2021-07-18', 4, 100, '4', NULL, '2021-07-18 05:52:05', '2021-07-18 05:52:05', 10000000),
+(4, '12345678910', '2021-07-18', 4, 100, '4', NULL, '2021-07-18 05:52:32', '2021-07-18 05:52:32', 10000000),
+(5, '12345678910', '2021-07-19', 4, 100, '4', NULL, '2021-07-18 05:52:54', '2021-07-18 05:52:54', 10000000);
 
 -- --------------------------------------------------------
 
@@ -292,7 +312,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `asets`
 --
 ALTER TABLE `asets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -322,13 +342,13 @@ ALTER TABLE `mitras`
 -- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengadaans`
 --
 ALTER TABLE `pengadaans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
