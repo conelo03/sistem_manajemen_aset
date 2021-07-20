@@ -21,6 +21,7 @@ use App\Http\Controllers\Keuangan\PengadaanController as PengadaanKeuangan;
 
 use App\Http\Controllers\Wadek\WadekController;
 use App\Http\Controllers\Wadek\AsetController as AsetWadek;
+use App\Http\Controllers\Wadek\PengadaanController as PengadaanWadek;
 
 /*
 |--------------------------------------------------------------------------
@@ -155,6 +156,10 @@ Route::middleware('auth')->group(function () {
 
       Route::prefix('/data_aset')->group(function () {
         Route::get('/', [AsetWadek::class, 'index']);
+      });
+
+      Route::prefix('/pengadaan')->group(function () {
+        Route::get('/', [PengadaanWadek::class, 'index']);
       });
     });
   });

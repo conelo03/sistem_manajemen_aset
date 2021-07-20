@@ -207,6 +207,23 @@
                     <span class="nav-link-text text-white">Data Aset</span>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <span class="nav-link">
+                    <span class="nav-link-text text-white">Pengadaan</span>
+                  </span>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/wadek/pengadaan" class="nav-link">
+                        <span class="nav-link-text text-white">Data Pengadaan</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/wadek/pengadaan/history" class="nav-link">
+                        <span class="nav-link-text text-white">History Pengadaan</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
                 @break
             @endswitch
           </ul>
