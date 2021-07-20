@@ -165,6 +165,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [PengadaanKeuangan::class, 'destroy']);
         Route::get('/edit/{id}', [PengadaanKeuangan::class, 'edit']);
         Route::post('/edit/{id}', [PengadaanKeuangan::class, 'update']);
+        Route::get('/{status}/{id}', [PengadaanKeuangan::class, 'updateStatus']);
       });
 
       Route::prefix('/maintenance')->group(function () {

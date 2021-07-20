@@ -46,11 +46,69 @@
                 <td>{{ tgl_indo(substr($pengadaan->tanggal_input, 0, 10)) }}</td>
                 <td>{{ $pengadaan->mitra->nama_mitra }}</td>
                 <td>{{ $pengadaan->mitra->kode_mitra }}</td>
-                <td>{{ $pengadaan->status }}</td>
                 <td>
-                  <a href="/keuangan/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-success">Edit</a>
+                  @switch($pengadaan->status_keuangan)
+                    @case(null)
+                      <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#terima{{ $pengadaan->id }}">Terima</button>
+                      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#tolak{{ $pengadaan->id }}">Tolak</button>
+                      @break
+
+                    @case('terima')
+                      <button type="button" class="btn btn-sm btn-success" readonly>Diterima</button>
+                      @break
+
+                    @case('tolak')
+                      <button type="button" class="btn btn-sm btn-danger" readonly>Ditolak</button>
+                      @break
+
+                    @default
+                        Default case...
+                  @endswitch
+                  
+                  <div class="modal fade" id="terima{{ $pengadaan->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Terima</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Anda yakin akan menerima data pengadaan ini?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <a href="/keuangan/pengadaan/terima/{{ $pengadaan->id }}" class="btn btn-success">Terima</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="modal fade" id="tolak{{ $pengadaan->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Tolak</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Anda yakin akan menolak data pengadaan ini?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <a href="/keuangan/pengadaan/tolak/{{ $pengadaan->id }}" class="btn btn-danger">Tolak</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <a href="/keuangan/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-sm btn-success">Edit</a>
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus{{ $pengadaan->id }}">
+                  <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#hapus{{ $pengadaan->id }}">
                     Hapus
                   </button>
 

@@ -64,4 +64,24 @@ class PengadaanController extends Controller
     $pengadaan = $this->pengadaan->all();
     return view('keuangan/historyPengadaan', ['pengadaan' => $pengadaan]);
   }
+  
+  public function updateStatus($status, $id)
+  {
+    $pengadaan_baru = $this->pengadaan->find($id);
+
+    $pengadaan_baru->status_keuangan  = $status;
+    
+    $pengadaan_baru->save();
+
+    $pengadaan_baru = $this->pengadaan->find($id);
+    if ($pengadaan_baru->status_keuangan !== NULL && $pengadaan_baru->status_keuangan !== NULL && $pengadaan_baru->status_keuangan !== NULL) {
+      if ($pengadaan_baru->status_keuangan == 'terima' && $pengadaan_baru->status_keuangan == 'terima' && $pengadaan_baru->status_keuangan == 'terima') {
+        $pengadaan_baru->status = 'terima';
+      } else {
+        $pengadaan_baru->status = 'tolak';
+      }
+      $pengadaan_baru->save();
+    }
+    return redirect('/keuangan/pengadaan')->with('status', 'Berhasil ' . $status . ' data pengadaan.');
+  }
 }
