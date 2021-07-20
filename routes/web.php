@@ -17,6 +17,7 @@ use App\Http\Controllers\Laboran\PengadaanController as PengadaanLaboran;
 
 use App\Http\Controllers\Keuangan\KeuanganController;
 use App\Http\Controllers\Keuangan\AsetController as AsetKeuangan;
+use App\Http\Controllers\Keuangan\PengadaanController as PengadaanKeuangan;
 
 use App\Http\Controllers\Wadek\WadekController;
 use App\Http\Controllers\Wadek\AsetController as AsetWadek;
@@ -137,6 +138,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [AsetKeuangan::class, 'destroy']);
         Route::get('/edit/{id}', [AsetKeuangan::class, 'edit']);
         Route::post('/edit/{id}', [AsetKeuangan::class, 'update']);
+      });
+
+      Route::prefix('/pengadaan')->group(function () {
+        Route::get('/', [PengadaanKeuangan::class, 'index']);
+        Route::get('/hapus/{id}', [PengadaanKeuangan::class, 'destroy']);
+        Route::get('/edit/{id}', [PengadaanKeuangan::class, 'edit']);
+        Route::post('/edit/{id}', [PengadaanKeuangan::class, 'update']);
       });
     });
   });

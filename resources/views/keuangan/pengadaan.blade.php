@@ -6,7 +6,6 @@
       <h3>PENGADAAN</h3>
     </div>
     <div class="card-body">
-      <a href="/admin/pengadaan/tambah" class="btn btn-primary mb-3">Tambah</a>
       @if (session('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{ session('status') }}
@@ -49,7 +48,7 @@
                 <td>{{ $pengadaan->mitra->kode_mitra }}</td>
                 <td>{{ $pengadaan->status }}</td>
                 <td>
-                  <a href="/admin/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-success">Edit</a>
+                  <a href="/laboran/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-success">Edit</a>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus{{ $pengadaan->id }}">
                     Hapus
@@ -70,7 +69,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/admin/pengadaan/hapus/{{ $pengadaan->id }}" class="btn btn-danger">Hapus</a>
+                          <a href="/laboran/pengadaan/hapus/{{ $pengadaan->id }}" class="btn btn-danger">Hapus</a>
                         </div>
                       </div>
                     </div>
