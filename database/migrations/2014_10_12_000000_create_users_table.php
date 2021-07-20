@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
         $table->string('jabatan');
         $table->string('alamat');
         $table->string('no_telp');
-        $table->enum('role', ['laboran', 'keuangan', 'wadek', 'admin']);
+        $table->enum('role', ['laboran', 'keuangan', 'wadek', 'admin', 'kaur_laboratorium']);
         $table->rememberToken();
         $table->timestamps();
       });

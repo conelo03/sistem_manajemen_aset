@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Jul 2021 pada 09.18
+-- Waktu pembuatan: 20 Jul 2021 pada 12.04
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -46,7 +46,7 @@ CREATE TABLE `asets` (
 --
 
 INSERT INTO `asets` (`id`, `nama_aset`, `jenis_aset`, `kepemilikan`, `lokasi`, `tanggal_pembelian`, `tanggal_maintenance`, `waktu_maintenance`, `kondisi`, `kode_aset`, `merk`) VALUES
-(4, 'Printer', 'laboratorium', 'kepemilikan', 'Subang', '2021-07-18', '2021-07-24', '1 minggu', 'mulus', '1234567890', 'Epson'),
+(4, 'Printer', 'laboratorium', 'pribadi', 'Subang', '2021-07-18', '2021-07-24', '1 minggu', 'mulus', '1234567890', 'Epson'),
 (10, 'Komputer', 'institusi', 'kepemilikan', 'lokasi', '2021-07-21', '2021-07-24', '1 minggu', 'rusak', 'T420', 'ROG');
 
 -- --------------------------------------------------------
@@ -182,7 +182,8 @@ CREATE TABLE `peminjaman` (
 --
 
 INSERT INTO `peminjaman` (`id`, `aset_id`, `peminjam`, `lokasi_peminjaman`, `tanggal_peminjaman`, `tanggal_kembali`, `waktu_peminjaman`, `created_at`, `updated_at`, `nip`, `email`, `no_telepon`) VALUES
-(2, '10', 'bagas', 'subang', '2021-07-18', '2021-07-24', '1 hari', '2021-07-18 08:00:45', '2021-07-18 08:00:45', '', '', '');
+(2, '10', 'bagas', 'subang', '2021-07-18', '2021-07-24', '1 hari', '2021-07-18 08:00:45', '2021-07-20 00:31:55', '10104019', 'setiapermanabagas@gmail.com', '085723853284'),
+(4, '10', 'M. Bagas Setia', 'C100', '2021-07-20', '2021-07-24', '1 hari', '2021-07-20 00:25:57', '2021-07-20 00:25:57', '10104019', 'bagassetia271@gmail.com', '085723853284');
 
 -- --------------------------------------------------------
 
@@ -211,7 +212,8 @@ INSERT INTO `pengadaans` (`id`, `no_pengadaan`, `tanggal_input`, `aset_id`, `qua
 (2, '12345678910', '2021-07-12', 4, 100, '4', NULL, '2021-07-12 06:40:07', '2021-07-12 06:40:07', 10000000),
 (3, '12345678910', '2021-07-18', 4, 100, '4', NULL, '2021-07-18 05:52:05', '2021-07-18 05:52:05', 10000000),
 (4, '12345678910', '2021-07-18', 4, 100, '4', NULL, '2021-07-18 05:52:32', '2021-07-18 05:52:32', 10000000),
-(5, '12345678910', '2021-07-19', 4, 100, '4', NULL, '2021-07-18 05:52:54', '2021-07-18 05:52:54', 10000000);
+(5, '12345678910', '2021-07-19', 4, 100, '4', NULL, '2021-07-18 05:52:54', '2021-07-20 02:06:44', 10000000),
+(7, '12345678910', '2021-07-21', 10, 100, '4', NULL, '2021-07-20 01:07:44', '2021-07-20 01:07:44', 7060500);
 
 -- --------------------------------------------------------
 
@@ -227,7 +229,7 @@ CREATE TABLE `users` (
   `jabatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_telp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` enum('laboran','keuangan','wadek','admin') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` enum('laboran','keuangan','wadek','admin','kaur_laboratorium') COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -242,7 +244,8 @@ INSERT INTO `users` (`id`, `nama`, `username`, `password`, `jabatan`, `alamat`, 
 (1, 'laboran', 'laboran', '$2y$10$GrUaRkbu.Ake15PqqUAq1eBdaA3PZhYHEfI.oWFkJlN/k3eH746ki', 'laboran', 'subang', '085723853284', 'laboran', NULL, NULL, NULL, '10104019'),
 (2, 'wadek', 'wadek', '$2y$10$6tdi6qbDqgxD1LwAWQ.uGeYoAgs..LkRKqodkIwxwEHolLdk2zJpq', 'wadek', 'subang', '085723853284', 'wadek', NULL, NULL, NULL, '10104019'),
 (3, 'admin', 'admin', '$2y$10$qoUSf527x.FnKYqx4JnaR.TMwXgLvhFnEZHZm0e9zbjv5r7tuRVRm', 'admin', 'subang', '085723853284', 'admin', NULL, NULL, NULL, '10104019'),
-(4, 'keuangan', 'keuangan', '$2y$10$Y4SG0WGbv9UqQJ5hOoTE3u5guRgLUvOFHWydvbPwBGsNCDm7qQ0bi', 'keuangan', 'subang', '085723853284', 'keuangan', NULL, NULL, NULL, '10104019');
+(4, 'keuangan', 'keuangan', '$2y$10$Y4SG0WGbv9UqQJ5hOoTE3u5guRgLUvOFHWydvbPwBGsNCDm7qQ0bi', 'keuangan', 'subang', '085723853284', 'keuangan', NULL, NULL, NULL, '10104019'),
+(6, 'M. Bagas Setia Permana', 'bagassetia', '$2y$10$ZnnEm47M6YirWfRB671djup4.A49kmy7fr9fRiMIfg2x62iLn8S6W', 'admin', 'Sagalaherang', '085723853284', 'admin', NULL, '2021-07-20 00:52:46', '2021-07-20 00:54:38', '10104020');
 
 --
 -- Indexes for dumped tables
@@ -342,19 +345,19 @@ ALTER TABLE `mitras`
 -- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengadaans`
 --
 ALTER TABLE `pengadaans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

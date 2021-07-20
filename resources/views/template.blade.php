@@ -14,6 +14,15 @@
       @case('laboran')
         Laboran
         @break
+      @case('wadek')
+        Wakil Dekan 2
+        @break
+      @case('keuangan')
+        Keuangan
+        @break
+      @case('kaur_laboratorium')
+        Kaur Laboratorium
+        @break
     @endswitch
   </title>
   <!-- Favicon -->
@@ -259,6 +268,64 @@
                   </ul>
                 </li>
                 @break
+              @case('kaur_laboratorium')
+                <li class="nav-item">
+                  <a class="nav-link" href="/kaur_laboratorium/data_aset">
+                    <span class="nav-link-text text-white">Data Aset</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <span class="nav-link">
+                    <span class="nav-link-text text-white">Pengadaan</span>
+                  </span>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/kaur_laboratorium/pengadaan" class="nav-link">
+                        <span class="nav-link-text text-white">Data Pengadaan</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/kaur_laboratorium/pengadaan/history" class="nav-link">
+                        <span class="nav-link-text text-white">History Pengadaan</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <span class="nav-link">
+                    <span class="nav-link-text text-white">Maintenance</span>
+                  </span>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/kaur_laboratorium/maintenance" class="nav-link">
+                        <span class="nav-link-text text-white">Data Maintenance</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/kaur_laboratorium/maintenance/history" class="nav-link">
+                        <span class="nav-link-text text-white">History Maintenance</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <span class="nav-link">
+                    <span class="nav-link-text text-white">Peminjaman</span>
+                  </span>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/kaur_laboratorium/peminjaman" class="nav-link">
+                        <span class="nav-link-text text-white">Data Peminjaman</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/kaur_laboratorium/peminjaman/history" class="nav-link">
+                        <span class="nav-link-text text-white">History Peminjaman</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                @break
             @endswitch
           </ul>
         </div>
@@ -294,6 +361,9 @@
                 @break
               @case('wadek')
                 Selamat datang Wakil Dekan 2!
+                @break
+              @case('kaur_laboratorium')
+                Selamat datang Kaur Laboratorium!
                 @break
             @endswitch
             <div class="float-right">

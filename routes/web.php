@@ -26,6 +26,9 @@ use App\Http\Controllers\Wadek\AsetController as AsetWadek;
 use App\Http\Controllers\Wadek\PengadaanController as PengadaanWadek;
 use App\Http\Controllers\Wadek\MaintenanceController as MaintenanceWadek;
 
+use App\Http\Controllers\KaurLaboratorium\KaurLaboratoriumController;
+use App\Http\Controllers\KaurLaboratorium\AsetController as AsetKaurLaboratorium;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -187,6 +190,27 @@ Route::middleware('auth')->group(function () {
 
       Route::prefix('/maintenance')->group(function () {
         Route::get('/', [MaintenanceWadek::class, 'index']);
+      });
+    });
+  });
+  
+  Route::middleware('KaurLaboratorium')->group(function () {
+    Route::prefix('kaur_laboratorium')->group(function () {
+      Route::get('/', [KaurLaboratoriumController::class, 'index']);
+
+      Route::prefix('/data_aset')->group(function () {
+        Route::get('/', [AsetKaurLaboratorium::class, 'index']);
+        Route::get('/hapus/{id}', [AsetKaurLaboratorium::class, 'destroy']);
+        Route::get('/edit/{id}', [AsetKaurLaboratorium::class, 'edit']);
+        Route::post('/edit/{id}', [AsetKaurLaboratorium::class, 'update']);
+      });
+
+      Route::prefix('/pengadaan')->group(function () {
+        Route::get('/', [PengadaanKaurLaboratorium::class, 'index']);
+      });
+
+      Route::prefix('/maintenance')->group(function () {
+        Route::get('/', [MaintenanceKaurLaboratorium::class, 'index']);
       });
     });
   });

@@ -46,6 +46,7 @@
                 <option value="keuangan">Keuangan</option>
                 <option value="laboran">Laboran</option>
                 <option value="wadek">Wadek</option>
+                <option value="kaur_laboratorium">Kaur Laboratorium</option>
               </select>
             </div>
           </div>
