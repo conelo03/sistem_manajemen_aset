@@ -30,6 +30,7 @@ use App\Http\Controllers\KaurLaboratorium\KaurLaboratoriumController;
 use App\Http\Controllers\KaurLaboratorium\AsetController as AsetKaurLaboratorium;
 use App\Http\Controllers\KaurLaboratorium\PengadaanController as PengadaanKaurLaboratorium;
 use App\Http\Controllers\KaurLaboratorium\MaintenanceController as MaintenanceKaurLaboratorium;
+use App\Http\Controllers\KaurLaboratorium\PeminjamanController as PeminjamanKaurLaboratorium;
 
 /*
 |--------------------------------------------------------------------------
@@ -227,6 +228,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [MaintenanceKaurLaboratorium::class, 'edit']);
         Route::post('/edit/{id}', [MaintenanceKaurLaboratorium::class, 'update']);
         Route::get('/history', [MaintenanceKaurLaboratorium::class, 'history']);
+      });
+
+      Route::prefix('/peminjaman')->group(function () {
+        Route::get('/', [PeminjamanKaurLaboratorium::class, 'index']);
+        Route::get('/tambah', [PeminjamanKaurLaboratorium::class, 'create']);
+        Route::post('/tambah', [PeminjamanKaurLaboratorium::class, 'store']);
+        Route::get('/hapus/{id}', [PeminjamanKaurLaboratorium::class, 'destroy']);
+        Route::get('/edit/{id}', [PeminjamanKaurLaboratorium::class, 'edit']);
+        Route::post('/edit/{id}', [PeminjamanKaurLaboratorium::class, 'update']);
+        Route::get('/history', [PeminjamanKaurLaboratorium::class, 'history']);
       });
     });
   });
