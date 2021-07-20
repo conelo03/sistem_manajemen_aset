@@ -94,7 +94,7 @@ class PengadaanController extends Controller
 
     $pengadaan_baru->save();
 
-    return redirect('/kaur_laboratorium/pengadaan')->with('status', 'Berhasil edit data pengadaan.');
+    return redirect('/kaur_laboratorium/pengadaan')->with('status', 'Berhasil ' . $status . ' data pengadaan.');
   }
   
   public function destroy($id)
