@@ -192,6 +192,7 @@ Route::middleware('auth')->group(function () {
       Route::prefix('/pengadaan')->group(function () {
         Route::get('/', [PengadaanWadek::class, 'index']);
         Route::get('/{status}/{id}', [PengadaanWadek::class, 'updateStatus']);
+        Route::get('/history', [PengadaanWadek::class, 'history']);
       });
 
       Route::prefix('/maintenance')->group(function () {
