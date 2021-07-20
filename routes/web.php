@@ -28,6 +28,7 @@ use App\Http\Controllers\Wadek\MaintenanceController as MaintenanceWadek;
 
 use App\Http\Controllers\KaurLaboratorium\KaurLaboratoriumController;
 use App\Http\Controllers\KaurLaboratorium\AsetController as AsetKaurLaboratorium;
+use App\Http\Controllers\KaurLaboratorium\PengadaanController as PengadaanKaurLaboratorium;
 
 /*
 |--------------------------------------------------------------------------
@@ -209,6 +210,12 @@ Route::middleware('auth')->group(function () {
 
       Route::prefix('/pengadaan')->group(function () {
         Route::get('/', [PengadaanKaurLaboratorium::class, 'index']);
+        Route::get('/tambah', [PengadaanKaurLaboratorium::class, 'create']);
+        Route::post('/tambah', [PengadaanKaurLaboratorium::class, 'store']);
+        Route::get('/hapus/{id}', [PengadaanKaurLaboratorium::class, 'destroy']);
+        Route::get('/edit/{id}', [PengadaanKaurLaboratorium::class, 'edit']);
+        Route::post('/edit/{id}', [PengadaanKaurLaboratorium::class, 'update']);
+        Route::get('/history', [PengadaanKaurLaboratorium::class, 'history']);
       });
 
       Route::prefix('/maintenance')->group(function () {

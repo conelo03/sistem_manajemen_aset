@@ -5,7 +5,7 @@
     <div class="card-header">
       <h3>PENGADAAN</h3>
     </div>
-    <form action="/kaur_laboratorium/pengadaan/edit/{{ $id }}" method="post">
+    <form action="/laboran/pengadaan/edit/{{ $id }}" method="post">
       @csrf
       <div class="card-body">
         <div class="row">
