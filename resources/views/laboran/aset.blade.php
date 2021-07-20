@@ -19,12 +19,13 @@
         <table class="table" id="myTable">
           <thead class="thead-dark">
             <tr>
+              <th scope="col">No.</th>
               <th scope="col">Kode Aset</th>
               <th scope="col">Nama Aset</th>
-              <th scope="col">Jenis Aset</th>
               <th scope="col">Merk</th>
-              <th scope="col">Kepemilikan</th>
+              <th scope="col">Jenis Aset</th>
               <th scope="col">Lokasi</th>
+              <th scope="col">Kepemilikan</th>
               <th scope="col">Tanggal Pembelian</th>
               <th scope="col">Tanggal Maintenance</th>
               <th scope="col">Waktu Maintenance</th>
@@ -33,14 +34,16 @@
             </tr>
           </thead>
           <tbody>
+            <?php $no = 1; ?>
             @foreach ($aset as $aset)
               <tr>
+                <td>{{ $no++ }}</td>
                 <td>{{ $aset->kode_aset }}</td>
                 <td>{{ $aset->nama_aset }}</td>
-                <td>{{ $aset->jenis_aset }}</td>
                 <td>{{ $aset->merk }}</td>
-                <td>{{ $aset->kepemilikan }}</td>
+                <td>{{ $aset->jenis_aset }}</td>
                 <td>{{ $aset->lokasi }}</td>
+                <td>{{ $aset->kepemilikan }}</td>
                 <td>{{ $aset->tanggal_pembelian }}</td>
                 <td>{{ $aset->tanggal_maintenance }}</td>
                 <td>{{ $aset->waktu_maintenance }}</td>

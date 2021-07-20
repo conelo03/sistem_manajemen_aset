@@ -59,10 +59,10 @@
       </div>
       <div class="card-footer">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#logout">Edit</button>
+        <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#edit">Edit</button>
 
         <!-- Modal -->
-        <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
