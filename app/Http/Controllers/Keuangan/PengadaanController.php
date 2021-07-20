@@ -32,7 +32,7 @@ class PengadaanController extends Controller
     $pengadaan          = $this->pengadaan->find($id);
     $pengadaan['aset']  = $this->aset->all();
     $pengadaan['mitra'] = $this->mitra->all();
-    return view('admin/editPengadaan', $pengadaan);
+    return view('keuangan/editPengadaan', $pengadaan);
   }
   
   public function update(Request $request, $id)
@@ -49,7 +49,7 @@ class PengadaanController extends Controller
 
     $pengadaan_baru->save();
 
-    return redirect('/admin/pengadaan')->with('status', 'Berhasil edit data pengadaan.');
+    return redirect('/keuangan/pengadaan')->with('status', 'Berhasil edit data pengadaan.');
   }
   
   public function destroy($id)
@@ -62,6 +62,6 @@ class PengadaanController extends Controller
   public function history()
   {
     $pengadaan = $this->pengadaan->all();
-    return view('admin/historyPengadaan', ['pengadaan' => $pengadaan]);
+    return view('keuangan/historyPengadaan', ['pengadaan' => $pengadaan]);
   }
 }

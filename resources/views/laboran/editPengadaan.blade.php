@@ -40,7 +40,7 @@
               <select name="mitra" id="mitra" class="form-control mySelect2" required>
                 <option selected disabled></option>
                 @foreach($mitra as $mitra)
-                  <option value="{{ $aset->id }}" <?= $mitra_id == $mitra->id ? 'selected' : '' ; ?>>{{ $mitra->nama_mitra }}</option>
+                  <option value="{{ $mitra->id }}" <?= $mitra_id == $mitra->id ? 'selected' : '' ; ?>>{{ $mitra->nama_mitra }}</option>
                 @endforeach
               </select>
             </div>

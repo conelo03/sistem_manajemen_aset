@@ -48,7 +48,7 @@
                 <td>{{ $pengadaan->mitra->kode_mitra }}</td>
                 <td>{{ $pengadaan->status }}</td>
                 <td>
-                  <a href="/laboran/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-success">Edit</a>
+                  <a href="/keuangan/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-success">Edit</a>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus{{ $pengadaan->id }}">
                     Hapus
@@ -69,7 +69,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/laboran/pengadaan/hapus/{{ $pengadaan->id }}" class="btn btn-danger">Hapus</a>
+                          <a href="/keuangan/pengadaan/hapus/{{ $pengadaan->id }}" class="btn btn-danger">Hapus</a>
                         </div>
                       </div>
                     </div>
