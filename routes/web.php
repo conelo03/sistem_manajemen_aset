@@ -24,6 +24,7 @@ use App\Http\Controllers\Keuangan\MaintenanceController as MaintenanceKeuangan;
 use App\Http\Controllers\Wadek\WadekController;
 use App\Http\Controllers\Wadek\AsetController as AsetWadek;
 use App\Http\Controllers\Wadek\PengadaanController as PengadaanWadek;
+use App\Http\Controllers\Wadek\MaintenanceController as MaintenanceWadek;
 
 /*
 |--------------------------------------------------------------------------
@@ -182,6 +183,10 @@ Route::middleware('auth')->group(function () {
 
       Route::prefix('/pengadaan')->group(function () {
         Route::get('/', [PengadaanWadek::class, 'index']);
+      });
+
+      Route::prefix('/maintenance')->group(function () {
+        Route::get('/', [MaintenanceWadek::class, 'index']);
       });
     });
   });
