@@ -134,6 +134,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [PeminjamanLaboran::class, 'edit']);
         Route::post('/edit/{id}', [PeminjamanLaboran::class, 'update']);
         Route::get('/history', [PeminjamanLaboran::class, 'history']);
+        Route::get('/print', [PeminjamanLaboran::class, 'print']);
       });
 
       Route::prefix('/pengadaan')->group(function () {
