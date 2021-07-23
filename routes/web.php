@@ -228,6 +228,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/{status}/{id}', [MaintenanceWadek::class, 'updateStatus']);
         Route::get('/history', [MaintenanceWadek::class, 'history']);
         Route::get('/print_history', [MaintenanceWadek::class, 'printHistory']);
+        Route::get('/print', [MaintenanceWadek::class, 'print']);
       });
 
       Route::prefix('/peminjaman')->group(function () {
