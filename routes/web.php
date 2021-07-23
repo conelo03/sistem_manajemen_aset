@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [AsetController::class, 'destroy']);
         Route::get('/edit/{id}', [AsetController::class, 'edit']);
         Route::post('/edit/{id}', [AsetController::class, 'update']);
+        Route::get('/print', [AsetController::class, 'print']);
       });
 
       Route::prefix('/manajemen_user')->group(function () {
@@ -115,6 +116,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [AsetLaboran::class, 'destroy']);
         Route::get('/edit/{id}', [AsetLaboran::class, 'edit']);
         Route::post('/edit/{id}', [AsetLaboran::class, 'update']);
+        Route::get('/print', [AsetLaboran::class, 'print']);
       });
 
       Route::prefix('/peminjaman')->group(function () {
@@ -158,6 +160,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [AsetKeuangan::class, 'destroy']);
         Route::get('/edit/{id}', [AsetKeuangan::class, 'edit']);
         Route::post('/edit/{id}', [AsetKeuangan::class, 'update']);
+        Route::get('/print', [AsetKeuangan::class, 'print']);
       });
 
       Route::prefix('/pengadaan')->group(function () {
@@ -216,6 +219,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/edit/{id}', [AsetKaurLaboratorium::class, 'update']);
         Route::get('/tambah', [AsetKaurLaboratorium::class, 'create']);
         Route::post('/tambah', [AsetKaurLaboratorium::class, 'store']);
+        Route::get('/print', [AsetKaurLaboratorium::class, 'print']);
       });
 
       Route::prefix('/pengadaan')->group(function () {

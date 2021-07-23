@@ -83,4 +83,10 @@ class AsetController extends Controller
     $aset->delete();
     return back()->with('status', 'Berhasil hapus data aset.');
   }
+  
+  public function print()
+  {
+    $aset = $this->aset->all();
+    return view('wadek/printAset', ['aset' => $aset]);
+  }
 }
