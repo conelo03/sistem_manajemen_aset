@@ -184,6 +184,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/{status}/{id}', [PengadaanKeuangan::class, 'updateStatus']);
         Route::get('/history', [PengadaanKeuangan::class, 'history']);
         Route::get('/print', [PengadaanKeuangan::class, 'print']);
+        Route::get('/print_history', [PengadaanKeuangan::class, 'printHistory']);
       });
 
       Route::prefix('/maintenance')->group(function () {
@@ -196,6 +197,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/history', [MaintenanceKeuangan::class, 'history']);
         Route::get('/{status}/{id}', [MaintenanceKeuangan::class, 'updateStatus']);
         Route::get('/print_history', [MaintenanceKeuangan::class, 'printHistory']);
+        Route::get('/print', [MaintenanceKeuangan::class, 'print']);
       });
 
       Route::prefix('/peminjaman')->group(function () {
