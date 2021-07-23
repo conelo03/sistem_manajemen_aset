@@ -6,6 +6,7 @@
       <h3>DATA ASET</h3>
     </div>
     <div class="card-body">
+      <a href="/wadek/data_aset/print" target="_blank" class="btn btn-primary mb-3">Cetak</a>
       @if (session('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{ session('status') }}

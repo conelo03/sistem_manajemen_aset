@@ -188,6 +188,7 @@ Route::middleware('auth')->group(function () {
 
       Route::prefix('/data_aset')->group(function () {
         Route::get('/', [AsetWadek::class, 'index']);
+        Route::get('/print', [AsetWadek::class, 'print']);
       });
 
       Route::prefix('/pengadaan')->group(function () {
