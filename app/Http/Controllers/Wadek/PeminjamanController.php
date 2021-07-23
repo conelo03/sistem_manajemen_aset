@@ -27,7 +27,7 @@ class PeminjamanController extends Controller
   public function history()
   {
     $peminjaman = $this->peminjaman->where('status', 'terima')->get();
-    return view('admin/historyPeminjaman', ['peminjaman' => $peminjaman]);
+    return view('wadek/historyPeminjaman', ['peminjaman' => $peminjaman]);
   }
   
   public function updateStatus($status, $id)
