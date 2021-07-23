@@ -115,12 +115,12 @@ class MaintenanceController extends Controller
   public function history()
   {
     $maintenance  = $this->maintenance->where('status', 'terima')->get();
-    return view('wadek/historyMaintenance', ['maintenance' => $maintenance]);
+    return view('historyMaintenance', ['maintenance' => $maintenance]);
   }
 
   public function printHistory()
   {
     $maintenance  = $this->maintenance->where('status', 'terima')->get();
-    return view('wadek/printHistoryMaintenance', ['maintenance' => $maintenance]);
+    return view('printHistoryMaintenance', ['maintenance' => $maintenance]);
   }
 }
