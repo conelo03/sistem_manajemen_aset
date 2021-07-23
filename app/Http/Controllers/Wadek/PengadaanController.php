@@ -48,4 +48,16 @@ class PengadaanController extends Controller
     }
     return redirect('/wadek/pengadaan')->with('status', 'Berhasil ' . $status . ' data pengadaan.');
   }
+
+  public function printHistory()
+  {
+    $pengadaan  = $this->pengadaan->where('status', 'terima')->get();
+    return view('printHistoryPengadaan', ['pengadaan' => $pengadaan]);
+  }
+  
+  public function print()
+  {
+    $pengadaan = $this->pengadaan->all();
+    return view('printPengadaan', ['pengadaan' => $pengadaan]);
+  }
 }
