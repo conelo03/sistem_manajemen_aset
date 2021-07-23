@@ -12,8 +12,12 @@
   </style>
 </head>
 <body>
-  <img src="{{ asset('img') }}/headerHistoryMaintenance.png" width="100%">
+  <img src="{{ asset('img') }}/header.png" width="100%">
   <footer><img src="{{ asset('img') }}/footer.png" width="100%"></footer>
+  <br><br>
+  <div class="text-center"><strong>FAKULTAS REKAYASA INDUSTRI UNIVERSITAS TELKOM</strong></div>
+  <div class="text-center"><strong>HISTORY PEMINJAMAN ASET</strong></div>
+  <br>
     <table class="table" id="myTable">
       <thead class="thead-dark">
         <tr>

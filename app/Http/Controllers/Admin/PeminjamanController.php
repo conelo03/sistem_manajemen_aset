@@ -90,7 +90,7 @@ class PeminjamanController extends Controller
   public function printHistory()
   {
     $peminjaman  = $this->peminjaman->where('status', 'terima')->get();
-    return view('wadek/printHistoryPeminjaman', ['peminjaman' => $maintenance]);
+    return view('printHistoryPeminjaman', ['peminjaman' => $peminjaman]);
   }
   
   public function print()
