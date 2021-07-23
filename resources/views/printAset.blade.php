@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-  <img src="{{ asset('img') }}/header.png" width="100%">
+  <img src="{{ asset('img') }}/headerAset.png" width="100%">
   <footer><img src="{{ asset('img') }}/footer.png" width="100%"></footer>
   <table class="table" id="myTable">
     <thead class="thead-dark">
@@ -21,7 +21,6 @@
         <th scope="col">Nama Aset</th>
         <th scope="col">Jenis Aset</th>
         <th scope="col">Merk</th>
-        <th scope="col">Kepemilikan</th>
         <th scope="col">Lokasi</th>
         <th scope="col">Tanggal Pembelian</th>
         <th scope="col">Tanggal Maintenance</th>
@@ -36,7 +35,6 @@
           <td>{{ $aset->nama_aset }}</td>
           <td>{{ $aset->jenis_aset }}</td>
           <td>{{ $aset->merk }}</td>
-          <td>{{ $aset->kepemilikan }}</td>
           <td>{{ $aset->lokasi }}</td>
           <td>{{ $aset->tanggal_pembelian }}</td>
           <td>{{ $aset->tanggal_maintenance }}</td>

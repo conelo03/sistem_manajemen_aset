@@ -46,11 +46,6 @@ class AsetController extends Controller
     return redirect('/admin/data_aset')->with('status', 'Berhasil tambah data aset.');
   }
   
-  public function show($id)
-  {
-      //
-  }
-  
   public function edit($id)
   {
     $aset = $this->aset->find($id);
@@ -87,6 +82,6 @@ class AsetController extends Controller
   public function print()
   {
     $aset = $this->aset->all();
-    return view('wadek/printAset', ['aset' => $aset]);
+    return view('printAset', ['aset' => $aset]);
   }
 }
