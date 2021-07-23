@@ -84,4 +84,10 @@ class PengadaanController extends Controller
     }
     return redirect('/keuangan/pengadaan')->with('status', 'Berhasil ' . $status . ' data pengadaan.');
   }
+  
+  public function print()
+  {
+    $pengadaan = $this->pengadaan->all();
+    return view('printPengadaan', ['pengadaan' => $pengadaan]);
+  }
 }

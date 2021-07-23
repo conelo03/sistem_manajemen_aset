@@ -183,6 +183,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/edit/{id}', [PengadaanKeuangan::class, 'update']);
         Route::get('/{status}/{id}', [PengadaanKeuangan::class, 'updateStatus']);
         Route::get('/history', [PengadaanKeuangan::class, 'history']);
+        Route::get('/print', [PengadaanKeuangan::class, 'print']);
       });
 
       Route::prefix('/maintenance')->group(function () {
