@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Aset</title>
+  <title>Pengadaan</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <style>
     header { position: fixed; left: 0px; right: 0px; background-color: lightblue; height: 50px; }
@@ -16,34 +16,37 @@
   <footer><img src="{{ asset('img') }}/footer.png" width="100%"></footer>
   <br><br>
   <div class="text-center"><strong>FAKULTAS REKAYASA INDUSTRI UNIVERSITAS TELKOM</strong></div>
-  <div class="text-center"><strong>DAFTAR ASET</strong></div>
+  <div class="text-center"><strong>PENGADAAN ASET</strong></div>
   <br>
   <table class="table" id="myTable">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Kode Aset</th>
+        <th scope="col">No.</th>
+        <th scope="col">Nomor Pengadaan</th>
         <th scope="col">Nama Aset</th>
+        <th scope="col">Jenis Merk</th>
         <th scope="col">Jenis Aset</th>
-        <th scope="col">Merk</th>
-        <th scope="col">Lokasi</th>
-        <th scope="col">Tanggal Pembelian</th>
-        <th scope="col">Tanggal Maintenance</th>
-        <th scope="col">Waktu Maintenance</th>
-        <th scope="col">Kondisi</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Harga Aset</th>
+        <th scope="col">Tanggal Input</th>
+        <th scope="col">Nama Mitra</th>
+        <th scope="col">Kode Mitra</th>
       </tr>
     </thead>
     <tbody>
-      @foreach ($aset as $aset)
+      <?php $no = 1; ?>
+      @foreach ($pengadaan as $pengadaan)
         <tr>
-          <td>{{ $aset->kode_aset }}</td>
-          <td>{{ $aset->nama_aset }}</td>
-          <td>{{ $aset->jenis_aset }}</td>
-          <td>{{ $aset->merk }}</td>
-          <td>{{ $aset->lokasi }}</td>
-          <td>{{ $aset->tanggal_pembelian }}</td>
-          <td>{{ $aset->tanggal_maintenance }}</td>
-          <td>{{ $aset->waktu_maintenance }}</td>
-          <td>{{ $aset->kondisi }}</td>
+          <td>{{ $no++ }}</td>
+          <td>{{ $pengadaan->no_pengadaan }}</td>
+          <td>{{ $pengadaan->aset->nama_aset }}</td>
+          <td>{{ $pengadaan->aset->merk }}</td>
+          <td>{{ $pengadaan->aset->jenis_aset }}</td>
+          <td>{{ $pengadaan->quantity }}</td>
+          <td>{{ rupiah($pengadaan->harga_aset) }}</td>
+          <td>{{ tgl_indo(substr($pengadaan->tanggal_input, 0, 10)) }}</td>
+          <td>{{ $pengadaan->mitra->nama_mitra }}</td>
+          <td>{{ $pengadaan->mitra->kode_mitra }}</td>
         </tr>
       @endforeach
     </tbody>

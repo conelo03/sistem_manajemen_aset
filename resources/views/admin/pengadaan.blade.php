@@ -7,6 +7,7 @@
     </div>
     <div class="card-body">
       <a href="/admin/pengadaan/tambah" class="btn btn-primary mb-3">Tambah</a>
+      <a href="/admin/pengadaan/print" class="btn btn-primary mb-3" target="_blank">Cetak</a>
       @if (session('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{ session('status') }}

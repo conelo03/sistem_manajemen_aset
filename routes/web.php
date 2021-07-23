@@ -75,6 +75,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [PengadaanController::class, 'edit']);
         Route::post('/edit/{id}', [PengadaanController::class, 'update']);
         Route::get('/history', [PengadaanController::class, 'history']);
+        Route::get('/print', [PengadaanController::class, 'print']);
       });
 
       Route::prefix('/maintenance')->group(function () {
