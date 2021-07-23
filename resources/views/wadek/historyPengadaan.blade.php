@@ -6,6 +6,7 @@
       <h3>HISTORY PENGADAAN</h3>
     </div>
     <div class="card-body">
+      <a href="/wadek/pengadaan/print_history" target="_blank" class="btn btn-primary mb-3">Cetak</a>
       <div class="table-responsive">
         <table class="table" id="myTable">
           <thead class="thead-dark">
