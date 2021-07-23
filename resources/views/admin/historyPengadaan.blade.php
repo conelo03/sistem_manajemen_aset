@@ -6,6 +6,7 @@
       <h3>PENGADAAN</h3>
     </div>
     <div class="card-body">
+      <a href="/admin/pengadaan/print_history" target="_blank" class="btn btn-primary mb-3">Cetak</a>
       <div class="table-responsive">
         <table class="table" id="myTable">
           <thead class="thead-dark">
@@ -29,7 +30,7 @@
                 <td>{{ $pengadaan->quantity }}</td>
                 <td>{{ $pengadaan->mitra->kode_mitra }}</td>
                 <td>{{ $pengadaan->mitra->nama_mitra }}</td>
-                <td>{{ $pengadaan->harga_aset }}</td>
+                <td>{{ rupiah($pengadaan->harga_aset) }}</td>
                 <td>{{ $pengadaan->status }}</td>
               </tr>
             @endforeach
