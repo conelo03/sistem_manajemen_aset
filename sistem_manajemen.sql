@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Jul 2021 pada 16.05
+-- Waktu pembuatan: 23 Jul 2021 pada 04.21
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -80,6 +80,10 @@ CREATE TABLE `maintenance` (
   `biaya` bigint(20) NOT NULL,
   `tanggal_selesai` date NOT NULL,
   `lokasi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status_kaur` enum('terima','tolak') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_wadek` enum('terima','tolak') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_keuangan` enum('terima','tolak') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('terima','tolak') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -88,8 +92,8 @@ CREATE TABLE `maintenance` (
 -- Dumping data untuk tabel `maintenance`
 --
 
-INSERT INTO `maintenance` (`id`, `kode_maintenance`, `tanggal_maintenance`, `aset_id`, `mitra_id`, `biaya`, `tanggal_selesai`, `lokasi`, `created_at`, `updated_at`) VALUES
-(1, '12345678', '2021-07-08', '4', '4', 10000000, '2021-07-29', 'lokasi', '2021-07-07 20:21:34', '2021-07-07 20:21:34');
+INSERT INTO `maintenance` (`id`, `kode_maintenance`, `tanggal_maintenance`, `aset_id`, `mitra_id`, `biaya`, `tanggal_selesai`, `lokasi`, `status_kaur`, `status_wadek`, `status_keuangan`, `status`, `created_at`, `updated_at`) VALUES
+(1, '12345678', '2021-07-08', '4', '4', 10000000, '2021-07-29', 'lokasi', 'terima', 'terima', 'terima', 'terima', '2021-07-07 20:21:34', '2021-07-22 19:09:49');
 
 -- --------------------------------------------------------
 
@@ -174,16 +178,20 @@ CREATE TABLE `peminjaman` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `nip` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `no_telepon` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
+  `no_telepon` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status_kaur` enum('terima','tolak') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_keuangan` enum('terima','tolak') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_wadek` enum('terima','tolak') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` enum('terima','tolak') COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `peminjaman`
 --
 
-INSERT INTO `peminjaman` (`id`, `aset_id`, `peminjam`, `lokasi_peminjaman`, `tanggal_peminjaman`, `tanggal_kembali`, `waktu_peminjaman`, `created_at`, `updated_at`, `nip`, `email`, `no_telepon`) VALUES
-(2, '10', 'bagas', 'subang', '2021-07-18', '2021-07-24', '1 hari', '2021-07-18 08:00:45', '2021-07-20 00:31:55', '10104019', 'setiapermanabagas@gmail.com', '085723853284'),
-(4, '10', 'M. Bagas Setia', 'C100', '2021-07-20', '2021-07-24', '1 hari', '2021-07-20 00:25:57', '2021-07-20 00:25:57', '10104019', 'bagassetia271@gmail.com', '085723853284');
+INSERT INTO `peminjaman` (`id`, `aset_id`, `peminjam`, `lokasi_peminjaman`, `tanggal_peminjaman`, `tanggal_kembali`, `waktu_peminjaman`, `created_at`, `updated_at`, `nip`, `email`, `no_telepon`, `status_kaur`, `status_keuangan`, `status_wadek`, `status`) VALUES
+(2, '10', 'bagas', 'subang', '2021-07-18', '2021-07-24', '1 hari', '2021-07-18 08:00:45', '2021-07-20 00:31:55', '10104019', 'setiapermanabagas@gmail.com', '085723853284', 'terima', 'terima', 'terima', 'terima'),
+(4, '10', 'M. Bagas Setia', 'C100', '2021-07-20', '2021-07-24', '1 hari', '2021-07-20 00:25:57', '2021-07-20 00:25:57', '10104019', 'bagassetia271@gmail.com', '085723853284', 'terima', 'terima', 'terima', 'terima');
 
 -- --------------------------------------------------------
 
@@ -212,9 +220,9 @@ CREATE TABLE `pengadaans` (
 --
 
 INSERT INTO `pengadaans` (`id`, `no_pengadaan`, `tanggal_input`, `aset_id`, `quantity`, `mitra_id`, `status_kaur`, `status_wadek`, `status_keuangan`, `status`, `created_at`, `updated_at`, `harga_aset`) VALUES
-(2, '12345678910', '2021-07-12', 4, 100, '4', 'terima', NULL, NULL, NULL, '2021-07-12 06:40:07', '2021-07-20 07:03:14', 10000000),
-(3, '12345678910', '2021-07-18', 4, 100, '4', 'tolak', NULL, NULL, NULL, '2021-07-18 05:52:05', '2021-07-20 07:04:24', 10000000),
-(4, '12345678910', '2021-07-18', 4, 100, '4', NULL, NULL, NULL, NULL, '2021-07-18 05:52:32', '2021-07-18 05:52:32', 10000000),
+(2, '12345678910', '2021-07-12', 4, 100, '4', 'terima', 'terima', 'terima', 'terima', '2021-07-12 06:40:07', '2021-07-20 07:23:03', 10000000),
+(3, '12345678910', '2021-07-18', 4, 100, '4', 'tolak', 'tolak', 'tolak', 'tolak', '2021-07-18 05:52:05', '2021-07-20 07:23:08', 10000000),
+(4, '12345678910', '2021-07-18', 4, 100, '4', 'terima', NULL, NULL, NULL, '2021-07-18 05:52:32', '2021-07-22 18:57:27', 10000000),
 (5, '12345678910', '2021-07-19', 4, 100, '4', NULL, NULL, NULL, NULL, '2021-07-18 05:52:54', '2021-07-20 02:06:44', 10000000),
 (7, '12345678910', '2021-07-21', 10, 100, '4', NULL, NULL, NULL, NULL, '2021-07-20 01:07:44', '2021-07-20 01:07:44', 7060500);
 

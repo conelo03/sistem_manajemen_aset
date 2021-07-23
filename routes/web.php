@@ -247,6 +247,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [PeminjamanKaurLaboratorium::class, 'edit']);
         Route::post('/edit/{id}', [PeminjamanKaurLaboratorium::class, 'update']);
         Route::get('/history', [PeminjamanKaurLaboratorium::class, 'history']);
+        Route::get('/{status}/{id}', [PeminjamanKaurLaboratorium::class, 'updateStatus']);
       });
     });
   });
