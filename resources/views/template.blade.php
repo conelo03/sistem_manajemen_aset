@@ -145,7 +145,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="/admin/pengadaan/history" class="nav-link">
+                      <a href="/laboran/pengadaan/history" class="nav-link">
                         <span class="nav-link-text text-white">History Pengadaan</span>
                       </a>
                     </li>

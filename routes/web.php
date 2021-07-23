@@ -144,6 +144,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [PengadaanLaboran::class, 'edit']);
         Route::post('/edit/{id}', [PengadaanLaboran::class, 'update']);
         Route::get('/history', [PengadaanLaboran::class, 'history']);
+        Route::get('/print_history', [PengadaanLaboran::class, 'printHistory']);
+        Route::get('/print', [PengadaanLaboran::class, 'print']);
       });
 
       Route::prefix('/maintenance')->group(function () {

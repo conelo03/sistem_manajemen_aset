@@ -101,6 +101,6 @@ class MaintenanceController extends Controller
   public function printHistory()
   {
     $maintenance  = $this->maintenance->where('status', 'terima')->get();
-    return view('wadek/printHistoryMaintenance', ['maintenance' => $maintenance]);
+    return view('printHistoryMaintenance', ['maintenance' => $maintenance]);
   }
 }

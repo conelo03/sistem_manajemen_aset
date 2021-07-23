@@ -87,6 +87,6 @@ class AsetController extends Controller
   public function print()
   {
     $aset = $this->aset->all();
-    return view('wadek/printAset', ['aset' => $aset]);
+    return view('printAset', ['aset' => $aset]);
   }
 }

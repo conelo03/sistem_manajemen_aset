@@ -88,6 +88,18 @@ class PengadaanController extends Controller
   public function history()
   {
     $pengadaan = $this->pengadaan->where('status', 'terima')->get();
-    return view('admin/historyPengadaan', ['pengadaan' => $pengadaan]);
+    return view('laboran/historyPengadaan', ['pengadaan' => $pengadaan]);
+  }
+
+  public function printHistory()
+  {
+    $pengadaan  = $this->pengadaan->where('status', 'terima')->get();
+    return view('printHistoryPengadaan', ['pengadaan' => $pengadaan]);
+  }
+  
+  public function print()
+  {
+    $pengadaan = $this->pengadaan->all();
+    return view('printPengadaan', ['pengadaan' => $pengadaan]);
   }
 }
