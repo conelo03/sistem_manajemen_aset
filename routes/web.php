@@ -88,6 +88,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/edit/{id}', [MaintenanceController::class, 'update']);
         Route::get('/history', [MaintenanceController::class, 'history']);
         Route::get('/print_history', [MaintenanceController::class, 'printHistory']);
+        Route::get('/print', [MaintenanceController::class, 'print']);
       });
 
       Route::prefix('/peminjaman')->group(function () {
