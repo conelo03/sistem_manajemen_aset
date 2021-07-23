@@ -157,6 +157,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/edit/{id}', [MaintenanceLaboran::class, 'update']);
         Route::get('/history', [MaintenanceLaboran::class, 'history']);
         Route::get('/print_history', [MaintenanceLaboran::class, 'printHistory']);
+        Route::get('/print', [MaintenanceLaboran::class, 'print']);
       });
     });
   });
