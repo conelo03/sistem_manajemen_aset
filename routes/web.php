@@ -192,7 +192,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [PeminjamanKeuangan::class, 'index']);
         Route::get('/history', [PeminjamanKeuangan::class, 'history']);
         Route::get('/{status}/{id}', [PeminjamanKeuangan::class, 'updateStatus']);
-        Route::get('/print_history', [PeminjamanKeuangan::class, 'printHistory']);
+        Route::get('/print_history', [MaintenanceKeuangan::class, 'printHistory']);
       });
     });
   });
