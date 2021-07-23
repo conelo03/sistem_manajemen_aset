@@ -92,4 +92,10 @@ class PeminjamanController extends Controller
     $peminjaman  = $this->peminjaman->where('status', 'terima')->get();
     return view('wadek/printHistoryPeminjaman', ['peminjaman' => $maintenance]);
   }
+  
+  public function print()
+  {
+    $peminjaman = $this->peminjaman->all();
+    return view('printPeminjaman', ['peminjaman' => $peminjaman]);
+  }
 }

@@ -100,6 +100,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/edit/{id}', [PeminjamanController::class, 'update']);
         Route::get('/history', [PeminjamanController::class, 'history']);
         Route::get('/print_history', [PeminjamanController::class, 'printHistory']);
+        Route::get('/print', [PeminjamanController::class, 'print']);
       });
     });
   });
