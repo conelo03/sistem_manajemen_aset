@@ -177,6 +177,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [MaintenanceKeuangan::class, 'edit']);
         Route::post('/edit/{id}', [MaintenanceKeuangan::class, 'update']);
         Route::get('/history', [MaintenanceKeuangan::class, 'history']);
+        Route::get('/{status}/{id}', [MaintenanceKeuangan::class, 'updateStatus']);
       });
     });
   });
@@ -197,6 +198,8 @@ Route::middleware('auth')->group(function () {
 
       Route::prefix('/maintenance')->group(function () {
         Route::get('/', [MaintenanceWadek::class, 'index']);
+        Route::get('/{status}/{id}', [MaintenanceWadek::class, 'updateStatus']);
+        Route::get('/history', [MaintenanceWadek::class, 'history']);
       });
     });
   });
@@ -233,6 +236,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [MaintenanceKaurLaboratorium::class, 'edit']);
         Route::post('/edit/{id}', [MaintenanceKaurLaboratorium::class, 'update']);
         Route::get('/history', [MaintenanceKaurLaboratorium::class, 'history']);
+        Route::get('/{status}/{id}', [MaintenanceKaurLaboratorium::class, 'updateStatus']);
       });
 
       Route::prefix('/peminjaman')->group(function () {

@@ -94,7 +94,27 @@ class MaintenanceController extends Controller
 
   public function history()
   {
-    $maintenance  = $this->maintenance->all();
+    $maintenance  = $this->maintenance->where('status', 'terima')->get();
     return view('keuangan/historyMaintenance', ['maintenance' => $maintenance]);
+  }
+  
+  public function updateStatus($status, $id)
+  {
+    $maintenance_baru = $this->maintenance->find($id);
+
+    $maintenance_baru->status_keuangan  = $status;
+    
+    $maintenance_baru->save();
+
+    $maintenance_baru = $this->maintenance->find($id);
+    if ($maintenance_baru->status_kaur !== NULL && $maintenance_baru->status_keuangan !== NULL && $maintenance_baru->status_wadek !== NULL) {
+      if ($maintenance_baru->status_kaur == 'terima' && $maintenance_baru->status_keuangan == 'terima' && $maintenance_baru->status_wadek == 'terima') {
+        $maintenance_baru->status = 'terima';
+      } else {
+        $maintenance_baru->status = 'tolak';
+      }
+      $maintenance_baru->save();
+    }
+    return redirect('/keuangan/maintenance')->with('status', 'Berhasil edit data maintenance.');
   }
 }

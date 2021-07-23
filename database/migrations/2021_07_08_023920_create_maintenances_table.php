@@ -22,6 +22,10 @@ class CreateMaintenancesTable extends Migration
             $table->bigInteger('biaya');
             $table->date('tanggal_selesai');
             $table->string('lokasi');
+            $table->enum('status_kaur', ['tolak', 'terima'])->nullable();
+            $table->enum('status_wadek', ['tolak', 'terima'])->nullable();
+            $table->enum('status_keuangan', ['tolak', 'terima'])->nullable();
+            $table->enum('status', ['tolak', 'terima'])->nullable();
             $table->timestamps();
         });
     }

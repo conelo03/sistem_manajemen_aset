@@ -27,7 +27,7 @@
               <th scope="col">Nama Mitra</th>
               <th scope="col">Kode Mitra</th>
               <th scope="col">Tanggal Selesai</th>
-              <th scope="col">Aksi</th>
+              <th scope="col">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -43,7 +43,63 @@
                 <td>{{ $maintenance->mitra->kode_mitra }}</td>
                 <td>{{ tgl_indo($maintenance->tanggal_selesai) }}</td>
                 <td>
+                  @switch($maintenance->status_wadek)
+                    @case(null)
+                      <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#terima{{ $maintenance->id }}">Terima</button>
+                      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#tolak{{ $maintenance->id }}">Tolak</button>
+                      @break
+
+                    @case('terima')
+                      <button type="button" class="btn btn-sm btn-success" readonly>Diterima</button>
+                      @break
+
+                    @case('tolak')
+                      <button type="button" class="btn btn-sm btn-danger" readonly>Ditolak</button>
+                      @break
+
+                    @default
+                        Default case...
+                  @endswitch
                   
+                  <div class="modal fade" id="terima{{ $maintenance->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Terima</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Anda yakin akan menerima data maintenance ini?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <a href="/wadek/maintenance/terima/{{ $maintenance->id }}" class="btn btn-success">Terima</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="modal fade" id="tolak{{ $maintenance->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Tolak</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Anda yakin akan menolak data maintenance ini?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <a href="/wadek/maintenance/tolak/{{ $maintenance->id }}" class="btn btn-danger">Tolak</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </td>
               </tr>
             @endforeach
