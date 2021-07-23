@@ -25,6 +25,7 @@ use App\Http\Controllers\Wadek\WadekController;
 use App\Http\Controllers\Wadek\AsetController as AsetWadek;
 use App\Http\Controllers\Wadek\PengadaanController as PengadaanWadek;
 use App\Http\Controllers\Wadek\MaintenanceController as MaintenanceWadek;
+use App\Http\Controllers\Wadek\PeminjamanController as PeminjamanWadek;
 
 use App\Http\Controllers\KaurLaboratorium\KaurLaboratoriumController;
 use App\Http\Controllers\KaurLaboratorium\AsetController as AsetKaurLaboratorium;
@@ -95,6 +96,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [PeminjamanController::class, 'edit']);
         Route::post('/edit/{id}', [PeminjamanController::class, 'update']);
         Route::get('/history', [PeminjamanController::class, 'history']);
+        Route::get('/print_history', [PeminjamanController::class, 'printHistory']);
       });
     });
   });
@@ -185,6 +187,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/{status}/{id}', [MaintenanceKeuangan::class, 'updateStatus']);
         Route::get('/print_history', [MaintenanceKeuangan::class, 'printHistory']);
       });
+
+      Route::prefix('/peminjaman')->group(function () {
+        Route::get('/', [PeminjamanKeuangan::class, 'index']);
+        Route::get('/history', [PeminjamanKeuangan::class, 'history']);
+        Route::get('/{status}/{id}', [PeminjamanKeuangan::class, 'updateStatus']);
+        Route::get('/print_history', [PeminjamanKeuangan::class, 'printHistory']);
+      });
     });
   });
   
@@ -208,6 +217,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/{status}/{id}', [MaintenanceWadek::class, 'updateStatus']);
         Route::get('/history', [MaintenanceWadek::class, 'history']);
         Route::get('/print_history', [MaintenanceWadek::class, 'printHistory']);
+      });
+
+      Route::prefix('/peminjaman')->group(function () {
+        Route::get('/', [PeminjamanWadek::class, 'index']);
+        Route::get('/history', [PeminjamanWadek::class, 'history']);
+        Route::get('/{status}/{id}', [PeminjamanWadek::class, 'updateStatus']);
+        Route::get('/print_history', [PeminjamanWadek::class, 'printHistory']);
       });
     });
   });
@@ -258,6 +274,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/edit/{id}', [PeminjamanKaurLaboratorium::class, 'update']);
         Route::get('/history', [PeminjamanKaurLaboratorium::class, 'history']);
         Route::get('/{status}/{id}', [PeminjamanKaurLaboratorium::class, 'updateStatus']);
+        Route::get('/print_history', [PeminjamanKaurLaboratorium::class, 'printHistory']);
       });
     });
   });
