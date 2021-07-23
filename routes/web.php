@@ -236,6 +236,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/history', [PeminjamanWadek::class, 'history']);
         Route::get('/{status}/{id}', [PeminjamanWadek::class, 'updateStatus']);
         Route::get('/print_history', [PeminjamanWadek::class, 'printHistory']);
+        Route::get('/print', [PeminjamanWadek::class, 'print']);
       });
     });
   });
