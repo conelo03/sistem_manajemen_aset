@@ -84,6 +84,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [MaintenanceController::class, 'edit']);
         Route::post('/edit/{id}', [MaintenanceController::class, 'update']);
         Route::get('/history', [MaintenanceController::class, 'history']);
+        Route::get('/print_history', [MaintenanceController::class, 'printHistory']);
       });
 
       Route::prefix('/peminjaman')->group(function () {
@@ -147,6 +148,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [MaintenanceLaboran::class, 'edit']);
         Route::post('/edit/{id}', [MaintenanceLaboran::class, 'update']);
         Route::get('/history', [MaintenanceLaboran::class, 'history']);
+        Route::get('/print_history', [MaintenanceLaboran::class, 'printHistory']);
       });
     });
   });
@@ -181,6 +183,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/edit/{id}', [MaintenanceKeuangan::class, 'update']);
         Route::get('/history', [MaintenanceKeuangan::class, 'history']);
         Route::get('/{status}/{id}', [MaintenanceKeuangan::class, 'updateStatus']);
+        Route::get('/print_history', [MaintenanceKeuangan::class, 'printHistory']);
       });
     });
   });
@@ -204,6 +207,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [MaintenanceWadek::class, 'index']);
         Route::get('/{status}/{id}', [MaintenanceWadek::class, 'updateStatus']);
         Route::get('/history', [MaintenanceWadek::class, 'history']);
+        Route::get('/print_history', [MaintenanceWadek::class, 'printHistory']);
       });
     });
   });
@@ -242,6 +246,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/edit/{id}', [MaintenanceKaurLaboratorium::class, 'update']);
         Route::get('/history', [MaintenanceKaurLaboratorium::class, 'history']);
         Route::get('/{status}/{id}', [MaintenanceKaurLaboratorium::class, 'updateStatus']);
+        Route::get('/print_history', [MaintenanceKaurLaboratorium::class, 'printHistory']);
       });
 
       Route::prefix('/peminjaman')->group(function () {

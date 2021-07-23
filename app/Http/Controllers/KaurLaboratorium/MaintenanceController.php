@@ -117,4 +117,10 @@ class MaintenanceController extends Controller
     }
     return redirect('/kaur_laboratorium/maintenance')->with('status', 'Berhasil edit data maintenance.');
   }
+
+  public function printHistory()
+  {
+    $maintenance  = $this->maintenance->where('status', 'terima')->get();
+    return view('wadek/printHistoryMaintenance', ['maintenance' => $maintenance]);
+  }
 }

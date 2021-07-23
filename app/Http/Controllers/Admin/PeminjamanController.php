@@ -83,7 +83,7 @@ class PeminjamanController extends Controller
 
   public function history()
   {
-    $peminjaman = $this->peminjaman->all();
+    $peminjaman = $this->peminjaman->where('status', 'terima')->get();
     return view('admin/historyPeminjaman', ['peminjaman' => $peminjaman]);
   }
 }
