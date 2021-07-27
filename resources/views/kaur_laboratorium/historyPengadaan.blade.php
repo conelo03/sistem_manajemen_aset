@@ -28,9 +28,9 @@
               <tr>
                 <td>{{ $no++ }}</td>
                 <td>{{ $pengadaan->no_pengadaan }}</td>
-                <td>{{ $pengadaan->aset->nama_aset }}</td>
-                <td>{{ $pengadaan->aset->merk }}</td>
-                <td>{{ $pengadaan->aset->jenis_aset }}</td>
+                <td>{{ $pengadaan->nama_aset }}</td>
+                <td>{{ $pengadaan->merk }}</td>
+                <td>{{ $pengadaan->jenis_aset }}</td>
                 <td>{{ $pengadaan->quantity }}</td>
                 <td>{{ rupiah($pengadaan->harga_aset) }}</td>
                 <td>{{ tgl_indo(substr($pengadaan->tanggal_input, 0, 10)) }}</td>

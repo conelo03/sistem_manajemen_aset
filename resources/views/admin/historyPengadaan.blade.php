@@ -25,8 +25,8 @@
             @foreach ($pengadaan as $pengadaan)
               <tr>
                 <td>{{ $pengadaan->no_pengadaan }}</td>
-                <td>{{ $pengadaan->aset->nama_aset }}</td>
-                <td>{{ $pengadaan->aset->jenis_aset }}</td>
+                <td>{{ $pengadaan->nama_aset }}</td>
+                <td>{{ $pengadaan->jenis_aset }}</td>
                 <td>{{ $pengadaan->quantity }}</td>
                 <td>{{ $pengadaan->mitra->kode_mitra }}</td>
                 <td>{{ $pengadaan->mitra->nama_mitra }}</td>
