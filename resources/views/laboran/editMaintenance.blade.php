@@ -11,8 +11,8 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="form-group">
-              <label class="form-control-label" for="input-username">Kode Maintenance</label>
-              <input type="text" id="input-username" class="form-control" placeholder="Kode Maintenance" name="kode_maintenance" required value="{{ $kode_maintenance }}">
+              <label class="form-control-label" for="input-username">Kode Barang</label>
+              <input type="text" id="input-username" class="form-control" placeholder="Kode Barang" name="kode_maintenance" required value="{{ $kode_maintenance }}">
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Nama Aset</label>

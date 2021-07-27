@@ -20,7 +20,7 @@
         <table class="table" id="myTable">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">Kode Maintenance</th>
+              <th scope="col">Kode Barang</th>
               <th scope="col">Nama Aset</th>
               <th scope="col">Jenis Aset</th>
               <th scope="col">Lokasi</th>
