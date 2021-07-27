@@ -5,7 +5,7 @@
     <div class="card-header">
       <h3>PENGADAAN</h3>
     </div>
-    <form action="/laboran/pengadaan/edit/{{ $id }}" method="post">
+    <form action="/kaur_laboratorium/pengadaan/edit/{{ $id }}" method="post">
       @csrf
       <div class="card-body">
         <div class="row">
@@ -16,12 +16,15 @@
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Nama Aset</label>
-              <select name="aset" id="aset" class="mySelect2" required>
-                <option selected disabled></option>
-                @foreach($aset as $aset)
-                  <option value="{{ $aset->id }}" <?= $aset_id == $aset->id ? 'selected' : '' ; ?>>{{ $aset->nama_aset }}</option>
-                @endforeach
-              </select>
+              <input type="text" id="input-username" class="form-control" placeholder="Nama Aset" name="nama_aset" required value="{{ $nama_aset }}">
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">Jenis Aset</label>
+              <input type="text" id="input-username" class="form-control" placeholder="Jenis Aset" name="jenis_aset" required value="{{ $jenis_aset }}">
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">Merk</label>
+              <input type="text" id="input-username" class="form-control" placeholder="Merk" name="merk" required value="{{ $merk }}">
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Quantity</label>

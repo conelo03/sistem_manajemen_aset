@@ -68,7 +68,6 @@ class PengadaanController extends Controller
     $pengadaan_baru->mitra_id      = $request->mitra;
     $pengadaan_baru->harga_aset    = preg_replace('/[Rp. ]/', '', $request->harga_aset);
 
-
     $pengadaan_baru->save();
 
     return redirect('/admin/pengadaan')->with('status', 'Berhasil edit data pengadaan.');
