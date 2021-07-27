@@ -21,7 +21,7 @@ class CreateAsetsTable extends Migration
         $table->string('kepemilikan');
         $table->string('lokasi');
         $table->date('tanggal_pembelian');
-        $table->date('tanggal_maintenance');
+        $table->date('tanggal_maintenance')->nullable();
         $table->string('waktu_maintenance');
         $table->string('kondisi');
       });

@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Tanggal Maintenance</label>
-              <input type="date" id="input-username" class="form-control" placeholder="Tanggal Maintenance" name="tanggal_maintenance" required>
+              <input type="date" id="input-username" class="form-control" placeholder="Tanggal Maintenance" name="tanggal_maintenance">
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Waktu Maintenance</label>
