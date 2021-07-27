@@ -5,19 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pengadaan;
-use App\Models\Asets;
 use App\Models\Mitra;
 
 class PengadaanController extends Controller
 {
   private $pengadaan;
-  private $aset;
   private $mitra;
 
   public function __construct()
   {
     $this->pengadaan  = new Pengadaan;
-    $this->aset       = new Asets;
     $this->mitra      = new Mitra;
   }
 
@@ -29,12 +26,8 @@ class PengadaanController extends Controller
 
   public function create()
   {
-    $aset   = $this->aset->all();
     $mitra  = $this->mitra->all();
-    return view('admin/tambahPengadaan', [
-      'aset'  => $aset,
-      'mitra' => $mitra
-    ]);
+    return view('admin/tambahPengadaan', ['mitra' => $mitra]);
   }
   
   public function store(Request $request)
@@ -43,7 +36,9 @@ class PengadaanController extends Controller
 
     $this->pengadaan->no_pengadaan  = $request->no_pengadaan;
     $this->pengadaan->tanggal_input = $request->tanggal_input;
-    $this->pengadaan->aset_id       = $request->aset;
+    $this->pengadaan->nama_aset     = $request->nama_aset;
+    $this->pengadaan->jenis_aset    = $request->jenis_aset;
+    $this->pengadaan->merk          = $request->merk;
     $this->pengadaan->quantity      = $request->quantity;
     $this->pengadaan->mitra_id      = $request->mitra;
     $this->pengadaan->harga_aset    = preg_replace('/[Rp. ]/', '', $request->harga_aset);
@@ -53,15 +48,9 @@ class PengadaanController extends Controller
     return redirect('/admin/pengadaan')->with('status', 'Berhasil tambah pengadaan.');
   }
   
-  public function show($id)
-  {
-      //
-  }
-  
   public function edit($id)
   {
     $pengadaan          = $this->pengadaan->find($id);
-    $pengadaan['aset']  = $this->aset->all();
     $pengadaan['mitra'] = $this->mitra->all();
     return view('admin/editPengadaan', $pengadaan);
   }
@@ -72,7 +61,9 @@ class PengadaanController extends Controller
 
     $pengadaan_baru->no_pengadaan  = $request->no_pengadaan;
     $pengadaan_baru->tanggal_input = $request->tanggal_input;
-    $pengadaan_baru->aset_id       = $request->aset;
+    $pengadaan_baru->nama_aset     = $request->nama_aset;
+    $pengadaan_baru->jenis_aset    = $request->jenis_aset;
+    $pengadaan_baru->merk          = $request->merk;
     $pengadaan_baru->quantity      = $request->quantity;
     $pengadaan_baru->mitra_id      = $request->mitra;
     $pengadaan_baru->harga_aset    = preg_replace('/[Rp. ]/', '', $request->harga_aset);

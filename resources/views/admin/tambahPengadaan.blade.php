@@ -16,12 +16,15 @@
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Nama Aset</label>
-              <select name="aset" id="aset" class="mySelect2" required>
-                <option selected disabled></option>
-                @foreach($aset as $aset)
-                  <option value="{{ $aset->id }}">{{ $aset->nama_aset }}</option>
-                @endforeach
-              </select>
+              <input type="text" id="input-username" class="form-control" placeholder="Nama Aset" name="nama_aset" required>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">Jenis Aset</label>
+              <input type="text" id="input-username" class="form-control" placeholder="Jenis Aset" name="jenis_aset" required>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">Merk</label>
+              <input type="text" id="input-username" class="form-control" placeholder="Merk" name="merk" required>
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Quantity</label>
@@ -40,7 +43,7 @@
               <select name="mitra" id="mitra" class="form-control mySelect2" required>
                 <option selected disabled></option>
                 @foreach($mitra as $mitra)
-                  <option value="{{ $aset->id }}">{{ $mitra->nama_mitra }}</option>
+                  <option value="{{ $mitra->id }}">{{ $mitra->nama_mitra }}</option>
                 @endforeach
               </select>
             </div>

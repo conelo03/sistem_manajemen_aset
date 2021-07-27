@@ -21,7 +21,9 @@ class BuatTablePengadaanDanMitra extends Migration
       $table->id();
       $table->string('no_pengadaan');
       $table->date('tanggal_input');
-      $table->string('aset_id');
+      $table->string('nama_aset');
+      $table->string('jenis_aset');
+      $table->string('merk');
       $table->bigInteger('quantity');
       $table->string('mitra_id');
       $table->bigInteger('harga_aset');
