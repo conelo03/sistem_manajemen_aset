@@ -39,6 +39,7 @@ class Kernel extends HttpKernel
     'is_admin'          => \App\Http\Middleware\is_admin::class,
     'is_laboran'        => \App\Http\Middleware\is_laboran::class,
     'keuangan'          => \App\Http\Middleware\Keuangan::class,
+    'staff_keuangan'    => \App\Http\Middleware\StaffKeuangan::class,
     'KaurLaboratorium'  => \App\Http\Middleware\KaurLaboratorium::class,
     'wadek'             => \App\Http\Middleware\Wadek::class,
     'auth.basic'        => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

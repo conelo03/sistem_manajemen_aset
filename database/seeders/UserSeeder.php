@@ -49,6 +49,14 @@ class UserSeeder extends Seeder
           'alamat'    => 'subang',
           'no_telp'   => '085723853284',
           'role'      => 'keuangan',
+        ], [
+          'nama'      => 'staff keuangan',
+          'username'  => 'staff_keuangan',
+          'password'  => Hash::make('staff_keuangan'),
+          'jabatan'   => 'staff_keuangan',
+          'alamat'    => 'subang',
+          'no_telp'   => '085723853284',
+          'role'      => 'staff_keuangan',
         ]
       ]);
     }

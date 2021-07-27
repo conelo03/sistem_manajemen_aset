@@ -23,6 +23,9 @@
       @case('kaur_laboratorium')
         Kaur Laboratorium
         @break
+      @case('staff_keuangan')
+        Staff Keuangan
+        @break
     @endswitch
   </title>
   <!-- Favicon -->
@@ -227,6 +230,47 @@
                   </ul>
                 </li>
                 @break
+              @case('staff_keuangan')
+                <li class="nav-item">
+                  <a class="nav-link" href="/staff_keuangan/data_aset">
+                    <span class="nav-link-text text-white">Data Aset</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <span class="nav-link">
+                    <span class="nav-link-text text-white">Pengadaan</span>
+                  </span>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/staff_keuangan/pengadaan" class="nav-link">
+                        <span class="nav-link-text text-white">Data Pengadaan</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/staff_keuangan/pengadaan/history" class="nav-link">
+                        <span class="nav-link-text text-white">History Pengadaan</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <span class="nav-link">
+                    <span class="nav-link-text text-white">Maintenance</span>
+                  </span>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/staff_keuangan/maintenance" class="nav-link">
+                        <span class="nav-link-text text-white">Data Maintenance</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/staff_keuangan/maintenance/history" class="nav-link">
+                        <span class="nav-link-text text-white">History Maintenance</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                @break
               @case('wadek')
                 <li class="nav-item">
                   <a class="nav-link" href="/wadek/data_aset">
@@ -381,6 +425,9 @@
                 @break
               @case('kaur_laboratorium')
                 Selamat datang Kaur Laboratorium!
+                @break
+              @case('staff_keuangan')
+                Selamat datang Staff Keuangan!
                 @break
             @endswitch
             <div class="float-right">

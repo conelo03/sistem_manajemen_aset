@@ -33,6 +33,11 @@ use App\Http\Controllers\KaurLaboratorium\PengadaanController as PengadaanKaurLa
 use App\Http\Controllers\KaurLaboratorium\MaintenanceController as MaintenanceKaurLaboratorium;
 use App\Http\Controllers\KaurLaboratorium\PeminjamanController as PeminjamanKaurLaboratorium;
 
+use App\Http\Controllers\StaffKeuangan\StaffKeuanganController;
+// use App\Http\Controllers\StaffKeuangan\AsetController as AsetStaffKeuangan;
+// use App\Http\Controllers\StaffKeuangan\PengadaanController as PengadaanStaffKeuangan;
+// use App\Http\Controllers\StaffKeuangan\MaintenanceController as MaintenanceStaffKeuangan;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -167,6 +172,51 @@ Route::middleware('auth')->group(function () {
   Route::middleware('keuangan')->group(function () {
     Route::prefix('keuangan')->group(function () {
       Route::get('/', [KeuanganController::class, 'index']);
+
+      Route::prefix('/data_aset')->group(function () {
+        Route::get('/', [AsetKeuangan::class, 'index']);
+        Route::get('/hapus/{id}', [AsetKeuangan::class, 'destroy']);
+        Route::get('/edit/{id}', [AsetKeuangan::class, 'edit']);
+        Route::post('/edit/{id}', [AsetKeuangan::class, 'update']);
+        Route::get('/print', [AsetKeuangan::class, 'print']);
+      });
+
+      Route::prefix('/pengadaan')->group(function () {
+        Route::get('/', [PengadaanKeuangan::class, 'index']);
+        Route::get('/hapus/{id}', [PengadaanKeuangan::class, 'destroy']);
+        Route::get('/edit/{id}', [PengadaanKeuangan::class, 'edit']);
+        Route::post('/edit/{id}', [PengadaanKeuangan::class, 'update']);
+        Route::get('/{status}/{id}', [PengadaanKeuangan::class, 'updateStatus']);
+        Route::get('/history', [PengadaanKeuangan::class, 'history']);
+        Route::get('/print', [PengadaanKeuangan::class, 'print']);
+        Route::get('/print_history', [PengadaanKeuangan::class, 'printHistory']);
+      });
+
+      Route::prefix('/maintenance')->group(function () {
+        Route::get('/', [MaintenanceKeuangan::class, 'index']);
+        Route::get('/tambah', [MaintenanceKeuangan::class, 'create']);
+        Route::post('/tambah', [MaintenanceKeuangan::class, 'store']);
+        Route::get('/hapus/{id}', [MaintenanceKeuangan::class, 'destroy']);
+        Route::get('/edit/{id}', [MaintenanceKeuangan::class, 'edit']);
+        Route::post('/edit/{id}', [MaintenanceKeuangan::class, 'update']);
+        Route::get('/history', [MaintenanceKeuangan::class, 'history']);
+        Route::get('/{status}/{id}', [MaintenanceKeuangan::class, 'updateStatus']);
+        Route::get('/print_history', [MaintenanceKeuangan::class, 'printHistory']);
+        Route::get('/print', [MaintenanceKeuangan::class, 'print']);
+      });
+
+      Route::prefix('/peminjaman')->group(function () {
+        Route::get('/', [PeminjamanKeuangan::class, 'index']);
+        Route::get('/history', [PeminjamanKeuangan::class, 'history']);
+        Route::get('/{status}/{id}', [PeminjamanKeuangan::class, 'updateStatus']);
+        Route::get('/print_history', [MaintenanceKeuangan::class, 'printHistory']);
+      });
+    });
+  });
+  
+  Route::middleware('staff_keuangan')->group(function () {
+    Route::prefix('staff_keuangan')->group(function () {
+      Route::get('/', [StaffKeuanganController::class, 'index']);
 
       Route::prefix('/data_aset')->group(function () {
         Route::get('/', [AsetKeuangan::class, 'index']);
