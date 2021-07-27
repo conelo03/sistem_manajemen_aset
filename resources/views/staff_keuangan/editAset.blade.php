@@ -5,7 +5,7 @@
     <div class="card-header">
       <h3>DATA ASET</h3>
     </div>
-    <form action="/keuangan/data_aset/edit/{{ $id }}" method="post">
+    <form action="/staff_keuangan/data_aset/edit/{{ $id }}" method="post">
       @csrf
       <div class="card-body">
         <div class="row">

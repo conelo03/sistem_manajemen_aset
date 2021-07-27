@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Keuangan;
+namespace App\Http\Controllers\StaffKeuangan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -24,7 +24,7 @@ class MaintenanceController extends Controller
   public function index()
   {
     $maintenance  = $this->maintenance->all();
-    return view('keuangan/maintenance', ['maintenance' => $maintenance]);
+    return view('staff_keuangan/maintenance', ['maintenance' => $maintenance]);
   }
   
   public function create()
@@ -51,13 +51,13 @@ class MaintenanceController extends Controller
 
     $this->maintenance->save();
 
-    return redirect('/keuangan/maintenance')->with('status', 'Berhasil tambah maintenance.');
+    return redirect('/staff_keuangan/maintenance')->with('status', 'Berhasil tambah maintenance.');
   }
   
   public function show($id)
   {
     $maintenance  = $this->maintenance->find($id);
-    return view('keuangan/editMaintenance', $maintenance);
+    return view('staff_keuangan/editMaintenance', $maintenance);
   }
   
   public function edit($id)
@@ -65,7 +65,7 @@ class MaintenanceController extends Controller
     $maintenance          = $this->maintenance->find($id);
     $maintenance['aset']  = $this->aset->all();
     $maintenance['mitra'] = $this->mitra->all();
-    return view('keuangan/editMaintenance', $maintenance);
+    return view('staff_keuangan/editMaintenance', $maintenance);
   }
   
   public function update(Request $request, $id)
@@ -82,7 +82,7 @@ class MaintenanceController extends Controller
 
     $this->maintenance->save();
 
-    return redirect('/keuangan/maintenance')->with('status', 'Berhasil edit data maintenance.');
+    return redirect('/staff_keuangan/maintenance')->with('status', 'Berhasil edit data maintenance.');
   }
   
   public function destroy($id)
@@ -95,7 +95,7 @@ class MaintenanceController extends Controller
   public function history()
   {
     $maintenance  = $this->maintenance->where('status', 'terima')->get();
-    return view('keuangan/historyMaintenance', ['maintenance' => $maintenance]);
+    return view('staff_keuangan/historyMaintenance', ['maintenance' => $maintenance]);
   }
   
   public function updateStatus($status, $id)
@@ -115,7 +115,7 @@ class MaintenanceController extends Controller
       }
       $maintenance_baru->save();
     }
-    return redirect('/keuangan/maintenance')->with('status', 'Berhasil edit data maintenance.');
+    return redirect('/staff_keuangan/maintenance')->with('status', 'Berhasil edit data maintenance.');
   }
 
   public function printHistory()

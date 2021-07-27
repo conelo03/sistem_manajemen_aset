@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Keuangan;
+namespace App\Http\Controllers\StaffKeuangan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -18,13 +18,13 @@ class AsetController extends Controller
   public function index()
   {
     $aset = $this->aset->all();
-    return view('keuangan/aset', ['aset' => $aset]);
+    return view('staff_keuangan/aset', ['aset' => $aset]);
   }
   
   public function edit($id)
   {
     $aset = $this->aset->find($id);
-    return view('keuangan/editAset', $aset);
+    return view('staff_keuangan/editAset', $aset);
   }
   
   public function update(Request $request, $id)
@@ -44,7 +44,7 @@ class AsetController extends Controller
 
     $aset_baru->save();
 
-    return redirect('/keuangan/data_aset')->with('status', 'Berhasil edit data aset.');
+    return redirect('/staff_keuangan/data_aset')->with('status', 'Berhasil edit data aset.');
   }
   
   public function destroy($id)
@@ -58,5 +58,30 @@ class AsetController extends Controller
   {
     $aset = $this->aset->all();
     return view('printAset', ['aset' => $aset]);
+  }
+  
+  public function create()
+  {
+    return view('staff_keuangan/tambahAset');
+  }
+  
+  public function store(Request $request)
+  {
+    // Validate the request...
+
+    $this->aset->kode_aset            = $request->kode_aset;
+    $this->aset->nama_aset            = $request->nama_aset;
+    $this->aset->jenis_aset           = $request->jenis_aset;
+    $this->aset->merk                 = $request->merk;
+    $this->aset->kepemilikan          = $request->kepemilikan;
+    $this->aset->lokasi               = $request->lokasi;
+    $this->aset->tanggal_pembelian    = $request->tanggal_pembelian;
+    $this->aset->tanggal_maintenance  = $request->tanggal_maintenance;
+    $this->aset->waktu_maintenance    = $request->waktu_maintenance;
+    $this->aset->kondisi              = $request->kondisi;
+
+    $this->aset->save();
+
+    return redirect('/staff_keuangan/data_aset')->with('status', 'Berhasil tambah data aset.');
   }
 }

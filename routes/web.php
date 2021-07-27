@@ -34,9 +34,9 @@ use App\Http\Controllers\KaurLaboratorium\MaintenanceController as MaintenanceKa
 use App\Http\Controllers\KaurLaboratorium\PeminjamanController as PeminjamanKaurLaboratorium;
 
 use App\Http\Controllers\StaffKeuangan\StaffKeuanganController;
-// use App\Http\Controllers\StaffKeuangan\AsetController as AsetStaffKeuangan;
-// use App\Http\Controllers\StaffKeuangan\PengadaanController as PengadaanStaffKeuangan;
-// use App\Http\Controllers\StaffKeuangan\MaintenanceController as MaintenanceStaffKeuangan;
+use App\Http\Controllers\StaffKeuangan\AsetController as AsetStaffKeuangan;
+use App\Http\Controllers\StaffKeuangan\PengadaanController as PengadaanStaffKeuangan;
+use App\Http\Controllers\StaffKeuangan\MaintenanceController as MaintenanceStaffKeuangan;
 
 /*
 |--------------------------------------------------------------------------
@@ -219,35 +219,39 @@ Route::middleware('auth')->group(function () {
       Route::get('/', [StaffKeuanganController::class, 'index']);
 
       Route::prefix('/data_aset')->group(function () {
-        Route::get('/', [AsetKeuangan::class, 'index']);
-        Route::get('/hapus/{id}', [AsetKeuangan::class, 'destroy']);
-        Route::get('/edit/{id}', [AsetKeuangan::class, 'edit']);
-        Route::post('/edit/{id}', [AsetKeuangan::class, 'update']);
-        Route::get('/print', [AsetKeuangan::class, 'print']);
+        Route::get('/', [AsetStaffKeuangan::class, 'index']);
+        Route::get('/hapus/{id}', [AsetStaffKeuangan::class, 'destroy']);
+        Route::get('/edit/{id}', [AsetStaffKeuangan::class, 'edit']);
+        Route::post('/edit/{id}', [AsetStaffKeuangan::class, 'update']);
+        Route::get('/print', [AsetStaffKeuangan::class, 'print']);
+        Route::get('/tambah', [AsetStaffKeuangan::class, 'create']);
+        Route::post('/tambah', [AsetStaffKeuangan::class, 'store']);
       });
 
       Route::prefix('/pengadaan')->group(function () {
-        Route::get('/', [PengadaanKeuangan::class, 'index']);
-        Route::get('/hapus/{id}', [PengadaanKeuangan::class, 'destroy']);
-        Route::get('/edit/{id}', [PengadaanKeuangan::class, 'edit']);
-        Route::post('/edit/{id}', [PengadaanKeuangan::class, 'update']);
-        Route::get('/{status}/{id}', [PengadaanKeuangan::class, 'updateStatus']);
-        Route::get('/history', [PengadaanKeuangan::class, 'history']);
-        Route::get('/print', [PengadaanKeuangan::class, 'print']);
-        Route::get('/print_history', [PengadaanKeuangan::class, 'printHistory']);
+        Route::get('/', [PengadaanStaffKeuangan::class, 'index']);
+        Route::get('/hapus/{id}', [PengadaanStaffKeuangan::class, 'destroy']);
+        Route::get('/edit/{id}', [PengadaanStaffKeuangan::class, 'edit']);
+        Route::post('/edit/{id}', [PengadaanStaffKeuangan::class, 'update']);
+        Route::get('/{status}/{id}', [PengadaanStaffKeuangan::class, 'updateStatus']);
+        Route::get('/history', [PengadaanStaffKeuangan::class, 'history']);
+        Route::get('/print', [PengadaanStaffKeuangan::class, 'print']);
+        Route::get('/print_history', [PengadaanStaffKeuangan::class, 'printHistory']);
+        Route::get('/tambah', [PengadaanStaffKeuangan::class, 'create']);
+        Route::post('/tambah', [PengadaanStaffKeuangan::class, 'store']);
       });
 
       Route::prefix('/maintenance')->group(function () {
-        Route::get('/', [MaintenanceKeuangan::class, 'index']);
-        Route::get('/tambah', [MaintenanceKeuangan::class, 'create']);
-        Route::post('/tambah', [MaintenanceKeuangan::class, 'store']);
-        Route::get('/hapus/{id}', [MaintenanceKeuangan::class, 'destroy']);
-        Route::get('/edit/{id}', [MaintenanceKeuangan::class, 'edit']);
-        Route::post('/edit/{id}', [MaintenanceKeuangan::class, 'update']);
-        Route::get('/history', [MaintenanceKeuangan::class, 'history']);
-        Route::get('/{status}/{id}', [MaintenanceKeuangan::class, 'updateStatus']);
-        Route::get('/print_history', [MaintenanceKeuangan::class, 'printHistory']);
-        Route::get('/print', [MaintenanceKeuangan::class, 'print']);
+        Route::get('/', [MaintenanceStaffKeuangan::class, 'index']);
+        Route::get('/tambah', [MaintenanceStaffKeuangan::class, 'create']);
+        Route::post('/tambah', [MaintenanceStaffKeuangan::class, 'store']);
+        Route::get('/hapus/{id}', [MaintenanceStaffKeuangan::class, 'destroy']);
+        Route::get('/edit/{id}', [MaintenanceStaffKeuangan::class, 'edit']);
+        Route::post('/edit/{id}', [MaintenanceStaffKeuangan::class, 'update']);
+        Route::get('/history', [MaintenanceStaffKeuangan::class, 'history']);
+        Route::get('/{status}/{id}', [MaintenanceStaffKeuangan::class, 'updateStatus']);
+        Route::get('/print_history', [MaintenanceStaffKeuangan::class, 'printHistory']);
+        Route::get('/print', [MaintenanceStaffKeuangan::class, 'print']);
       });
 
       Route::prefix('/peminjaman')->group(function () {

@@ -6,7 +6,7 @@
       <h3>MAINTENANCE</h3>
     </div>
     <div class="card-body">
-      <a href="/keuangan/maintenance/print" target="_blank" class="btn btn-primary mb-3">Cetak</a>
+      <a href="/staff_keuangan/maintenance/print" target="_blank" class="btn btn-primary mb-3">Cetak</a>
       @if (session('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{ session('status') }}
@@ -28,7 +28,6 @@
               <th scope="col">Nama Mitra</th>
               <th scope="col">Kode Mitra</th>
               <th scope="col">Tanggal Selesai</th>
-              <th scope="col">Status</th>
               <th scope="col">Aksi</th>
             </tr>
           </thead>
@@ -45,66 +44,7 @@
                 <td>{{ $maintenance->mitra->kode_mitra }}</td>
                 <td>{{ tgl_indo($maintenance->tanggal_selesai) }}</td>
                 <td>
-                  @switch($maintenance->status_keuangan)
-                    @case(null)
-                      <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#terima{{ $maintenance->id }}">Terima</button>
-                      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#tolak{{ $maintenance->id }}">Tolak</button>
-                      @break
-
-                    @case('terima')
-                      <button type="button" class="btn btn-sm btn-success" readonly>Diterima</button>
-                      @break
-
-                    @case('tolak')
-                      <button type="button" class="btn btn-sm btn-danger" readonly>Ditolak</button>
-                      @break
-
-                    @default
-                        Default case...
-                  @endswitch
-                  
-                  <div class="modal fade" id="terima{{ $maintenance->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Terima</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          Anda yakin akan menerima data maintenance ini?
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/keuangan/maintenance/terima/{{ $maintenance->id }}" class="btn btn-success">Terima</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="modal fade" id="tolak{{ $maintenance->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Tolak</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          Anda yakin akan menolak data maintenance ini?
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/keuangan/maintenance/tolak/{{ $maintenance->id }}" class="btn btn-danger">Tolak</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <a href="/keuangan/maintenance/edit/{{ $maintenance->id }}" class="btn btn-success btn-sm">Edit</a>
+                  <a href="/staff_keuangan/maintenance/edit/{{ $maintenance->id }}" class="btn btn-success btn-sm">Edit</a>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus{{ $maintenance->id }}">
                     Hapus
@@ -125,7 +65,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/keuangan/maintenance/hapus/{{ $maintenance->id }}" class="btn btn-danger">Hapus</a>
+                          <a href="/staff_keuangan/maintenance/hapus/{{ $maintenance->id }}" class="btn btn-danger">Hapus</a>
                         </div>
                       </div>
                     </div>

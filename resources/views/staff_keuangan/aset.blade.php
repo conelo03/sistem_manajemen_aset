@@ -6,7 +6,8 @@
       <h3>DATA ASET</h3>
     </div>
     <div class="card-body">
-      <a href="/keuangan/data_aset/print" target="_blank" class="btn btn-primary mb-3">Cetak</a>
+      <a href="/staff_keuangan/data_aset/tambah" class="btn btn-primary mb-3">Tambah</a>
+      <a href="/staff_keuangan/data_aset/print" target="_blank" class="btn btn-primary mb-3">Cetak</a>
       @if (session('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{ session('status') }}
@@ -49,7 +50,7 @@
                 <td>{{ $aset->waktu_maintenance }}</td>
                 <td>{{ $aset->kondisi }}</td>
                 <td>
-                  <a href="/keuangan/data_aset/edit/{{ $aset->id }}" class="btn btn-success">Edit</a>
+                  <a href="/staff_keuangan/data_aset/edit/{{ $aset->id }}" class="btn btn-success">Edit</a>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus{{ $aset->id }}">
                     Hapus
@@ -70,7 +71,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/keuangan/data_aset/hapus/{{ $aset->id }}" class="btn btn-danger">Hapus</a>
+                          <a href="/staff_keuangan/data_aset/hapus/{{ $aset->id }}" class="btn btn-danger">Hapus</a>
                         </div>
                       </div>
                     </div>

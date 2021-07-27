@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Keuangan;
+namespace App\Http\Controllers\StaffKeuangan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -21,14 +21,14 @@ class PengadaanController extends Controller
   public function index()
   {
     $pengadaan = $this->pengadaan->all();
-    return view('keuangan/pengadaan', ['pengadaan' => $pengadaan]);
+    return view('staff_keuangan/pengadaan', ['pengadaan' => $pengadaan]);
   }
   
   public function edit($id)
   {
     $pengadaan          = $this->pengadaan->find($id);
     $pengadaan['mitra'] = $this->mitra->all();
-    return view('keuangan/editPengadaan', $pengadaan);
+    return view('staff_keuangan/editPengadaan', $pengadaan);
   }
   
   public function update(Request $request, $id)
@@ -46,7 +46,7 @@ class PengadaanController extends Controller
 
     $pengadaan_baru->save();
 
-    return redirect('/keuangan/pengadaan')->with('status', 'Berhasil edit data pengadaan.');
+    return redirect('/staff_keuangan/pengadaan')->with('status', 'Berhasil edit data pengadaan.');
   }
   
   public function destroy($id)
@@ -59,7 +59,7 @@ class PengadaanController extends Controller
   public function history()
   {
     $pengadaan = $this->pengadaan->where('status', 'terima')->get();
-    return view('keuangan/historyPengadaan', ['pengadaan' => $pengadaan]);
+    return view('staff_keuangan/historyPengadaan', ['pengadaan' => $pengadaan]);
   }
   
   public function updateStatus($status, $id)
@@ -79,7 +79,7 @@ class PengadaanController extends Controller
       }
       $pengadaan_baru->save();
     }
-    return redirect('/keuangan/pengadaan')->with('status', 'Berhasil ' . $status . ' data pengadaan.');
+    return redirect('/staff_keuangan/pengadaan')->with('status', 'Berhasil ' . $status . ' data pengadaan.');
   }
   
   public function print()
@@ -92,5 +92,29 @@ class PengadaanController extends Controller
   {
     $pengadaan  = $this->pengadaan->where('status', 'terima')->get();
     return view('printHistoryPengadaan', ['pengadaan' => $pengadaan]);
+  }
+
+  public function create()
+  {
+    $mitra  = $this->mitra->all();
+    return view('staff_keuangan/tambahPengadaan', ['mitra' => $mitra]);
+  }
+  
+  public function store(Request $request)
+  {
+    // Validate the request...
+
+    $this->pengadaan->no_pengadaan  = $request->no_pengadaan;
+    $this->pengadaan->tanggal_input = $request->tanggal_input;
+    $this->pengadaan->nama_aset     = $request->nama_aset;
+    $this->pengadaan->jenis_aset    = $request->jenis_aset;
+    $this->pengadaan->merk          = $request->merk;
+    $this->pengadaan->quantity      = $request->quantity;
+    $this->pengadaan->mitra_id      = $request->mitra;
+    $this->pengadaan->harga_aset    = preg_replace('/[Rp. ]/', '', $request->harga_aset);
+
+    $this->pengadaan->save();
+
+    return redirect('/staff_keuangan/pengadaan')->with('status', 'Berhasil tambah pengadaan.');
   }
 }
