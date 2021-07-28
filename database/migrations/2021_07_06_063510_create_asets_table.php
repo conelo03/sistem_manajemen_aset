@@ -23,7 +23,7 @@ class CreateAsetsTable extends Migration
         $table->date('tanggal_pembelian');
         $table->date('tanggal_maintenance')->nullable();
         $table->string('waktu_maintenance');
-        $table->string('kondisi');
+        $table->enum('kondisi', ['baik', 'rusak', 'maintenance']);
       });
     }
 
