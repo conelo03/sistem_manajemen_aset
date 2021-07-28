@@ -86,7 +86,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/kaur_laboratorium/peminjaman/terima/{{ $peminjaman->id }}" class="btn btn-success">Terima</a>
+                          <a href="/kaur_laboratorium/peminjaman/update_status/terima/{{ $peminjaman->id }}" class="btn btn-success">Terima</a>
                         </div>
                       </div>
                     </div>
@@ -106,7 +106,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/kaur_laboratorium/peminjaman/tolak/{{ $peminjaman->id }}" class="btn btn-danger">Tolak</a>
+                          <a href="/kaur_laboratorium/peminjaman/update_status/tolak/{{ $peminjaman->id }}" class="btn btn-danger">Tolak</a>
                         </div>
                       </div>
                     </div>

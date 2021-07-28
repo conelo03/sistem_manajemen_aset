@@ -80,7 +80,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/keuangan/pengadaan/terima/{{ $pengadaan->id }}" class="btn btn-success">Terima</a>
+                          <a href="/keuangan/pengadaan/update_status/terima/{{ $pengadaan->id }}" class="btn btn-success">Terima</a>
                         </div>
                       </div>
                     </div>
@@ -100,7 +100,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/keuangan/pengadaan/tolak/{{ $pengadaan->id }}" class="btn btn-danger">Tolak</a>
+                          <a href="/keuangan/pengadaan/update_status/tolak/{{ $pengadaan->id }}" class="btn btn-danger">Tolak</a>
                         </div>
                       </div>
                     </div>

@@ -77,7 +77,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/kaur_laboratorium/maintenance/terima/{{ $maintenance->id }}" class="btn btn-success">Terima</a>
+                          <a href="/kaur_laboratorium/maintenance/update_status/terima/{{ $maintenance->id }}" class="btn btn-success">Terima</a>
                         </div>
                       </div>
                     </div>
@@ -97,7 +97,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/kaur_laboratorium/maintenance/tolak/{{ $maintenance->id }}" class="btn btn-danger">Tolak</a>
+                          <a href="/kaur_laboratorium/maintenance/update_status/tolak/{{ $maintenance->id }}" class="btn btn-danger">Tolak</a>
                         </div>
                       </div>
                     </div>

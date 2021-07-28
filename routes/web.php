@@ -186,7 +186,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [PengadaanKeuangan::class, 'destroy']);
         Route::get('/edit/{id}', [PengadaanKeuangan::class, 'edit']);
         Route::post('/edit/{id}', [PengadaanKeuangan::class, 'update']);
-        Route::get('/{status}/{id}', [PengadaanKeuangan::class, 'updateStatus']);
+        Route::get('/update_status/{status}/{id}', [PengadaanKeuangan::class, 'updateStatus']);
         Route::get('/history', [PengadaanKeuangan::class, 'history']);
         Route::get('/print', [PengadaanKeuangan::class, 'print']);
         Route::get('/print_history', [PengadaanKeuangan::class, 'printHistory']);
@@ -200,7 +200,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [MaintenanceKeuangan::class, 'edit']);
         Route::post('/edit/{id}', [MaintenanceKeuangan::class, 'update']);
         Route::get('/history', [MaintenanceKeuangan::class, 'history']);
-        Route::get('/{status}/{id}', [MaintenanceKeuangan::class, 'updateStatus']);
+        Route::get('/update_status/{status}/{id}', [MaintenanceKeuangan::class, 'updateStatus']);
         Route::get('/print_history', [MaintenanceKeuangan::class, 'printHistory']);
         Route::get('/print', [MaintenanceKeuangan::class, 'print']);
       });
@@ -208,7 +208,7 @@ Route::middleware('auth')->group(function () {
       Route::prefix('/peminjaman')->group(function () {
         Route::get('/', [PeminjamanKeuangan::class, 'index']);
         Route::get('/history', [PeminjamanKeuangan::class, 'history']);
-        Route::get('/{status}/{id}', [PeminjamanKeuangan::class, 'updateStatus']);
+        Route::get('/update_status/{status}/{id}', [PeminjamanKeuangan::class, 'updateStatus']);
         Route::get('/print_history', [MaintenanceKeuangan::class, 'printHistory']);
       });
     });
@@ -233,7 +233,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/hapus/{id}', [PengadaanStaffKeuangan::class, 'destroy']);
         Route::get('/edit/{id}', [PengadaanStaffKeuangan::class, 'edit']);
         Route::post('/edit/{id}', [PengadaanStaffKeuangan::class, 'update']);
-        Route::get('/{status}/{id}', [PengadaanStaffKeuangan::class, 'updateStatus']);
         Route::get('/history', [PengadaanStaffKeuangan::class, 'history']);
         Route::get('/print', [PengadaanStaffKeuangan::class, 'print']);
         Route::get('/print_history', [PengadaanStaffKeuangan::class, 'printHistory']);
@@ -249,7 +248,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [MaintenanceStaffKeuangan::class, 'edit']);
         Route::post('/edit/{id}', [MaintenanceStaffKeuangan::class, 'update']);
         Route::get('/history', [MaintenanceStaffKeuangan::class, 'history']);
-        Route::get('/{status}/{id}', [MaintenanceStaffKeuangan::class, 'updateStatus']);
         Route::get('/print_history', [MaintenanceStaffKeuangan::class, 'printHistory']);
         Route::get('/print', [MaintenanceStaffKeuangan::class, 'print']);
       });
@@ -257,7 +255,6 @@ Route::middleware('auth')->group(function () {
       Route::prefix('/peminjaman')->group(function () {
         Route::get('/', [PeminjamanKeuangan::class, 'index']);
         Route::get('/history', [PeminjamanKeuangan::class, 'history']);
-        Route::get('/{status}/{id}', [PeminjamanKeuangan::class, 'updateStatus']);
         Route::get('/print_history', [MaintenanceKeuangan::class, 'printHistory']);
       });
     });
@@ -285,7 +282,7 @@ Route::middleware('auth')->group(function () {
 
       Route::prefix('/maintenance')->group(function () {
         Route::get('/', [MaintenanceWadek::class, 'index']);
-        Route::get('/{status}/{id}', [MaintenanceWadek::class, 'updateStatus']);
+        Route::get('/update_status/{status}/{id}', [MaintenanceWadek::class, 'updateStatus']);
         Route::get('/history', [MaintenanceWadek::class, 'history']);
         Route::get('/print_history', [MaintenanceWadek::class, 'printHistory']);
         Route::get('/print', [MaintenanceWadek::class, 'print']);
@@ -326,7 +323,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [MaintenanceKaurLaboratorium::class, 'edit']);
         Route::post('/edit/{id}', [MaintenanceKaurLaboratorium::class, 'update']);
         Route::get('/history', [MaintenanceKaurLaboratorium::class, 'history']);
-        Route::get('/{status}/{id}', [MaintenanceKaurLaboratorium::class, 'updateStatus']);
+        Route::get('/update_status/{status}/{id}', [MaintenanceKaurLaboratorium::class, 'updateStatus']);
         Route::get('/print_history', [MaintenanceKaurLaboratorium::class, 'printHistory']);
       });
 
@@ -338,7 +335,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{id}', [PeminjamanKaurLaboratorium::class, 'edit']);
         Route::post('/edit/{id}', [PeminjamanKaurLaboratorium::class, 'update']);
         Route::get('/history', [PeminjamanKaurLaboratorium::class, 'history']);
-        Route::get('/{status}/{id}', [PeminjamanKaurLaboratorium::class, 'updateStatus']);
+        Route::get('/update_status/{status}/{id}', [PeminjamanKaurLaboratorium::class, 'updateStatus']);
         Route::get('/print_history', [PeminjamanKaurLaboratorium::class, 'printHistory']);
       });
     });
