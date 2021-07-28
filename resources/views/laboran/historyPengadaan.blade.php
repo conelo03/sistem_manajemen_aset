@@ -3,7 +3,7 @@
 <div class="container-fluid mt-3">
   <div class="card">
     <div class="card-header">
-      <h3>PENGADAAN</h3>
+      <h3>HISTORY PENGADAAN</h3>
     </div>
     <div class="card-body">
       <a href="/laboran/pengadaan/print_history" target="_blank" class="btn btn-primary mb-3">Cetak</a>
