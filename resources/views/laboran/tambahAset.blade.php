@@ -52,7 +52,12 @@
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Kondisi</label>
-              <input type="text" id="input-username" class="form-control" placeholder="Kondisi" name="kondisi" required>
+              <select name="kondisi" id="kondisi" class="mySelect2" required>
+                <option selected disabled></option>
+                <option value="baik">Baik</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="rusak">Rusak</option>
+              </select>
             </div>
           </div>
         </div>
