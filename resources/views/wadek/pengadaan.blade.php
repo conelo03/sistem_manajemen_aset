@@ -30,6 +30,7 @@
               <th scope="col">Nama Mitra</th>
               <th scope="col">Kode Mitra</th>
               <th scope="col">Status</th>
+              <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -79,7 +80,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/wadek/pengadaan/terima/{{ $pengadaan->id }}" class="btn btn-success">Terima</a>
+                          <a href="/wadek/pengadaan/update_status/terima/{{ $pengadaan->id }}" class="btn btn-success">Terima</a>
                         </div>
                       </div>
                     </div>
@@ -99,7 +100,35 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/wadek/pengadaan/tolak/{{ $pengadaan->id }}" class="btn btn-danger">Tolak</a>
+                          <a href="/wadek/pengadaan/update_status/tolak/{{ $pengadaan->id }}" class="btn btn-danger">Tolak</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <a href="/wadek/pengadaan/edit/{{ $pengadaan->id }}" class="btn btn-success btn-sm">Edit</a>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus{{ $pengadaan->id }}">
+                    Hapus
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="hapus{{ $pengadaan->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Hapus</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Anda yakin akan menghapus data pengadaan dengan nomor {{ $pengadaan->no_pengadaan }}?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <a href="/wadek/pengadaan/hapus/{{ $pengadaan->id }}" class="btn btn-danger">Hapus</a>
                         </div>
                       </div>
                     </div>

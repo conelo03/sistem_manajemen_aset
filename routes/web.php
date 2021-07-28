@@ -274,10 +274,13 @@ Route::middleware('auth')->group(function () {
 
       Route::prefix('/pengadaan')->group(function () {
         Route::get('/', [PengadaanWadek::class, 'index']);
-        Route::get('/{status}/{id}', [PengadaanWadek::class, 'updateStatus']);
+        Route::get('/update_status/{status}/{id}', [PengadaanWadek::class, 'updateStatus']);
         Route::get('/history', [PengadaanWadek::class, 'history']);
         Route::get('/print', [PengadaanWadek::class, 'print']);
         Route::get('/print_history', [PengadaanWadek::class, 'printHistory']);
+        Route::get('/edit/{id}', [PengadaanWadek::class, 'edit']);
+        Route::post('/edit/{id}', [PengadaanWadek::class, 'update']);
+        Route::get('/hapus/{id}', [PengadaanWadek::class, 'destroy']);
       });
 
       Route::prefix('/maintenance')->group(function () {
