@@ -287,14 +287,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/print_history', [MaintenanceWadek::class, 'printHistory']);
         Route::get('/print', [MaintenanceWadek::class, 'print']);
       });
-
-      Route::prefix('/peminjaman')->group(function () {
-        Route::get('/', [PeminjamanWadek::class, 'index']);
-        Route::get('/history', [PeminjamanWadek::class, 'history']);
-        Route::get('/{status}/{id}', [PeminjamanWadek::class, 'updateStatus']);
-        Route::get('/print_history', [PeminjamanWadek::class, 'printHistory']);
-        Route::get('/print', [PeminjamanWadek::class, 'print']);
-      });
     });
   });
   
