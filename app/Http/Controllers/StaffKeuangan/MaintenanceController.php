@@ -80,7 +80,7 @@ class MaintenanceController extends Controller
     $maintenance_baru->tanggal_selesai     = $request->tanggal_selesai;
     $maintenance_baru->lokasi              = $request->lokasi;
 
-    $this->maintenance->save();
+    $maintenance_baru->save();
 
     return redirect('/staff_keuangan/maintenance')->with('status', 'Berhasil edit data maintenance.');
   }

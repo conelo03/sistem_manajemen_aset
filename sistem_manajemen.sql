@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Jul 2021 pada 04.21
+-- Waktu pembuatan: 28 Jul 2021 pada 17.12
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -34,9 +34,9 @@ CREATE TABLE `asets` (
   `kepemilikan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lokasi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_pembelian` date NOT NULL,
-  `tanggal_maintenance` date NOT NULL,
+  `tanggal_maintenance` date DEFAULT NULL,
   `waktu_maintenance` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kondisi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kondisi` enum('rusak','maintenance','baik') COLLATE utf8mb4_unicode_ci NOT NULL,
   `kode_aset` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `merk` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -46,8 +46,10 @@ CREATE TABLE `asets` (
 --
 
 INSERT INTO `asets` (`id`, `nama_aset`, `jenis_aset`, `kepemilikan`, `lokasi`, `tanggal_pembelian`, `tanggal_maintenance`, `waktu_maintenance`, `kondisi`, `kode_aset`, `merk`) VALUES
-(4, 'Printer', 'laboratorium', 'pribadi', 'Subang', '2021-07-18', '2021-07-24', '1 minggu', 'mulus', '1234567890', 'Epson'),
-(10, 'Komputer', 'institusi', 'kepemilikan', 'lokasi', '2021-07-21', '2021-07-24', '1 minggu', 'rusak', 'T420', 'ROG');
+(4, 'Printer', 'laboratorium', 'pribadi', 'Subang', '2021-07-18', '2021-07-24', '1 minggu', 'maintenance', '1234567890', 'Epson'),
+(10, 'Komputer', 'institusi', 'kepemilikan', 'lokasi', '2021-07-21', '2021-07-24', '1 minggu', 'rusak', 'T420', 'ROG'),
+(11, 'nama aset', 'laboratorium', 'kepemilikan', 'lokasi', '2021-07-27', '2021-07-21', '1 minggu', 'baik', '123456', 'merk'),
+(12, 'Monitor', 'laboratorium', 'kepemilikan', 'lokasi', '2021-07-28', '2021-07-29', '1 minggu', 'maintenance', '08572385', 'Samsung');
 
 -- --------------------------------------------------------
 
@@ -93,7 +95,7 @@ CREATE TABLE `maintenance` (
 --
 
 INSERT INTO `maintenance` (`id`, `kode_maintenance`, `tanggal_maintenance`, `aset_id`, `mitra_id`, `biaya`, `tanggal_selesai`, `lokasi`, `status_kaur`, `status_wadek`, `status_keuangan`, `status`, `created_at`, `updated_at`) VALUES
-(1, '12345678', '2021-07-08', '4', '4', 10000000, '2021-07-29', 'lokasi', 'terima', 'terima', 'terima', 'terima', '2021-07-07 20:21:34', '2021-07-22 19:09:49');
+(1, '12345678', '2021-07-08', '4', '4', 10000000, '2021-07-29', 'Bandung', 'terima', 'terima', 'terima', 'terima', '2021-07-07 20:21:34', '2021-07-28 08:09:10');
 
 -- --------------------------------------------------------
 
@@ -203,7 +205,9 @@ CREATE TABLE `pengadaans` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `no_pengadaan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_input` date NOT NULL,
-  `aset_id` bigint(20) UNSIGNED NOT NULL,
+  `nama_aset` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_aset` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `merk` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `quantity` bigint(20) NOT NULL,
   `mitra_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_kaur` enum('tolak','terima') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -219,12 +223,15 @@ CREATE TABLE `pengadaans` (
 -- Dumping data untuk tabel `pengadaans`
 --
 
-INSERT INTO `pengadaans` (`id`, `no_pengadaan`, `tanggal_input`, `aset_id`, `quantity`, `mitra_id`, `status_kaur`, `status_wadek`, `status_keuangan`, `status`, `created_at`, `updated_at`, `harga_aset`) VALUES
-(2, '12345678910', '2021-07-12', 4, 100, '4', 'terima', 'terima', 'terima', 'terima', '2021-07-12 06:40:07', '2021-07-20 07:23:03', 10000000),
-(3, '12345678910', '2021-07-18', 4, 100, '4', 'tolak', 'tolak', 'tolak', 'tolak', '2021-07-18 05:52:05', '2021-07-20 07:23:08', 10000000),
-(4, '12345678910', '2021-07-18', 4, 100, '4', 'terima', NULL, NULL, NULL, '2021-07-18 05:52:32', '2021-07-22 18:57:27', 10000000),
-(5, '12345678910', '2021-07-19', 4, 100, '4', NULL, NULL, NULL, NULL, '2021-07-18 05:52:54', '2021-07-20 02:06:44', 10000000),
-(7, '12345678910', '2021-07-21', 10, 100, '4', NULL, NULL, NULL, NULL, '2021-07-20 01:07:44', '2021-07-20 01:07:44', 7060500);
+INSERT INTO `pengadaans` (`id`, `no_pengadaan`, `tanggal_input`, `nama_aset`, `jenis_aset`, `merk`, `quantity`, `mitra_id`, `status_kaur`, `status_wadek`, `status_keuangan`, `status`, `created_at`, `updated_at`, `harga_aset`) VALUES
+(2, '12345678910', '2021-07-12', 'Komputer', 'Lenovo', 'Lenovo', 100, '4', 'terima', 'terima', 'terima', 'terima', '2021-07-12 06:40:07', '2021-07-27 07:36:07', 10000000),
+(3, '12345678910', '2021-07-18', 'nama', 'jenis', 'merk', 100, '4', 'tolak', 'tolak', 'tolak', 'tolak', '2021-07-18 05:52:05', '2021-07-27 07:48:35', 10000000),
+(4, '12345678910', '2021-07-18', 'nama', 'jenis', 'merk', 100, '4', 'terima', NULL, NULL, NULL, '2021-07-18 05:52:32', '2021-07-27 08:13:01', 10000000),
+(5, '12345678910', '2021-07-19', 'nama', 'jenis', 'merk', 100, '4', NULL, NULL, NULL, NULL, '2021-07-18 05:52:54', '2021-07-27 08:20:18', 10000000),
+(7, '12345678910', '2021-07-21', 'Headset', 'jenis', 'Samsung', 100, '4', NULL, NULL, NULL, NULL, '2021-07-20 01:07:44', '2021-07-27 09:47:32', 7060500),
+(10, '12345678910', '2021-07-28', 'Printer', 'Printer', 'Epson', 10, '2', NULL, NULL, NULL, NULL, '2021-07-27 07:31:07', '2021-07-27 07:31:07', 1000000),
+(11, '12345678910', '2021-07-27', 'nama', 'jenis', 'merk', 100, '3', NULL, NULL, NULL, NULL, '2021-07-27 07:45:45', '2021-07-27 07:45:45', 7060500),
+(12, '12345678910', '2021-07-27', 'CPU', 'jenis', 'merk', 100, '4', NULL, 'terima', NULL, NULL, '2021-07-27 08:18:08', '2021-07-28 07:55:21', 7060500);
 
 -- --------------------------------------------------------
 
@@ -240,7 +247,7 @@ CREATE TABLE `users` (
   `jabatan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_telp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role` enum('laboran','keuangan','wadek','admin','kaur_laboratorium') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` enum('laboran','keuangan','wadek','admin','kaur_laboratorium','staff_keuangan') COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -257,7 +264,8 @@ INSERT INTO `users` (`id`, `nama`, `username`, `password`, `jabatan`, `alamat`, 
 (3, 'admin', 'admin', '$2y$10$qoUSf527x.FnKYqx4JnaR.TMwXgLvhFnEZHZm0e9zbjv5r7tuRVRm', 'admin', 'subang', '085723853284', 'admin', NULL, NULL, NULL, '10104019'),
 (4, 'keuangan', 'keuangan', '$2y$10$Y4SG0WGbv9UqQJ5hOoTE3u5guRgLUvOFHWydvbPwBGsNCDm7qQ0bi', 'keuangan', 'subang', '085723853284', 'keuangan', NULL, NULL, NULL, '10104019'),
 (6, 'M. Bagas Setia Permana', 'bagassetia', '$2y$10$ZnnEm47M6YirWfRB671djup4.A49kmy7fr9fRiMIfg2x62iLn8S6W', 'admin', 'Sagalaherang', '085723853284', 'admin', NULL, '2021-07-20 00:52:46', '2021-07-20 00:54:38', '10104020'),
-(7, 'Kaur Laboratorium', 'kaur_lab', '$2y$10$1Bs0n6UaEftHHTYIe7Vjfuvor8SQ.ya3OrzQOU/G85HFLvXL/.2G2', 'Kaur Laboratorium', 'Bandung', '085723853284', 'kaur_laboratorium', NULL, '2021-07-20 03:10:58', '2021-07-20 03:10:58', '321301261180001');
+(7, 'Kaur Laboratorium', 'kaur_lab', '$2y$10$1Bs0n6UaEftHHTYIe7Vjfuvor8SQ.ya3OrzQOU/G85HFLvXL/.2G2', 'Kaur Laboratorium', 'Bandung', '085723853284', 'kaur_laboratorium', NULL, '2021-07-20 03:10:58', '2021-07-20 03:10:58', '321301261180001'),
+(8, 'Staff Keuangan', 'staff_keuangan', '$2y$10$Dza1PxKkEuZzu5V5y3O8luTQbIdvbLavC/eZGdI8r4cKTZeO0qRUu', 'staff_keuangan', 'Binong', '085723853284', 'staff_keuangan', NULL, '2021-07-27 09:01:08', '2021-07-27 09:01:08', '321301261180001');
 
 --
 -- Indexes for dumped tables
@@ -327,7 +335,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `asets`
 --
 ALTER TABLE `asets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -363,13 +371,13 @@ ALTER TABLE `peminjaman`
 -- AUTO_INCREMENT untuk tabel `pengadaans`
 --
 ALTER TABLE `pengadaans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

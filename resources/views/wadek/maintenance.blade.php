@@ -29,6 +29,7 @@
               <th scope="col">Kode Mitra</th>
               <th scope="col">Tanggal Selesai</th>
               <th scope="col">Status</th>
+              <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -97,6 +98,34 @@
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                           <a href="/wadek/maintenance/update_status/tolak/{{ $maintenance->id }}" class="btn btn-danger">Tolak</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <a href="/wadek/maintenance/edit/{{ $maintenance->id }}" class="btn btn-success btn-sm">Edit</a>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus{{ $maintenance->id }}">
+                    Hapus
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="hapus{{ $maintenance->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Hapus</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Anda yakin akan menghapus data maintenance?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <a href="/wadek/maintenance/hapus/{{ $maintenance->id }}" class="btn btn-danger">Hapus</a>
                         </div>
                       </div>
                     </div>

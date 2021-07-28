@@ -286,6 +286,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/history', [MaintenanceWadek::class, 'history']);
         Route::get('/print_history', [MaintenanceWadek::class, 'printHistory']);
         Route::get('/print', [MaintenanceWadek::class, 'print']);
+        Route::get('/edit/{id}', [MaintenanceWadek::class, 'edit']);
+        Route::post('/edit/{id}', [MaintenanceWadek::class, 'update']);
+        Route::get('/hapus/{id}', [MaintenanceWadek::class, 'destroy']);
       });
     });
   });

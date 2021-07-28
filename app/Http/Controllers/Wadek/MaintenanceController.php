@@ -70,6 +70,7 @@ class MaintenanceController extends Controller
   
   public function update(Request $request, $id)
   {
+    // dd($request->kode_maintenance);
     $maintenance_baru = $this->maintenance->find($id);
 
     $maintenance_baru->kode_maintenance    = $request->kode_maintenance;
@@ -80,7 +81,7 @@ class MaintenanceController extends Controller
     $maintenance_baru->tanggal_selesai     = $request->tanggal_selesai;
     $maintenance_baru->lokasi              = $request->lokasi;
 
-    $this->maintenance->save();
+    $maintenance_baru->save();
 
     return redirect('/wadek/maintenance')->with('status', 'Berhasil edit data maintenance.');
   }
