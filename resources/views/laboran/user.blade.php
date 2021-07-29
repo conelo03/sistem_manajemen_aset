@@ -39,7 +39,7 @@
                 <td>{{ $user->no_telp }}</td>
                 <td>{{ $user->role }}</td>
                 <td>
-                  <a href="/admin/manajemen_user/edit/{{ $user->id }}" class="btn btn-success">Edit</a>
+                  <a href="/laboran/manajemen_user/edit/{{ $user->id }}" class="btn btn-success">Edit</a>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus{{ $user->id }}">
                     Hapus
@@ -60,7 +60,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/admin/manajemen_user/hapus/{{ $user->id }}" class="btn btn-danger">Hapus</a>
+                          <a href="/laboran/manajemen_user/hapus/{{ $user->id }}" class="btn btn-danger">Hapus</a>
                         </div>
                       </div>
                     </div>

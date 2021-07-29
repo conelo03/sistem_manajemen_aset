@@ -59,7 +59,7 @@ class UserController extends Controller
     public function edit($id)
     {
       $user = $this->user->find($id);
-      return view('admin/editUser', $user);
+      return view('laboran/editUser', $user);
     }
     
     public function update(Request $request, $id)
@@ -79,7 +79,7 @@ class UserController extends Controller
 
       $user_baru->save();
 
-      return redirect('/admin/manajemen_user')->with('status', 'Berhasil edit user.');
+      return redirect('/laboran/manajemen_user')->with('status', 'Berhasil edit user.');
     }
     
   public function destroy($id)
