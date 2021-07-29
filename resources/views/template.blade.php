@@ -74,56 +74,44 @@
                     <span class="nav-link-text text-white">Data Aset</span>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Pengadaan</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/admin/pengadaan" class="nav-link">
-                        <span class="nav-link-text text-white">Data Pengadaan</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/admin/pengadaan/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Pengadaan</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/admin/pengadaan" class="dropdown-item">
+                      <span>Data Pengadaan</span>
+                    </a>
+                    <a href="/admin/pengadaan/history" class="dropdown-item">
+                      <span>History Pengadaan</span>
+                    </a>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Maintenance</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/admin/maintenance" class="nav-link">
-                        <span class="nav-link-text text-white">Data Maintenance</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/admin/maintenance/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Maintenance</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/admin/maintenance" class="dropdown-item">
+                      <span>Data Maintenance</span>
+                    </a>
+                    <a href="/admin/maintenance/history" class="dropdown-item">
+                      <span>History Maintenance</span>
+                    </a>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Peminjaman</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/admin/peminjaman" class="nav-link">
-                        <span class="nav-link-text text-white">Data Peminjaman</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/admin/peminjaman/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Peminjaman</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/admin/peminjaman" class="dropdown-item">
+                      <span>Data Peminjaman</span>
+                    </a>
+                    <a href="/admin/peminjaman/history" class="dropdown-item">
+                      <span>History Peminjaman</span>
+                    </a>
+                  </div>
                 </li>
                 @break
               @case('laboran')
@@ -137,56 +125,44 @@
                     <span class="nav-link-text text-white">Data Aset</span>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Pengadaan</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/laboran/pengadaan" class="nav-link">
-                        <span class="nav-link-text text-white">Data Pengadaan</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/laboran/pengadaan/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Pengadaan</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/laboran/pengadaan" class="dropdown-item">
+                      <span>Data Pengadaan</span>
+                    </a>
+                    <a href="/laboran/pengadaan/history" class="dropdown-item">
+                      <span>History Pengadaan</span>
+                    </a>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Maintenance</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/laboran/maintenance" class="nav-link">
-                        <span class="nav-link-text text-white">Data Maintenance</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/laboran/maintenance/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Maintenance</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/laboran/maintenance" class="dropdown-item">
+                      <span>Data Maintenance</span>
+                    </a>
+                    <a href="/laboran/maintenance/history" class="dropdown-item">
+                      <span>History Maintenance</span>
+                    </a>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Peminjaman</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/laboran/peminjaman" class="nav-link">
-                        <span class="nav-link-text text-white">Data Peminjaman</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/laboran/peminjaman/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Peminjaman</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/laboran/peminjaman" class="dropdown-item">
+                      <span>Data Peminjaman</span>
+                    </a>
+                    <a href="/laboran/peminjaman/history" class="dropdown-item">
+                      <span>History Peminjaman</span>
+                    </a>
+                  </div>
                 </li>
                 @break
               @case('keuangan')
@@ -195,39 +171,31 @@
                     <span class="nav-link-text text-white">Data Aset</span>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Pengadaan</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/keuangan/pengadaan" class="nav-link">
-                        <span class="nav-link-text text-white">Data Pengadaan</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/keuangan/pengadaan/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Pengadaan</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/keuangan/pengadaan" class="dropdown-item">
+                      <span>Data Pengadaan</span>
+                    </a>
+                    <a href="/keuangan/pengadaan/history" class="dropdown-item">
+                      <span>History Pengadaan</span>
+                    </a>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Maintenance</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/keuangan/maintenance" class="nav-link">
-                        <span class="nav-link-text text-white">Data Maintenance</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/keuangan/maintenance/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Maintenance</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/keuangan/maintenance" class="dropdown-item">
+                      <span>Data Maintenance</span>
+                    </a>
+                    <a href="/keuangan/maintenance/history" class="dropdown-item">
+                      <span>History Maintenance</span>
+                    </a>
+                  </div>
                 </li>
                 @break
               @case('staff_keuangan')
@@ -236,39 +204,31 @@
                     <span class="nav-link-text text-white">Data Aset</span>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Pengadaan</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/staff_keuangan/pengadaan" class="nav-link">
-                        <span class="nav-link-text text-white">Data Pengadaan</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/staff_keuangan/pengadaan/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Pengadaan</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/staff_keuangan/pengadaan" class="dropdown-item">
+                      <span>Data Pengadaan</span>
+                    </a>
+                    <a href="/staff_keuangan/pengadaan/history" class="dropdown-item">
+                      <span>History Pengadaan</span>
+                    </a>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Maintenance</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/staff_keuangan/maintenance" class="nav-link">
-                        <span class="nav-link-text text-white">Data Maintenance</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/staff_keuangan/maintenance/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Maintenance</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/staff_keuangan/maintenance" class="dropdown-item">
+                      <span>Data Maintenance</span>
+                    </a>
+                    <a href="/staff_keuangan/maintenance/history" class="dropdown-item">
+                      <span>History Maintenance</span>
+                    </a>
+                  </div>
                 </li>
                 @break
               @case('wadek')
@@ -277,39 +237,31 @@
                     <span class="nav-link-text text-white">Data Aset</span>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Pengadaan</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/wadek/pengadaan" class="nav-link">
-                        <span class="nav-link-text text-white">Data Pengadaan</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/wadek/pengadaan/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Pengadaan</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/wadek/pengadaan" class="dropdown-item">
+                      <span>Data Pengadaan</span>
+                    </a>
+                    <a href="/wadek/pengadaan/history" class="dropdown-item">
+                      <span>History Pengadaan</span>
+                    </a>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Maintenance</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/wadek/maintenance" class="nav-link">
-                        <span class="nav-link-text text-white">Data Maintenance</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/wadek/maintenance/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Maintenance</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/wadek/maintenance" class="dropdown-item">
+                      <span>Data Maintenance</span>
+                    </a>
+                    <a href="/wadek/maintenance/history" class="dropdown-item">
+                      <span>History Maintenance</span>
+                    </a>
+                  </div>
                 </li>
                 @break
               @case('kaur_laboratorium')
@@ -318,56 +270,44 @@
                     <span class="nav-link-text text-white">Data Aset</span>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Pengadaan</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/kaur_laboratorium/pengadaan" class="nav-link">
-                        <span class="nav-link-text text-white">Data Pengadaan</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/kaur_laboratorium/pengadaan/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Pengadaan</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/kaur_laboratorium/pengadaan" class="dropdown-item">
+                      <span>Data Pengadaan</span>
+                    </a>
+                    <a href="/kaur_laboratorium/pengadaan/history" class="dropdown-item">
+                      <span>History Pengadaan</span>
+                    </a>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Maintenance</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/kaur_laboratorium/maintenance" class="nav-link">
-                        <span class="nav-link-text text-white">Data Maintenance</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/kaur_laboratorium/maintenance/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Maintenance</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/kaur_laboratorium/maintenance" class="dropdown-item">
+                      <span>Data Maintenance</span>
+                    </a>
+                    <a href="/kaur_laboratorium/maintenance/history" class="dropdown-item">
+                      <span>History Maintenance</span>
+                    </a>
+                  </div>
                 </li>
-                <li class="nav-item">
-                  <span class="nav-link">
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="nav-link-text text-white">Peminjaman</span>
-                  </span>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="/kaur_laboratorium/peminjaman" class="nav-link">
-                        <span class="nav-link-text text-white">Data Peminjaman</span>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="/kaur_laboratorium/peminjaman/history" class="nav-link">
-                        <span class="nav-link-text text-white">History Peminjaman</span>
-                      </a>
-                    </li>
-                  </ul>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/kaur_laboratorium/peminjaman" class="dropdown-item">
+                      <span>Data Peminjaman</span>
+                    </a>
+                    <a href="/kaur_laboratorium/peminjaman/history" class="dropdown-item">
+                      <span>History Peminjaman</span>
+                    </a>
+                  </div>
                 </li>
                 @break
             @endswitch
