@@ -15,7 +15,7 @@
               <select name="aset" id="aset" class="mySelect2" required>
                 <option selected disabled></option>
                 @foreach($aset as $aset)
-                  <option value="{{ $aset->id }}">{{ $aset->nama_aset }}</option>
+                  <option value="{{ $aset->id }}">{{ $aset->kode_aset . ' - ' . $aset->nama_aset }}</option>
                 @endforeach
               </select>
             </div>
