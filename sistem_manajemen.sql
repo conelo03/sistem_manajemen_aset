@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Jul 2021 pada 17.12
+-- Waktu pembuatan: 01 Agu 2021 pada 05.07
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -175,7 +175,7 @@ CREATE TABLE `peminjaman` (
   `lokasi_peminjaman` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tanggal_peminjaman` date NOT NULL,
   `tanggal_kembali` date NOT NULL,
-  `waktu_peminjaman` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `asal_barang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `nip` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -191,7 +191,7 @@ CREATE TABLE `peminjaman` (
 -- Dumping data untuk tabel `peminjaman`
 --
 
-INSERT INTO `peminjaman` (`id`, `aset_id`, `peminjam`, `lokasi_peminjaman`, `tanggal_peminjaman`, `tanggal_kembali`, `waktu_peminjaman`, `created_at`, `updated_at`, `nip`, `email`, `no_telepon`, `status_kaur`, `status_keuangan`, `status_wadek`, `status`) VALUES
+INSERT INTO `peminjaman` (`id`, `aset_id`, `peminjam`, `lokasi_peminjaman`, `tanggal_peminjaman`, `tanggal_kembali`, `asal_barang`, `created_at`, `updated_at`, `nip`, `email`, `no_telepon`, `status_kaur`, `status_keuangan`, `status_wadek`, `status`) VALUES
 (2, '10', 'bagas', 'subang', '2021-07-18', '2021-07-24', '1 hari', '2021-07-18 08:00:45', '2021-07-20 00:31:55', '10104019', 'setiapermanabagas@gmail.com', '085723853284', 'terima', 'terima', 'terima', 'terima'),
 (4, '10', 'M. Bagas Setia', 'C100', '2021-07-20', '2021-07-24', '1 hari', '2021-07-20 00:25:57', '2021-07-20 00:25:57', '10104019', 'bagassetia271@gmail.com', '085723853284', 'terima', 'terima', 'terima', 'terima');
 
@@ -263,7 +263,6 @@ INSERT INTO `users` (`id`, `nama`, `username`, `password`, `jabatan`, `alamat`, 
 (2, 'wadek', 'wadek', '$2y$10$6tdi6qbDqgxD1LwAWQ.uGeYoAgs..LkRKqodkIwxwEHolLdk2zJpq', 'wadek', 'subang', '085723853284', 'wadek', NULL, NULL, NULL, '10104019'),
 (3, 'admin', 'admin', '$2y$10$qoUSf527x.FnKYqx4JnaR.TMwXgLvhFnEZHZm0e9zbjv5r7tuRVRm', 'admin', 'subang', '085723853284', 'admin', NULL, NULL, NULL, '10104019'),
 (4, 'keuangan', 'keuangan', '$2y$10$Y4SG0WGbv9UqQJ5hOoTE3u5guRgLUvOFHWydvbPwBGsNCDm7qQ0bi', 'keuangan', 'subang', '085723853284', 'keuangan', NULL, NULL, NULL, '10104019'),
-(6, 'M. Bagas Setia Permana', 'bagassetia', '$2y$10$ZnnEm47M6YirWfRB671djup4.A49kmy7fr9fRiMIfg2x62iLn8S6W', 'admin', 'Sagalaherang', '085723853284', 'admin', NULL, '2021-07-20 00:52:46', '2021-07-20 00:54:38', '10104020'),
 (7, 'Kaur Laboratorium', 'kaur_lab', '$2y$10$1Bs0n6UaEftHHTYIe7Vjfuvor8SQ.ya3OrzQOU/G85HFLvXL/.2G2', 'Kaur Laboratorium', 'Bandung', '085723853284', 'kaur_laboratorium', NULL, '2021-07-20 03:10:58', '2021-07-20 03:10:58', '321301261180001'),
 (8, 'Staff Keuangan', 'staff_keuangan', '$2y$10$Dza1PxKkEuZzu5V5y3O8luTQbIdvbLavC/eZGdI8r4cKTZeO0qRUu', 'staff_keuangan', 'Binong', '085723853284', 'staff_keuangan', NULL, '2021-07-27 09:01:08', '2021-07-27 09:01:08', '321301261180001');
 
@@ -377,7 +376,7 @@ ALTER TABLE `pengadaans`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

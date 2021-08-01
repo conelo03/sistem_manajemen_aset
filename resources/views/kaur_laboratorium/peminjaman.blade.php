@@ -28,7 +28,7 @@
               <th scope="col">Lokasi Peminjaman</th>
               <th scope="col">Tanggal Peminjaman</th>
               <th scope="col">Tanggal Kembali</th>
-              <th scope="col">Waktu Peminjaman</th>
+              <th scope="col">Asal Barang</th>
               <th scope="col">NIM/NIP</th>
               <th scope="col">Email</th>
               <th scope="col">No. Telepon</th>
@@ -49,7 +49,7 @@
                 <td>{{ $peminjaman->lokasi_peminjaman }}</td>
                 <td>{{ $peminjaman->tanggal_peminjaman }}</td>
                 <td>{{ $peminjaman->tanggal_kembali }}</td>
-                <td>{{ $peminjaman->waktu_peminjaman }}</td>
+                <td>{{ $peminjaman->asal_barang }}</td>
                 <td>{{ $peminjaman->nip }}</td>
                 <td>{{ $peminjaman->email }}</td>
                 <td>{{ $peminjaman->no_telepon }}</td>

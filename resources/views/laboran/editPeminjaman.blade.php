@@ -36,8 +36,8 @@
               <input type="date" id="input-username" class="form-control" placeholder="Tanggal Kembali" name="tanggal_kembali" required value="{{ $tanggal_kembali }}">
             </div>
             <div class="form-group">
-              <label class="form-control-label" for="input-username">Waktu Peminjaman</label>
-              <input type="text" id="input-username" class="form-control" placeholder="Waktu Peminjaman" name="waktu_peminjaman" required value="{{ $waktu_peminjaman }}">
+              <label class="form-control-label" for="input-username">Asal Barang</label>
+              <input type="text" id="input-username" class="form-control" placeholder="Asal Barang" name="asal_barang" required value="{{ $asal_barang }}">
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">NIM/NIP</label>

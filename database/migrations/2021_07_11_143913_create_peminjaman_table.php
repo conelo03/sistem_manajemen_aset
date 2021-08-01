@@ -16,7 +16,7 @@ class CreatePeminjamanTable extends Migration
       $table->string('lokasi_peminjaman');
       $table->date('tanggal_peminjaman');
       $table->date('tanggal_kembali');
-      $table->string('waktu_peminjaman');
+      $table->string('asal_barang');
       $table->string('nip');
       $table->string('email');
       $table->string('no_telepon');

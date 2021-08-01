@@ -34,12 +34,15 @@ class PeminjamanController extends Controller
   {
     // Validate the request...
 
-    $this->peminjaman->aset_id       = $request->aset;
-    $this->peminjaman->peminjam      = $request->peminjam;
-    $this->peminjaman->lokasi_peminjaman      = $request->lokasi_peminjaman;
-    $this->peminjaman->tanggal_peminjaman      = $request->tanggal_peminjaman;
-    $this->peminjaman->tanggal_kembali = $request->tanggal_kembali;
-    $this->peminjaman->waktu_peminjaman = $request->waktu_peminjaman;
+    $this->peminjaman->aset_id            = $request->aset;
+    $this->peminjaman->peminjam           = $request->peminjam;
+    $this->peminjaman->lokasi_peminjaman  = $request->lokasi_peminjaman;
+    $this->peminjaman->tanggal_peminjaman = $request->tanggal_peminjaman;
+    $this->peminjaman->tanggal_kembali    = $request->tanggal_kembali;
+    $this->peminjaman->asal_barang        = $request->asal_barang;
+    $this->peminjaman->nip                = $request->nip;
+    $this->peminjaman->email              = $request->email;
+    $this->peminjaman->no_telepon         = $request->no_telepon;
 
     $this->peminjaman->save();
 
@@ -67,7 +70,10 @@ class PeminjamanController extends Controller
     $peminjaman_baru->lokasi_peminjaman   = $request->lokasi_peminjaman;
     $peminjaman_baru->tanggal_peminjaman  = $request->tanggal_peminjaman;
     $peminjaman_baru->tanggal_kembali     = $request->tanggal_kembali;
-    $peminjaman_baru->waktu_peminjaman    = $request->waktu_peminjaman;
+    $peminjaman_baru->asal_barang         = $request->asal_barang;
+    $peminjaman_baru->nip                 = $request->nip;
+    $peminjaman_baru->email               = $request->email;
+    $peminjaman_baru->no_telepon          = $request->no_telepon;
 
     $peminjaman_baru->save();
 

@@ -27,7 +27,7 @@
               <th scope="col">Lokasi Peminjaman</th>
               <th scope="col">Tanggal Peminjaman</th>
               <th scope="col">Tanggal Kembali</th>
-              <th scope="col">Waktu Peminjaman</th>
+              <th scope="col">Asal Barang</th>
               <th scope="col">Aksi</th>
             </tr>
           </thead>
@@ -41,7 +41,7 @@
                 <td>{{ $peminjaman->lokasi_peminjaman }}</td>
                 <td>{{ $peminjaman->tanggal_peminjaman }}</td>
                 <td>{{ $peminjaman->tanggal_kembali }}</td>
-                <td>{{ $peminjaman->waktu_peminjaman }}</td>
+                <td>{{ $peminjaman->asal_barang }}</td>
                 <td>
                   <a href="/admin/peminjaman/edit/{{ $peminjaman->id }}" class="btn btn-success">Edit</a>
                   <!-- Button trigger modal -->
