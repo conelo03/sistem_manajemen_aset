@@ -20,11 +20,7 @@
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Jenis Aset</label>
-              <select name="jenis_aset" id="jenis_aset" class="mySelect2" required>
-                <option selected disabled></option>
-                <option value="laboratorium">Laboratorium</option>
-                <option value="institusi">Institusi</option>
-              </select>
+              <input type="text" class="form-control" value="laboratorium" name="jenis_aset" readonly>
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Merk</label>
