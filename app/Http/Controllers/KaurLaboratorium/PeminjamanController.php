@@ -49,26 +49,6 @@ class PeminjamanController extends Controller
     return redirect('/kaur_laboratorium/peminjaman')->with('status', 'Berhasil tambah peminjaman.');
   }
   
-  public function updateStatus($status, $id)
-  {
-    $peminjaman_baru = $this->peminjaman->find($id);
-
-    $peminjaman_baru->status_kaur  = $status;
-    
-    $peminjaman_baru->save();
-
-    $peminjaman_baru = $this->peminjaman->find($id);
-    if ($peminjaman_baru->status_kaur !== NULL && $peminjaman_baru->status_keuangan !== NULL && $peminjaman_baru->status_wadek !== NULL) {
-      if ($peminjaman_baru->status_kaur == 'terima' && $peminjaman_baru->status_keuangan == 'terima' && $peminjaman_baru->status_wadek == 'terima') {
-        $peminjaman_baru->status = 'terima';
-      } else {
-        $peminjaman_baru->status = 'tolak';
-      }
-      $peminjaman_baru->save();
-    }
-    return redirect('/kaur_laboratorium/peminjaman')->with('status', 'Berhasil edit data peminjaman.');
-  }
-  
   public function edit($id)
   {
     $peminjaman         = $this->peminjaman->find($id);
@@ -104,13 +84,13 @@ class PeminjamanController extends Controller
 
   public function history()
   {
-    $peminjaman = $this->peminjaman->where('status', 'terima')->get();
+    $peminjaman  = $this->peminjaman->whereNotNull('status')->get();
     return view('kaur_laboratorium/historyPeminjaman', ['peminjaman' => $peminjaman]);
   }
 
   public function printHistory()
   {
-    $peminjaman  = $this->peminjaman->where('status', 'terima')->get();
+    $peminjaman  = $this->peminjaman->whereNotNull('status')->get();
     return view('wadek/printHistoryPeminjaman', ['peminjaman' => $maintenance]);
   }
 }

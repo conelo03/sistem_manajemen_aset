@@ -18,7 +18,8 @@
               <th scope="col">Lokasi Peminjaman</th>
               <th scope="col">Tanggal Peminjaman</th>
               <th scope="col">Tanggal Kembali</th>
-              <th scope="col">Waktu Peminjaman</th>
+              <th scope="col">Asal Barang</th>
+              <th scope="col">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -31,7 +32,22 @@
                 <td>{{ $peminjaman->lokasi_peminjaman }}</td>
                 <td>{{ $peminjaman->tanggal_peminjaman }}</td>
                 <td>{{ $peminjaman->tanggal_kembali }}</td>
-                <td>{{ $peminjaman->waktu_peminjaman }}</td>
+                <td>{{ $peminjaman->asal_barang }}</td>
+                <td>
+                  @if ($peminjaman->status != NULL)
+                    @switch($peminjaman->status)
+                      @case('selesai')
+                        <button class="btn btn-success btn-sm">Selesai</button>
+                        @break
+                      @case('hilang')
+                        <button class="btn btn-warning btn-sm">Warning</button>
+                        @break
+                      @case('rusak')
+                        <button class="btn btn-danger btn-sm">Rusak</button>
+                        @break
+                    @endswitch
+                  @endif
+                </td>
               </tr>
             @endforeach
           </tbody>

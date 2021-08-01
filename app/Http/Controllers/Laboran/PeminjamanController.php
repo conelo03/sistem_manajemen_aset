@@ -89,7 +89,7 @@ class PeminjamanController extends Controller
 
   public function history()
   {
-    $peminjaman = $this->peminjaman->where('status', 'terima')->get();
+    $peminjaman = $this->peminjaman->whereNotNull('status')->get();
     return view('laboran/historyPeminjaman', ['peminjaman' => $peminjaman]);
   }
   
@@ -101,7 +101,18 @@ class PeminjamanController extends Controller
 
   public function printHistory()
   {
-    $peminjaman  = $this->peminjaman->where('status', 'terima')->get();
+    $peminjaman  = $this->peminjaman->whereNotNull('status')->get();
     return view('printHistoryPeminjaman', ['peminjaman' => $peminjaman]);
+  }
+
+  public function updateStatus($status, $id)
+  {
+    $peminjaman_baru = $this->peminjaman->find($id);
+    
+    $peminjaman_baru->status  = $status;
+
+    $peminjaman_baru->save();
+
+    return redirect('/laboran/peminjaman')->with('status', 'Berhasil edit ubah status.');
   }
 }

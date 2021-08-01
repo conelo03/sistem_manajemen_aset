@@ -28,6 +28,7 @@
               <th scope="col">Tanggal Peminjaman</th>
               <th scope="col">Tanggal Kembali</th>
               <th scope="col">Asal Barang</th>
+              <th scope="col">Status</th>
               <th scope="col">Aksi</th>
             </tr>
           </thead>
@@ -42,6 +43,21 @@
                 <td>{{ $peminjaman->tanggal_peminjaman }}</td>
                 <td>{{ $peminjaman->tanggal_kembali }}</td>
                 <td>{{ $peminjaman->asal_barang }}</td>
+                <td>
+                  @if ($peminjaman->status != NULL)
+                    @switch($peminjaman->status)
+                      @case('selesai')
+                        <button class="btn btn-success btn-sm">Selesai</button>
+                        @break
+                      @case('hilang')
+                        <button class="btn btn-warning btn-sm">Warning</button>
+                        @break
+                      @case('rusak')
+                        <button class="btn btn-danger btn-sm">Rusak</button>
+                        @break
+                    @endswitch
+                  @endif
+                </td>
                 <td>
                   <a href="/admin/peminjaman/edit/{{ $peminjaman->id }}" class="btn btn-success">Edit</a>
                   <!-- Button trigger modal -->

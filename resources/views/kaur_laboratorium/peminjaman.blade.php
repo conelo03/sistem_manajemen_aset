@@ -54,63 +54,19 @@
                 <td>{{ $peminjaman->email }}</td>
                 <td>{{ $peminjaman->no_telepon }}</td>
                 <td>
-                  @switch($peminjaman->status_kaur)
-                    @case(null)
-                      <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#terima{{ $peminjaman->id }}">Terima</button>
-                      <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#tolak{{ $peminjaman->id }}">Tolak</button>
-                      @break
-
-                    @case('terima')
-                      <button type="button" class="btn btn-sm btn-success" readonly>Diterima</button>
-                      @break
-
-                    @case('tolak')
-                      <button type="button" class="btn btn-sm btn-danger" readonly>Ditolak</button>
-                      @break
-
-                    @default
-                        Default case...
-                  @endswitch
-                  
-                  <div class="modal fade" id="terima{{ $peminjaman->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Terima</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          Anda yakin akan menerima data peminjaman ini?
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/kaur_laboratorium/peminjaman/update_status/terima/{{ $peminjaman->id }}" class="btn btn-success">Terima</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="modal fade" id="tolak{{ $peminjaman->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Tolak</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          Anda yakin akan menolak data peminjaman ini?
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/kaur_laboratorium/peminjaman/update_status/tolak/{{ $peminjaman->id }}" class="btn btn-danger">Tolak</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  @if ($peminjaman->status != NULL)
+                    @switch($peminjaman->status)
+                      @case('selesai')
+                        <button class="btn btn-success btn-sm">Selesai</button>
+                        @break
+                      @case('hilang')
+                        <button class="btn btn-warning btn-sm">Warning</button>
+                        @break
+                      @case('rusak')
+                        <button class="btn btn-danger btn-sm">Rusak</button>
+                        @break
+                    @endswitch
+                  @endif
                 </td>
                 <td>
                   <a href="/kaur_laboratorium/peminjaman/edit/{{ $peminjaman->id }}" class="btn btn-success btn-sm">Edit</a>
