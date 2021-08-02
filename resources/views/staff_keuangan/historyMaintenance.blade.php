@@ -6,7 +6,7 @@
       <h3>MAINTENANCE HISTORY</h3>
     </div>
     <div class="card-body">
-      <a href="/keuangan/maintenance/print_history" target="_blank" class="btn btn-primary mb-3">Cetak</a>
+      <a href="/staff_keuangan/maintenance/print_history" target="_blank" class="btn btn-primary mb-3">Cetak</a>
       <div class="table-responsive">
         <table class="table" id="myTable">
           <thead class="thead-dark">
