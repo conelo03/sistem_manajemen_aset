@@ -31,7 +31,7 @@ class MaintenanceController extends Controller
   {
     $aset   = $this->aset->all();
     $mitra  = $this->mitra->all();
-    return view('keuangan/tambahMaintenance', [
+    return view('staff_keuangan/tambahMaintenance', [
       'aset'  => $aset,
       'mitra' => $mitra
     ]);

@@ -5,7 +5,7 @@
     <div class="card-header">
       <h3>MAINTENANCE</h3>
     </div>
-    <form action="/admin/maintenance/tambah" method="post">
+    <form action="/staff_keuangan/maintenance/tambah" method="post">
       @csrf
       <div class="card-body">
         <div class="row">
