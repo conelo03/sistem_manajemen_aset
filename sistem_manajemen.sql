@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Agu 2021 pada 05.07
+-- Waktu pembuatan: 02 Agu 2021 pada 17.54
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -95,7 +95,8 @@ CREATE TABLE `maintenance` (
 --
 
 INSERT INTO `maintenance` (`id`, `kode_maintenance`, `tanggal_maintenance`, `aset_id`, `mitra_id`, `biaya`, `tanggal_selesai`, `lokasi`, `status_kaur`, `status_wadek`, `status_keuangan`, `status`, `created_at`, `updated_at`) VALUES
-(1, '12345678', '2021-07-08', '4', '4', 10000000, '2021-07-29', 'Bandung', 'terima', 'terima', 'terima', 'terima', '2021-07-07 20:21:34', '2021-07-28 08:09:10');
+(1, '12345678', '2021-07-08', '4', '4', 10000000, '2021-07-29', 'Bandung', 'terima', 'terima', 'terima', 'terima', '2021-07-07 20:21:34', '2021-07-28 08:09:10'),
+(3, '19982711', '2021-08-02', '10', '4', 300000, '2021-08-26', 'Subang', NULL, NULL, NULL, NULL, '2021-08-02 08:29:47', '2021-08-02 08:29:47');
 
 -- --------------------------------------------------------
 
@@ -181,19 +182,16 @@ CREATE TABLE `peminjaman` (
   `nip` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_telepon` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status_kaur` enum('terima','tolak') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status_keuangan` enum('terima','tolak') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status_wadek` enum('terima','tolak') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` enum('terima','tolak') COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('selesai','hilang','rusak') COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `peminjaman`
 --
 
-INSERT INTO `peminjaman` (`id`, `aset_id`, `peminjam`, `lokasi_peminjaman`, `tanggal_peminjaman`, `tanggal_kembali`, `asal_barang`, `created_at`, `updated_at`, `nip`, `email`, `no_telepon`, `status_kaur`, `status_keuangan`, `status_wadek`, `status`) VALUES
-(2, '10', 'bagas', 'subang', '2021-07-18', '2021-07-24', '1 hari', '2021-07-18 08:00:45', '2021-07-20 00:31:55', '10104019', 'setiapermanabagas@gmail.com', '085723853284', 'terima', 'terima', 'terima', 'terima'),
-(4, '10', 'M. Bagas Setia', 'C100', '2021-07-20', '2021-07-24', '1 hari', '2021-07-20 00:25:57', '2021-07-20 00:25:57', '10104019', 'bagassetia271@gmail.com', '085723853284', 'terima', 'terima', 'terima', 'terima');
+INSERT INTO `peminjaman` (`id`, `aset_id`, `peminjam`, `lokasi_peminjaman`, `tanggal_peminjaman`, `tanggal_kembali`, `asal_barang`, `created_at`, `updated_at`, `nip`, `email`, `no_telepon`, `status`) VALUES
+(2, '10', 'bagas', 'subang', '2021-07-18', '2021-07-24', '1 hari', '2021-07-18 08:00:45', '2021-08-01 06:52:08', '10104019', 'setiapermanabagas@gmail.com', '085723853284', 'selesai'),
+(4, '10', 'M. Bagas Setia', 'C100', '2021-07-20', '2021-07-24', '1 hari', '2021-07-20 00:25:57', '2021-07-20 00:25:57', '10104019', 'bagassetia271@gmail.com', '085723853284', NULL);
 
 -- --------------------------------------------------------
 
@@ -346,7 +344,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `maintenance`
 --
 ALTER TABLE `maintenance`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
