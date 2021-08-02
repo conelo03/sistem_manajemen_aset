@@ -317,6 +317,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/edit/{id}', [PengadaanKaurLaboratorium::class, 'update']);
         Route::get('/history', [PengadaanKaurLaboratorium::class, 'history']);
         Route::get('/{status}/{id}', [PengadaanKaurLaboratorium::class, 'updateStatus']);
+        Route::get('/print', [PengadaanKaurLaboratorium::class, 'print']);
       });
 
       Route::prefix('/maintenance')->group(function () {
