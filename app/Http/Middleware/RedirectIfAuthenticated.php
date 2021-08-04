@@ -32,6 +32,14 @@ class RedirectIfAuthenticated
           case 'wadek':
             return redirect('wadek');
             break;
+  
+          case 'kaur_laboratorium':
+            return redirect('kaur_laboratorium');
+            break;
+  
+          case 'staff_keuangan':
+            return redirect('staff_keuangan');
+            break;
           
           default:
             # code...
