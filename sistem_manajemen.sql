@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Agu 2021 pada 17.54
+-- Waktu pembuatan: 05 Agu 2021 pada 16.40
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -182,16 +182,18 @@ CREATE TABLE `peminjaman` (
   `nip` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_telepon` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` enum('selesai','hilang','rusak') COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `status` enum('selesai','hilang','rusak') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `rencana_kembali` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `peminjaman`
 --
 
-INSERT INTO `peminjaman` (`id`, `aset_id`, `peminjam`, `lokasi_peminjaman`, `tanggal_peminjaman`, `tanggal_kembali`, `asal_barang`, `created_at`, `updated_at`, `nip`, `email`, `no_telepon`, `status`) VALUES
-(2, '10', 'bagas', 'subang', '2021-07-18', '2021-07-24', '1 hari', '2021-07-18 08:00:45', '2021-08-01 06:52:08', '10104019', 'setiapermanabagas@gmail.com', '085723853284', 'selesai'),
-(4, '10', 'M. Bagas Setia', 'C100', '2021-07-20', '2021-07-24', '1 hari', '2021-07-20 00:25:57', '2021-07-20 00:25:57', '10104019', 'bagassetia271@gmail.com', '085723853284', NULL);
+INSERT INTO `peminjaman` (`id`, `aset_id`, `peminjam`, `lokasi_peminjaman`, `tanggal_peminjaman`, `tanggal_kembali`, `asal_barang`, `created_at`, `updated_at`, `nip`, `email`, `no_telepon`, `status`, `rencana_kembali`) VALUES
+(2, '10', 'bagas', 'subang', '2021-07-18', '2021-07-24', '1 hari', '2021-07-18 08:00:45', '2021-08-01 06:52:08', '10104019', 'setiapermanabagas@gmail.com', '085723853284', 'selesai', '2021-11-26'),
+(4, '10', 'M. Bagas Setia', 'C100', '2021-07-20', '2021-07-24', '1 hari', '2021-07-20 00:25:57', '2021-07-20 00:25:57', '10104019', 'bagassetia271@gmail.com', '085723853284', NULL, '2021-11-26'),
+(5, '10', 'Inwan', 'C100', '2021-08-05', '2021-08-12', 'asal barang', '2021-08-05 06:56:08', '2021-08-05 06:56:08', '321301261190001', 'bagassetia271@gmail.com', '085723853284', NULL, '2021-08-11');
 
 -- --------------------------------------------------------
 
@@ -362,7 +364,7 @@ ALTER TABLE `mitras`
 -- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengadaans`
