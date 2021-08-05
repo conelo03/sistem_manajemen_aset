@@ -57,6 +57,23 @@
                 <td>{{ $peminjaman->no_telepon }}</td>
                 <td>{{ tgl_indo($peminjaman->rencana_kembali) }}</td>
                 <td>
+                  @if ($peminjaman->status !== NULL)
+                    @switch($peminjaman->status)
+                      @case('selesai')
+                        <button class="btn btn-success btn-sm">Selesai</button>
+                        @break
+                      @case('hilang')
+                        <button class="btn btn-warning btn-sm">Warning</button>
+                        @break
+                      @case('rusak')
+                        <button class="btn btn-danger btn-sm">Rusak</button>
+                        @break
+                    @endswitch
+                  @else
+                    <button class="btn btn-primary btn-sm">Dipinjam</button>
+                  @endif
+                </td>
+                <td>
                   @if ($peminjaman->status == NULL)
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#selesai{{ $peminjaman->id }}">Selesai</button>
@@ -129,21 +146,8 @@
                         </div>
                       </div>
                     </div>
-                  @else
-                    @switch($peminjaman->status)
-                      @case('selesai')
-                        <button class="btn btn-success btn-sm">Selesai</button>
-                        @break
-                      @case('hilang')
-                        <button class="btn btn-warning btn-sm">Warning</button>
-                        @break
-                      @case('rusak')
-                        <button class="btn btn-danger btn-sm">Rusak</button>
-                        @break
-                    @endswitch
                   @endif
-                </td>
-                <td>
+
                   <a href="/laboran/peminjaman/edit/{{ $peminjaman->id }}" class="btn btn-sm btn-success">Edit</a>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#hapus{{ $peminjaman->id }}">
