@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Jenis Aset</label>
-              <input type="text" id="input-username" class="form-control" placeholder="Jenis Aset" name="jenis_aset" required>
+              <input type="text" id="input-username" class="form-control" name="jenis_aset" required value="laboratorium" readonly>
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Merk</label>
