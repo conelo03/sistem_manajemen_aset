@@ -38,6 +38,8 @@ use App\Http\Controllers\StaffKeuangan\AsetController as AsetStaffKeuangan;
 use App\Http\Controllers\StaffKeuangan\PengadaanController as PengadaanStaffKeuangan;
 use App\Http\Controllers\StaffKeuangan\MaintenanceController as MaintenanceStaffKeuangan;
 
+use App\Http\Controllers\AsetController as Aset;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +51,7 @@ use App\Http\Controllers\StaffKeuangan\MaintenanceController as MaintenanceStaff
 |
 */
 Route::middleware('auth')->group(function () {
+  Route::post('/aset/asal_barang', [Aset::class, 'asalBarang']);
   Route::middleware('is_admin')->group(function () {
     Route::prefix('admin')->group(function () {
       Route::get('/', [AdminController::class, 'index']);

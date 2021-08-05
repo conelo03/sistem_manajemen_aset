@@ -12,12 +12,16 @@
           <div class="col-lg-12">
             <div class="form-group">
               <label class="form-control-label" for="input-username">Nama Aset</label>
-              <select name="aset" id="aset" class="mySelect2" required>
+              <select name="aset" id="aset" class="mySelect2" required onchange="isiAsalBarang(this)">
                 <option selected disabled></option>
                 @foreach($aset as $aset)
                   <option value="{{ $aset->id }}">{{ $aset->kode_aset . ' - ' . $aset->nama_aset }}</option>
                 @endforeach
               </select>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">Asal Barang</label>
+              <input type="text" id="asal_barang" class="form-control" placeholder="Asal Barang" name="asal_barang" required readonly>
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">Nama Peminjam</label>
@@ -34,10 +38,6 @@
             <div class="form-group">
               <label class="form-control-label" for="input-username">Tanggal Kembali</label>
               <input type="date" id="input-username" class="form-control" placeholder="Tanggal Kembali" name="tanggal_kembali" required>
-            </div>
-            <div class="form-group">
-              <label class="form-control-label" for="input-username">Asal Barang</label>
-              <input type="text" id="input-username" class="form-control" placeholder="Asal Barang" name="asal_barang" required>
             </div>
             <div class="form-group">
               <label class="form-control-label" for="input-username">NIM/NIP</label>
