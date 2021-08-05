@@ -20,10 +20,8 @@ class CreatePeminjamanTable extends Migration
       $table->string('nip');
       $table->string('email');
       $table->string('no_telepon');
-      $table->enum('status_kaur', ['tolak', 'terima'])->nullable();
-      $table->enum('status_wadek', ['tolak', 'terima'])->nullable();
-      $table->enum('status_keuangan', ['tolak', 'terima'])->nullable();
       $table->enum('status', ['tolak', 'terima'])->nullable();
+      $table->date('rencana_kembali');
       $table->timestamps();
     });
   }

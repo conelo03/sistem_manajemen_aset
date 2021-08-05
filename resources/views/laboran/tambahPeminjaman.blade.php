@@ -51,6 +51,10 @@
               <label class="form-control-label" for="input-username">No. Telepon</label>
               <input type="text" id="input-username" class="form-control" placeholder="No. Telepon" name="no_telepon" required>
             </div>
+            <div class="form-group">
+              <label class="form-control-label" for="input-username">Rencana Kembali</label>
+              <input type="date" id="input-username" class="form-control" name="rencana_kembali" required>
+            </div>
           </div>
         </div>
       </div>

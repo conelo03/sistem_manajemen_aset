@@ -33,6 +33,7 @@
               <th scope="col">NIM/NIP</th>
               <th scope="col">Email</th>
               <th scope="col">No. Telepon</th>
+              <th scope="col">Rencana Kembali</th>
               <th scope="col">Status</th>
               <th scope="col">Aksi</th>
             </tr>
@@ -48,12 +49,13 @@
                 <td>{{ $peminjaman->aset->jenis_aset }}</td>
                 <td>{{ $peminjaman->peminjam }}</td>
                 <td>{{ $peminjaman->lokasi_peminjaman }}</td>
-                <td>{{ $peminjaman->tanggal_peminjaman }}</td>
-                <td>{{ $peminjaman->tanggal_kembali }}</td>
+                <td>{{ tgl_indo($peminjaman->tanggal_peminjaman) }}</td>
+                <td>{{ tgl_indo($peminjaman->tanggal_kembali) }}</td>
                 <td>{{ $peminjaman->asal_barang }}</td>
                 <td>{{ $peminjaman->nip }}</td>
                 <td>{{ $peminjaman->email }}</td>
                 <td>{{ $peminjaman->no_telepon }}</td>
+                <td>{{ tgl_indo($peminjaman->rencana_kembali) }}</td>
                 <td>
                   @if ($peminjaman->status == NULL)
                     <!-- Button trigger modal -->

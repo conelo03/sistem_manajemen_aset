@@ -43,6 +43,7 @@ class PeminjamanController extends Controller
     $this->peminjaman->nip                = $request->nip;
     $this->peminjaman->email              = $request->email;
     $this->peminjaman->no_telepon         = $request->no_telepon;
+    $this->peminjaman->rencana_kembali    = $request->rencana_kembali;
 
     $this->peminjaman->save();
 
