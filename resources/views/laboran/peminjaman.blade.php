@@ -23,16 +23,9 @@
               <th scope="col">No.</th>
               <th scope="col">Kode Aset</th>
               <th scope="col">Nama Aset</th>
-              <th scope="col">Merk</th>
-              <th scope="col">Jenis Aset</th>
               <th scope="col">Nama Peminjam</th>
               <th scope="col">Lokasi Peminjaman</th>
-              <th scope="col">Tanggal Peminjaman</th>
-              <th scope="col">Tanggal Kembali</th>
               <th scope="col">Asal Barang</th>
-              <th scope="col">NIM/NIP</th>
-              <th scope="col">Email</th>
-              <th scope="col">No. Telepon</th>
               <th scope="col">Rencana Kembali</th>
               <th scope="col">Status</th>
               <th scope="col">Aksi</th>
@@ -45,16 +38,9 @@
                 <td>{{ $no++ }}</td>
                 <td>{{ $peminjaman->aset->kode_aset }}</td>
                 <td>{{ $peminjaman->aset->nama_aset }}</td>
-                <td>{{ $peminjaman->aset->merk }}</td>
-                <td>{{ $peminjaman->aset->jenis_aset }}</td>
                 <td>{{ $peminjaman->peminjam }}</td>
                 <td>{{ $peminjaman->lokasi_peminjaman }}</td>
-                <td>{{ tgl_indo($peminjaman->tanggal_peminjaman) }}</td>
-                <td>{{ tgl_indo($peminjaman->tanggal_kembali) }}</td>
                 <td>{{ $peminjaman->asal_barang }}</td>
-                <td>{{ $peminjaman->nip }}</td>
-                <td>{{ $peminjaman->email }}</td>
-                <td>{{ $peminjaman->no_telepon }}</td>
                 <td>{{ tgl_indo($peminjaman->rencana_kembali) }}</td>
                 <td>
                   @if ($peminjaman->status !== NULL)
@@ -74,6 +60,55 @@
                   @endif
                 </td>
                 <td>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#detail{{ $peminjaman->id }}">Detail</button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="detail{{ $peminjaman->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Merk</label>
+                            <p class="form-control">{{ $peminjaman->aset->merk }}</p>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Jenis Aset</label>
+                            <p class="form-control">{{ $peminjaman->aset->jenis_aset }}</p>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Tanggal Peminjaman</label>
+                            <p class="form-control">{{ tgl_indo($peminjaman->tanggal_peminjaman) }}</p>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Tanggal Kembali</label>
+                            <p class="form-control">{{ tgl_indo($peminjaman->tanggal_kembali) }}</p>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">NIM</label>
+                            <p class="form-control">{{ $peminjaman->nim }}</p>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">Email</label>
+                            <p class="form-control">{{ $peminjaman->email }}</p>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">No. Telepon</label>
+                            <p class="form-control">{{ $peminjaman->no_telp }}</p>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   @if ($peminjaman->status == NULL)
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#selesai{{ $peminjaman->id }}">Selesai</button>
