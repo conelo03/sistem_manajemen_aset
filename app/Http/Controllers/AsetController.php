@@ -17,7 +17,8 @@ class AsetController extends Controller
   
   public function asalBarang(Request $request)
   {
-    $aset = $this->aset->find($request->id_aset)->first();
+    $aset = $this->aset->find($request->id_aset);
+    dd($aset);
     return response()->json($aset);
   }
   
