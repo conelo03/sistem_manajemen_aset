@@ -284,6 +284,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/edit/{id}', [MaintenanceWadek::class, 'update']);
         Route::get('/hapus/{id}', [MaintenanceWadek::class, 'destroy']);
       });
+
+      Route::prefix('/peminjaman')->group(function () {
+        Route::get('/', [PeminjamanWadek::class, 'index']);
+        Route::get('/update_status/{status}/{id}', [PeminjamanWadek::class, 'updateStatus']);
+        Route::get('/history', [PeminjamanWadek::class, 'history']);
+        Route::get('/print_history', [PeminjamanWadek::class, 'printHistory']);
+        Route::get('/print', [PeminjamanWadek::class, 'print']);
+      });
     });
   });
   
