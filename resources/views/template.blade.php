@@ -197,6 +197,19 @@
                     </a>
                   </div>
                 </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="nav-link-text text-white">Peminjaman</span>
+                  </a>
+                  <div class="dropdown-menu  dropdown-menu-right ">
+                    <a href="/keuangan/peminjaman" class="dropdown-item">
+                      <span>Data Peminjaman</span>
+                    </a>
+                    <a href="/keuangan/peminjaman/history" class="dropdown-item">
+                      <span>History Peminjaman</span>
+                    </a>
+                  </div>
+                </li>
                 @break
               @case('staff_keuangan')
                 <li class="nav-item">

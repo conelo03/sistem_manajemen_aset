@@ -20,6 +20,7 @@ use App\Http\Controllers\Keuangan\KeuanganController;
 use App\Http\Controllers\Keuangan\AsetController as AsetKeuangan;
 use App\Http\Controllers\Keuangan\PengadaanController as PengadaanKeuangan;
 use App\Http\Controllers\Keuangan\MaintenanceController as MaintenanceKeuangan;
+use App\Http\Controllers\Keuangan\PeminjamanController as PeminjamanKeuangan;
 
 use App\Http\Controllers\Wadek\WadekController;
 use App\Http\Controllers\Wadek\AsetController as AsetWadek;
