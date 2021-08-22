@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Agu 2021 pada 17.34
+-- Waktu pembuatan: 22 Agu 2021 pada 12.57
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -197,7 +197,7 @@ INSERT INTO `peminjaman` (`id`, `aset_id`, `peminjam`, `lokasi_peminjaman`, `tan
 (2, '10', 'bagas', 'subang', '2021-07-18', '2021-07-24', '1 hari', '2021-07-18 08:00:45', '2021-08-01 06:52:08', '10104019', 'setiapermanabagas@gmail.com', '085723853284', 'selesai', '2021-11-26', 'terima', 'terima', 'terima'),
 (4, '10', 'M. Bagas Setia', 'C100', '2021-07-20', '2021-07-24', '1 hari', '2021-07-20 00:25:57', '2021-07-20 00:25:57', '10104019', 'bagassetia271@gmail.com', '085723853284', NULL, '2021-11-26', 'terima', 'terima', 'terima'),
 (5, '10', 'Inwan', 'C100', '2021-08-05', '2021-08-12', 'asal barang', '2021-08-05 06:56:08', '2021-08-05 06:56:08', '321301261190001', 'bagassetia271@gmail.com', '085723853284', NULL, '2021-08-11', 'terima', 'terima', 'terima'),
-(6, '4', 'Inwan', 'subang', '2021-08-21', '2021-08-23', 'Subang', '2021-08-21 08:23:00', '2021-08-21 08:32:52', '10104019', 'fieryinferno33@gmail.com', '085723853284', NULL, '2021-08-27', 'terima', NULL, NULL);
+(6, '4', 'Inwan', 'subang', '2021-08-21', '2021-08-23', 'Subang', '2021-08-21 08:23:00', '2021-08-22 03:56:37', '10104019', 'fieryinferno33@gmail.com', '085723853284', NULL, '2021-08-27', 'terima', 'terima', 'terima');
 
 -- --------------------------------------------------------
 
