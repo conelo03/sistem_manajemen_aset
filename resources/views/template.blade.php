@@ -271,8 +271,8 @@
                     <a href="/wadek/peminjaman" class="dropdown-item">
                       <span>Data Peminjaman</span>
                     </a>
-                    <a href="/wadek/maintenance/history" class="dropdown-item">
-                      <span>History Maintenance</span>
+                    <a href="/wadek/peminjaman/history" class="dropdown-item">
+                      <span>History Peminjaman</span>
                     </a>
                   </div>
                 </li>
