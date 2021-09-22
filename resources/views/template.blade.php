@@ -435,6 +435,8 @@
   <script>
     $(document).ready( function () {
       $('#myTable').DataTable();
+      $('#institusi').DataTable();
+      $('#laboratorium').DataTable();
 
       $('.mySelect2').select2();
       

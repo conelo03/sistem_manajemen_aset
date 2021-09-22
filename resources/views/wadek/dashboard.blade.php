@@ -89,5 +89,79 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-6">
+          <div class="card">
+            <div class="card-header">Aset Institusi</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="institusi">
+                  <thead>
+                    <tr>
+                      <td>No</td>
+                      <td>Kode Aset</td>
+                      <td>Nama Aset</td>
+                      <td>Merk</td>
+                      <td>Lokasi</td>
+                      <td>Kondisi</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php $no = 1; ?>
+                    @foreach ($dataInstitusi as $i)
+                      <tr>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $i->kode_aset }}</td>
+                        <td>{{ $i->nama_aset }}</td>
+                        <td>{{ $i->merk }}</td>
+                        <td>{{ $i->lokasi }}</td>
+                        <td>{{ $i->kondisi }}</td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card">
+            <div class="card-header">Aset Labortorium</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="laboratorium">
+                  <thead>
+                    <tr>
+                      <td>No</td>
+                      <td>Kode Aset</td>
+                      <td>Nama Aset</td>
+                      <td>Merk</td>
+                      <td>Lokasi</td>
+                      <td>Kondisi</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php $no = 1; ?>
+                    @foreach ($dataLaboratorium as $i)
+                      <tr>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $i->kode_aset }}</td>
+                        <td>{{ $i->nama_aset }}</td>
+                        <td>{{ $i->merk }}</td>
+                        <td>{{ $i->lokasi }}</td>
+                        <td>{{ $i->kondisi }}</td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection
