@@ -4,30 +4,23 @@ namespace App\Http\Controllers\Wadek;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Pengadaan;
+use App\Models\Asets;
 
 class WadekController extends Controller
 {
-  private $pengadaan;
+  private $aset;
   
   public function __construct()
   {
-    $this->pengadaan  = new Pengadaan;
+    $this->aset  = new Asets;
   }
 
   public function index()
   {
-    $tgl_awal       = date('Y')-10;
-    $tgl_akhir      = date('Y')+3;
-    $data_pengadaan = [];
-    for ($i = $tgl_awal; $i <= $tgl_akhir; $i++) {
-      $pengadaan          = $this->pengadaan->whereYear('tanggal_input', $i)->get();
-      $data_pengadaan[$i] = 0;
-      foreach ($pengadaan as $key) {
-        $data_pengadaan[$i] += $key['harga_aset'];
-      }
-    }
-    $pengadaan['data_pengadaan']  = $data_pengadaan;
-    return view('wadek/dashboard', $pengadaan);
+    $data['total']        = $this->aset->count();
+    $data['baik']         = $this->aset->where('kondisi', 'baik')->count();
+    $data['maintenance']  = $this->aset->where('kondisi', 'maintenance')->count();
+    $data['rusak']        = $this->aset->where('kondisi', 'rusak')->count();
+    return view('wadek/dashboard', $data);
   }
 }

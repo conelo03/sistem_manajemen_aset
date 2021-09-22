@@ -498,83 +498,116 @@
         foreach ($data_pengadaan as $key => $value) { ?>
           bulan.push('<?= $key; ?>');
           jumlah.push('<?= $value; ?>');
-        <?php }
-      }
-    ?>
-
-    var myBarChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: bulan,
-        datasets: [{
-          label: "Revenue",
-          backgroundColor: "#4e73df",
-          hoverBackgroundColor: "#2e59d9",
-          borderColor: "#4e73df",
-          data: jumlah,
-        }],
-      },
-      options: {
-        maintainAspectRatio: false,
-        layout: {
-          padding: {
-            left: 10,
-            right: 25,
-            top: 25,
-            bottom: 0
-          }
-        },
-        scales: {
-          xAxes: [{
-            time: {
-              unit: 'month'
-            },
-            gridLines: {
-              display: false,
-              drawBorder: false
-            },
-            maxBarThickness: 25,
-            scaleLabel: {
-              display: true,
-              labelString: 'Tahun'
-            },
-          }],
-          yAxes: [{
-            display: true,
-            scaleLabel: {
-              display: true,
-              labelString: 'Total Biaya Pengadaan'
-            },
-            ticks: {
-              callback: function(label, index, labels) {
-                return 'Rp. ' + number_format(label);
+        <?php } ?>
+        var myBarChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: bulan,
+            datasets: [{
+              label: "Revenue",
+              backgroundColor: "#4e73df",
+              hoverBackgroundColor: "#2e59d9",
+              borderColor: "#4e73df",
+              data: jumlah,
+            }],
+          },
+          options: {
+            maintainAspectRatio: false,
+            layout: {
+              padding: {
+                left: 10,
+                right: 25,
+                top: 25,
+                bottom: 0
               }
             },
-          }]
-        },
-        legend: {
-          display: false
-        },
-        tooltips: {
-          titleMarginBottom: 10,
-          titleFontColor: '#6e707e',
-          titleFontSize: 14,
-          backgroundColor: "rgb(255,255,255)",
-          bodyFontColor: "#858796",
-          borderColor: '#dddfeb',
-          borderWidth: 1,
-          xPadding: 15,
-          yPadding: 15,
-          displayColors: false,
-          caretPadding: 10,
-          callbacks: {
-            label: function(tooltipItem, chart) {
-              var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-              return datasetLabel + ': Rp. ' + number_format(tooltipItem.yLabel);
-            }
+            scales: {
+              xAxes: [{
+                time: {
+                  unit: 'month'
+                },
+                gridLines: {
+                  display: false,
+                  drawBorder: false
+                },
+                maxBarThickness: 25,
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Tahun'
+                },
+              }],
+              yAxes: [{
+                display: true,
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Total Biaya Pengadaan'
+                },
+                ticks: {
+                  callback: function(label, index, labels) {
+                    return 'Rp. ' + number_format(label);
+                  }
+                },
+              }]
+            },
+            legend: {
+              display: false
+            },
+            tooltips: {
+              titleMarginBottom: 10,
+              titleFontColor: '#6e707e',
+              titleFontSize: 14,
+              backgroundColor: "rgb(255,255,255)",
+              bodyFontColor: "#858796",
+              borderColor: '#dddfeb',
+              borderWidth: 1,
+              xPadding: 15,
+              yPadding: 15,
+              displayColors: false,
+              caretPadding: 10,
+              callbacks: {
+                label: function(tooltipItem, chart) {
+                  var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+                  return datasetLabel + ': Rp. ' + number_format(tooltipItem.yLabel);
+                }
+              }
+            },
           }
+        });
+      <?php }
+    ?>
+
+
+    //-------------
+    //- PIE CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas  = $("#pieChart").get(0).getContext("2d");
+    var pieData         = {
+      labels: ["Chrome", "IE", "FireFox", "Safari", "Opera", "Navigator"],
+      datasets: [
+        {
+          data: [700, 500, 400, 600, 300, 100],
+          backgroundColor: [
+            "#f56954",
+            "#00a65a",
+            "#f39c12",
+            "#00c0ef",
+            "#3c8dbc",
+            "#d2d6de",
+          ],
         },
-      }
+      ],
+    };
+    var pieOptions = {
+      maintainAspectRatio: false,
+      responsive: true,
+    };
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    new Chart(pieChartCanvas, {
+      type: "pie",
+      data: pieData,
+      options: pieOptions,
     });
 
     function isiAsalBarang(data) {
