@@ -21,6 +21,8 @@ class WadekController extends Controller
     $data['baik']         = $this->aset->where('kondisi', 'baik')->count();
     $data['maintenance']  = $this->aset->where('kondisi', 'maintenance')->count();
     $data['rusak']        = $this->aset->where('kondisi', 'rusak')->count();
+    $data['institusi']    = $this->aset->where('jenis_aset', 'institusi')->count();
+    $data['laboratorium'] = $this->aset->where('jenis_aset', 'laboratorium')->count();
     return view('wadek/dashboard', $data);
   }
 }

@@ -1,5 +1,6 @@
 @extends('template')
-@section('konten')<div class="container-fluid mt-3">
+@section('konten')
+<div class="container-fluid mt-3">
   <div class="row">
     <div class="col-8">
       <div class="row">
@@ -83,7 +84,7 @@
           Jumlah Barang Fakultas
         </div>
         <div class="card-body">
-          <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+          <canvas id="pieChart"></canvas>
         </div>
       </div>
     </div>
