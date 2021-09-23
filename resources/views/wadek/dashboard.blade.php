@@ -80,13 +80,8 @@
     </div>
     <div class="col-4">
       <div class="card">
-        <div class="card-header">
-          Jumlah Barang Fakultas
-        </div>
         <div class="card-body">
-          <div class="chart">
-            <canvas id="pieChart"></canvas>
-          </div>
+          <canvas id="pieChart"></canvas>
         </div>
       </div>
     </div>
