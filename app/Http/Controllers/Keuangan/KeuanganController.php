@@ -55,6 +55,14 @@ class KeuanganController extends Controller
         return $item['harga_aset'] * $item['quantity'];
       }
     });
+    
+    $pengadaan  = $pengadaan->map(function ($item) {
+      return $item['harga_aset'] * $item['quantity'];
+    });
+
+    $data['p_realisasi']  = $pengadaan->sum();
+    $data['p_anggaran']   = 10000000000;
+    $data['p_pengadaan']  = $pengadaan->sum() / 10000000000 * 100;
 
     $data['biayaPengadaan']['laboratorium'] = $laboratorium->sum();
     $data['biayaPengadaan']['institusi']    = $institusi->sum();
@@ -72,6 +80,14 @@ class KeuanganController extends Controller
         return $item['biaya'];
       }
     });
+    
+    $maintenance  = $maintenance->map(function ($item) {
+      return $item['biaya'];
+    });
+
+    $data['m_realisasi']    = $maintenance->sum();
+    $data['m_anggaran']     = 10000000000;
+    $data['m_maintenance']  = $maintenance->sum() / 1000000000 * 100;
 
     $data['biayaMaintenance']['laboratorium'] = $laboratorium->sum();
     $data['biayaMaintenance']['institusi']    = $institusi->sum();

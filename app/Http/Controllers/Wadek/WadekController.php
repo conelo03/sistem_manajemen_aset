@@ -48,7 +48,7 @@ class WadekController extends Controller
       return $item['biaya'];
     });
 
-    $data['m_realisasi']    = $aset->sum();
+    $data['m_realisasi']    = $maintenance->sum();
     $data['m_anggaran']     = 10000000000;
     $data['m_maintenance']  = $maintenance->sum() / 1000000000 * 100;
     
