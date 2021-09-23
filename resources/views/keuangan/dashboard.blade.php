@@ -26,16 +26,11 @@
       </div>
     </div>
     <div class="col">
-      <!-- <div class="card">
-        <div class="card-header">
-          Total Biaya Maintenance
-        </div>
+      <div class="card">
         <div class="card-body">
-          <div class="chart">
-            <canvas id="biayaMaintenance"></canvas>
-          </div>
+          <canvas id="biayaMaintenance"></canvas>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </div>

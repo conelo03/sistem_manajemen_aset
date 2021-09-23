@@ -799,9 +799,7 @@ html { text-align:center; }
           config
         );
       <?php }
-    ?>
       
-    <?php
       if (isset($biayaPengadaan)) { ?>
         const data = {
           labels: ["Institusi", "Laboratorium"],
@@ -835,6 +833,42 @@ html { text-align:center; }
         var myChart = new Chart(
           document.getElementById('biayaPengadaan'),
           config
+        );
+      <?php }
+      
+    if (isset($biayaMaintenance)) { ?>
+        const dataBiayaMaintenance = {
+          labels: ["Institusi", "Laboratorium"],
+          datasets: [{
+            data: [<?= $biayaMaintenance['institusi']; ?>, <?= $biayaMaintenance['laboratorium']; ?>],
+            backgroundColor: [
+              "#f56954",
+              "#00a65a"
+            ],
+            hoverOffset: 4
+          }]
+        };
+
+        const configBiayaMaintenance = {
+          type: 'pie',
+          data: dataBiayaMaintenance,
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Total Biaya Maintenance'
+              },
+            }
+          },
+        };
+
+        var myChartBiayaMaintenance = new Chart(
+          document.getElementById('biayaMaintenance'),
+          configBiayaMaintenance
         );
       <?php }
     ?>

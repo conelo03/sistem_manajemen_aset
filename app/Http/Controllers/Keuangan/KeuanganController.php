@@ -42,15 +42,15 @@ class KeuanganController extends Controller
     }
     $data['data_maintenance']  = $data_maintenance; 
 
-    $collection = collect($this->pengadaan->get());
+    $pengadaan = collect($this->pengadaan->get());
 
-    $laboratorium = $collection->map(function ($item) {
+    $laboratorium = $pengadaan->map(function ($item) {
       if ($item['jenis_aset'] == 'laboratorium') {
         return $item['harga_aset'] * $item['quantity'];
       }
     });
 
-    $institusi  = $collection->map(function ($item) {
+    $institusi  = $pengadaan->map(function ($item) {
       if ($item['jenis_aset'] == 'institusi') {
         return $item['harga_aset'] * $item['quantity'];
       }
@@ -58,6 +58,23 @@ class KeuanganController extends Controller
 
     $data['biayaPengadaan']['laboratorium'] = $laboratorium->sum();
     $data['biayaPengadaan']['institusi']    = $institusi->sum();
+
+    $maintenance = collect($this->maintenance->get());
+
+    $laboratorium = $maintenance->map(function ($item) {
+      if ($item->aset->jenis_aset == 'laboratorium') {
+        return $item['biaya'];
+      }
+    });
+
+    $institusi  = $maintenance->map(function ($item) {
+      if ($item->aset->jenis_aset == 'institusi') {
+        return $item['biaya'];
+      }
+    });
+
+    $data['biayaMaintenance']['laboratorium'] = $laboratorium->sum();
+    $data['biayaMaintenance']['institusi']    = $institusi->sum();
 
     return view('keuangan/dashboard', $data);
   }
