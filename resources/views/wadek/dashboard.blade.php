@@ -84,7 +84,9 @@
           Jumlah Barang Fakultas
         </div>
         <div class="card-body">
-          <canvas id="pieChart"></canvas>
+          <div class="chart">
+            <canvas id="pieChart"></canvas>
+          </div>
         </div>
       </div>
     </div>

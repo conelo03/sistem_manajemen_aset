@@ -572,8 +572,10 @@ html { text-align:center; }
   <script src="{{ asset('js') }}/jquery.scrollbar.min.js"></script>
   <script src="{{ asset('js') }}/jquery-scrollLock.min.js"></script>
   <!-- Optional JS -->
-  <script src="{{ asset('js') }}/Chart.min.js"></script>
-  <script src="{{ asset('js') }}/Chart.extension.js"></script>
+  <!-- <script src="{{ asset('js') }}/Chart.min.js"></script>
+  <script src="{{ asset('js') }}/Chart.extension.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
   <!-- Argon JS -->
   <script src="{{ asset('js') }}/argon.js?v=1.2.0"></script>
   <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -609,8 +611,8 @@ html { text-align:center; }
     });
     
     // Set new default font family and font color to mimic Bootstrap's default styling
-    Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-    Chart.defaults.global.defaultFontColor = '#858796';
+    // Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+    // Chart.defaults.global.defaultFontColor = '#858796';
 
     function number_format(number, decimals, dec_point, thousands_sep) {
       // *     example: number_format(1234.56, 2, ',', ' ');
@@ -637,12 +639,145 @@ html { text-align:center; }
       return s.join(dec);
     }
 
-    // Bar Chart Example
-    var ctx     = document.getElementById("myBarChart");
-    var bulan   = [];
-    var jumlah  = [];
     <?php
-      if (isset($data_pengadaan)) {
+      if (isset($data_maintenance)) { ?>
+
+        var bulan   = [];
+        var jumlah  = [];
+        <?php 
+        foreach ($data_maintenance as $key => $value) { ?>
+          bulan.push('<?= $key; ?>');
+          jumlah.push('<?= $value; ?>');
+        <?php } ?>
+
+        const dataMaintenance = {
+          labels: bulan,
+          datasets: [{
+            data: jumlah,
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 205, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(201, 203, 207, 0.2)'
+            ],
+            borderColor: [
+              'rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)',
+              'rgb(201, 203, 207)'
+            ],
+            borderWidth: 1
+          }]
+        };
+
+        const configMaintenance = {
+          type: 'bar',
+          data: dataMaintenance,
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          },
+        };
+
+
+        // Bar Chart Example
+        var ctx     = document.getElementById("myBarChartMaintenance");
+        
+        
+
+        var myBarChart = new Chart(ctx, configMaintenance);
+        // {
+        //   type: 'bar',
+        //   data: {
+        //     labels: bulan,
+        //     datasets: [{
+        //       label: "Revenue",
+        //       backgroundColor: "#4e73df",
+        //       hoverBackgroundColor: "#2e59d9",
+        //       borderColor: "#4e73df",
+        //       data: jumlah,
+        //     }],
+        //   },
+        //   options: {
+        //     maintainAspectRatio: false,
+        //     layout: {
+        //       padding: {
+        //         left: 10,
+        //         right: 25,
+        //         top: 25,
+        //         bottom: 0
+        //       }
+        //     },
+        //     scales: {
+        //       xAxes: [{
+        //         time: {
+        //           unit: 'month'
+        //         },
+        //         gridLines: {
+        //           display: false,
+        //           drawBorder: false
+        //         },
+        //         maxBarThickness: 25,
+        //         scaleLabel: {
+        //           display: true,
+        //           labelString: 'Tahun'
+        //         },
+        //       }],
+        //       yAxes: [{
+        //         display: true,
+        //         scaleLabel: {
+        //           display: true,
+        //           labelString: 'Total Biaya Maintenance'
+        //         },
+        //         ticks: {
+        //           callback: function(label, index, labels) {
+        //             return 'Rp. ' + number_format(label);
+        //           }
+        //         },
+        //       }]
+        //     },
+        //     legend: {
+        //       display: false
+        //     },
+        //     tooltips: {
+        //       titleMarginBottom: 10,
+        //       titleFontColor: '#6e707e',
+        //       titleFontSize: 14,
+        //       backgroundColor: "rgb(255,255,255)",
+        //       bodyFontColor: "#858796",
+        //       borderColor: '#dddfeb',
+        //       borderWidth: 1,
+        //       xPadding: 15,
+        //       yPadding: 15,
+        //       displayColors: false,
+        //       caretPadding: 10,
+        //       callbacks: {
+        //         label: function(tooltipItem, chart) {
+        //           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+        //           return datasetLabel + ': Rp. ' + number_format(tooltipItem.yLabel);
+        //         }
+        //       }
+        //     },
+        //   }
+        // });
+      <?php }
+      
+      if (isset($data_pengadaan)) { ?>
+      
+        // Bar Chart Example
+        var ctx     = document.getElementById("myBarChart");
+        var bulan   = [];
+        var jumlah  = [];
+        <?php
         foreach ($data_pengadaan as $key => $value) { ?>
           bulan.push('<?= $key; ?>');
           jumlah.push('<?= $value; ?>');
@@ -730,19 +865,40 @@ html { text-align:center; }
     //-------------
     // Get context with jQuery - using jQuery's .get() method.
     <?php
-      if ($institusi && $laboratorium) { ?>
-        var pieChartCanvas  = $("#pieChart").get(0).getContext("2d");
-        var pieData         = {
+      if (isset($institusi) && isset($laboratorium)) { ?>
+        const data = {
           labels: ["Institusi", "Laboratorium"],
-          datasets: [
-            {
-              data: [<?= $institusi; ?>, <?= $laboratorium; ?>],
-              backgroundColor: [
-                "#f56954",
-                "#00a65a",
-              ],
-            },
-          ],
+          datasets: [{
+            data: [<?= $institusi; ?>, <?= $laboratorium; ?>],
+            backgroundColor: [
+              "#f56954",
+              "#00a65a"
+            ],
+            hoverOffset: 4
+          }]
+        };
+
+        const config = {
+          type: 'pie',
+          data: data,
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Chart.js Pie Chart'
+              },
+            }
+          },
+        };
+
+        var myChart = new Chart(
+          document.getElementById('pieChart'),
+          config
+        );
         };
         var pieOptions = {
           maintainAspectRatio: false,
@@ -750,10 +906,10 @@ html { text-align:center; }
           legend: {
             position: 'bottom',
           },
-    title: {
-      display: false,
-      text: 'Chart.js Doughnut Chart'
-    },
+          title: {
+            display: false,
+            text: 'Chart.js Doughnut Chart'
+          },
         };
         //Create pie or douhnut chart
         // You can switch between pie and douhnut using the method below.
@@ -762,6 +918,44 @@ html { text-align:center; }
           data: pieData,
           options: pieOptions,
         });
+      <?php }
+    ?>
+      
+    <?php
+      if (isset($biayaPengadaan)) { ?>
+        const data = {
+          labels: ["Institusi", "Laboratorium"],
+          datasets: [{
+            data: [<?= $biayaPengadaan['institusi']; ?>, <?= $biayaPengadaan['laboratorium']; ?>],
+            backgroundColor: [
+              "#f56954",
+              "#00a65a"
+            ],
+            hoverOffset: 4
+          }]
+        };
+
+        const config = {
+          type: 'pie',
+          data: data,
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Chart.js Pie Chart'
+              },
+            }
+          },
+        };
+
+        var myChart = new Chart(
+          document.getElementById('biayaPengadaan'),
+          config
+        );
       <?php }
     ?>
     
