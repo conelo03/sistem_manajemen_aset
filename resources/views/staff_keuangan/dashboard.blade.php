@@ -120,6 +120,7 @@
             </div>
             <div class="card-footer">
               <form action="/staff_keuangan/maintenance/input_anggaran" method="post">
+                @csrf
                 <div class="form-group">
                   <label class="form-control-label" for="input-username">Input Anggaran Maintenance</label>
                   <div class="row">

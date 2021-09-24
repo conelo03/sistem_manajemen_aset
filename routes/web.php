@@ -246,6 +246,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/history', [MaintenanceStaffKeuangan::class, 'history']);
         Route::get('/print_history', [MaintenanceStaffKeuangan::class, 'printHistory']);
         Route::get('/print', [MaintenanceStaffKeuangan::class, 'print']);
+        Route::post('/input_anggaran', [MaintenanceStaffKeuangan::class, 'inputAnggaran']);
       });
 
       Route::prefix('/peminjaman')->group(function () {

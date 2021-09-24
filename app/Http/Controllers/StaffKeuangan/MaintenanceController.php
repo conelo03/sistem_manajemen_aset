@@ -7,18 +7,21 @@ use Illuminate\Http\Request;
 use App\Models\Maintenance;
 use App\Models\Asets;
 use App\Models\Mitra;
+use App\Models\Anggaran;
 
 class MaintenanceController extends Controller
 {
   private $maintenance;
   private $aset;
   private $mitra;
+  private $anggaran;
 
   public function __construct()
   {
     $this->maintenance  = new Maintenance;
     $this->aset         = new Asets;
     $this->mitra        = new Mitra;
+    $this->anggaran     = new Anggaran;
   }
 
   public function index()
@@ -128,5 +131,16 @@ class MaintenanceController extends Controller
   {
     $maintenance = $this->maintenance->all();
     return view('printMaintenance', ['maintenance' => $maintenance]);
+  }
+
+  public function inputAnggaran(Request $request)
+  {
+    $anggaran = $this->anggaran->first();
+
+    $anggaran->anggaran_maintenance = preg_replace('/[Rp. ]/', '', $request->anggaran);
+
+    $anggaran->save();
+
+    return redirect('/staff_keuangan')->with('status', 'Berhasil ubah anggaran maintenance.');
   }
 }
