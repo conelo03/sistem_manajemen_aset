@@ -233,6 +233,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/print_history', [PengadaanStaffKeuangan::class, 'printHistory']);
         Route::get('/tambah', [PengadaanStaffKeuangan::class, 'create']);
         Route::post('/tambah', [PengadaanStaffKeuangan::class, 'store']);
+        Route::post('/input_anggaran', [PengadaanStaffKeuangan::class, 'inputAnggaran']);
       });
 
       Route::prefix('/maintenance')->group(function () {

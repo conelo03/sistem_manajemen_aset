@@ -6,16 +6,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pengadaan;
 use App\Models\Mitra;
+use App\Models\Anggaran;
 
 class PengadaanController extends Controller
 {
   private $pengadaan;
   private $mitra;
+  private $anggaran;
 
   public function __construct()
   {
     $this->pengadaan  = new Pengadaan;
     $this->mitra      = new Mitra;
+    $this->anggaran   = new Anggaran;
   }
 
   public function index()
@@ -116,5 +119,16 @@ class PengadaanController extends Controller
     $this->pengadaan->save();
 
     return redirect('/staff_keuangan/pengadaan')->with('status', 'Berhasil tambah pengadaan.');
+  }
+
+  public function inputAnggaran(Request $request)
+  {
+    $anggaran = $this->anggaran->first();
+
+    $anggaran->anggaran_pengadaan = preg_replace('/[Rp. ]/', '', $request->anggaran);
+
+    $anggaran->save();
+
+    return redirect('/staff_keuangan')->with('status', 'Berhasil ubah anggaran pengadaan.');
   }
 }

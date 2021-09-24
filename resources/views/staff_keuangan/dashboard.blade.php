@@ -3,8 +3,16 @@
 <div class="container-fluid mt-3">
   <div class="row">
     <div class="col-12">
+      @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ session('status') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
       <div class="row">
-        <div class="col-6">
+        <div class="col">
           <div class="card">
             <div class="card-header">Pengeluaran Pengadaan</div>
             <div class="card-body">
@@ -48,9 +56,25 @@
                 </div>
               </div>
             </div>
+            <div class="card-footer">
+              <form action="/staff_keuangan/pengadaan/input_anggaran" method="post">
+                @csrf
+                <div class="form-group">
+                  <label class="form-control-label" for="input-username">Input Anggaran Pengadaan</label>
+                  <div class="row">
+                    <div class="col-9">
+                      <input type="text" id="rupiah" class="form-control" placeholder="Contoh : Rp. 10.000.000,00" name="anggaran" required>
+                    </div>
+                    <div class="col-3">
+                      <button class="btn btn-secondary" type="submit">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col">
           <div class="card">
             <div class="card-header">Pengeluaran Maintenance</div>
             <div class="card-body">
@@ -93,6 +117,21 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="card-footer">
+              <form action="/staff_keuangan/maintenance/input_anggaran" method="post">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-username">Input Anggaran Maintenance</label>
+                  <div class="row">
+                    <div class="col-9">
+                      <input type="text" id="rupiah2" class="form-control" placeholder="Contoh : Rp. 10.000.000,00" name="anggaran" required>
+                    </div>
+                    <div class="col-3">
+                      <button class="btn btn-secondary">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>

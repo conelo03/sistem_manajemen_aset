@@ -588,9 +588,15 @@ html { text-align:center; }
 
       $('.mySelect2').select2();
       
-      var rupiah = document.getElementById('rupiah');
+      var rupiah  = document.getElementById('rupiah');
+      var rupiah2 = document.getElementById('rupiah2');
+
       rupiah.addEventListener('keyup', function(e){
         rupiah.value = formatRupiah(this.value, 'Rp. ');
+      });
+
+      rupiah2.addEventListener('keyup', function(e){
+        rupiah2.value = formatRupiah(this.value, 'Rp. ');
       });
       
       function formatRupiah(angka, prefix){
