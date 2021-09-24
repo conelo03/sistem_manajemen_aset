@@ -6,16 +6,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pengadaan;
 use App\Models\Maintenance;
+use App\Models\Anggaran;
 
 class KeuanganController extends Controller
 {
   private $pengadaan;
   private $maintenance;
+  private $Anggaran;
   
   public function __construct()
   {
     $this->pengadaan    = new Pengadaan;
     $this->maintenance  = new Maintenance;
+    $this->anggaran     = new Anggaran;
   }
 
   public function index()
@@ -61,8 +64,8 @@ class KeuanganController extends Controller
     });
 
     $data['p_realisasi']  = $pengadaan->sum();
-    $data['p_anggaran']   = 10000000000;
-    $data['p_pengadaan']  = $pengadaan->sum() / 10000000000 * 100;
+    $data['p_anggaran']   = $anggaran->anggaran_pengadaan;
+    $data['p_pengadaan']  = $pengadaan->sum() / $anggaran->anggaran_pengadaan * 100;
 
     $data['biayaPengadaan']['laboratorium'] = $laboratorium->sum();
     $data['biayaPengadaan']['institusi']    = $institusi->sum();
@@ -86,8 +89,8 @@ class KeuanganController extends Controller
     });
 
     $data['m_realisasi']    = $maintenance->sum();
-    $data['m_anggaran']     = 10000000000;
-    $data['m_maintenance']  = $maintenance->sum() / 1000000000 * 100;
+    $data['m_anggaran']     = $anggaran->anggaran_maintenance;
+    $data['m_maintenance']  = $maintenance->sum() / $anggaran->anggaran_maintenance * 100;
 
     $data['biayaMaintenance']['laboratorium'] = $laboratorium->sum();
     $data['biayaMaintenance']['institusi']    = $institusi->sum();

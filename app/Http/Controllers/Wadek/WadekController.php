@@ -7,22 +7,27 @@ use Illuminate\Http\Request;
 use App\Models\Asets;
 use App\Models\Pengadaan;
 use App\Models\Maintenance;
+use App\Models\Anggaran;
 
 class WadekController extends Controller
 {
   private $aset;
   private $pengadaan;
   private $maintenance;
+  private $anggaran;
   
   public function __construct()
   {
     $this->aset         = new Asets;
     $this->pengadaan    = new Pengadaan;
     $this->maintenance  = new Maintenance;
+    $this->anggaran     = new Anggaran;
   }
 
   public function index()
   {
+    $anggaran = $this->anggaran->first();
+
     $data['total']            = $this->aset->count();
     $data['baik']             = $this->aset->where('kondisi', 'baik')->count();
     $data['maintenance']      = $this->aset->where('kondisi', 'maintenance')->count();
@@ -39,8 +44,8 @@ class WadekController extends Controller
     });
 
     $data['p_realisasi']  = $aset->sum();
-    $data['p_anggaran']   = 10000000000;
-    $data['p_pengadaan']  = $aset->sum() / 10000000000 * 100;
+    $data['p_anggaran']   = $anggaran->anggaran_pengadaan;
+    $data['p_pengadaan']  = $aset->sum() / $anggaran->anggaran_pengadaan * 100;
 
     $collection   = collect($this->maintenance->get());
 
@@ -49,8 +54,8 @@ class WadekController extends Controller
     });
 
     $data['m_realisasi']    = $maintenance->sum();
-    $data['m_anggaran']     = 10000000000;
-    $data['m_maintenance']  = $maintenance->sum() / 1000000000 * 100;
+    $data['m_anggaran']     = $anggaran->anggaran_maintenance;
+    $data['m_maintenance']  = $maintenance->sum() / $anggaran->anggaran_maintenance * 100;
     
     return view('wadek/dashboard', $data);
   }
